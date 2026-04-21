@@ -1,0 +1,57 @@
+title: Jaxlee
+tagline: "Notes, pictures, and things made in quiet hours."
+description: >-
+  A personal field notebook — photography, software, woodworking, 3D printing,
+  and the occasional long-form piece.
+author: Jaxlee
+email: ""
+baseurl: "/jaxlee"      # project-page subpath; set to "" if a custom domain is attached
+url: "https://jaxlee-digit.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:slug/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Collections
+collections:
+  photography:
+    output: true
+    permalink: /photography/:slug/
+  software:
+    output: true
+    permalink: /software/:slug/
+  woodworking:
+    output: true
+    permalink: /woodworking/:slug/
+  3dprinting:
+    output: true
+    permalink: /3d/:slug/
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: "post" }
+  - scope: { path: "", type: "photography" }
+    values: { layout: "item", section: "photography" }
+  - scope: { path: "", type: "software" }
+    values: { layout: "item", section: "software" }
+  - scope: { path: "", type: "woodworking" }
+    values: { layout: "item", section: "woodworking" }
+  - scope: { path: "", type: "3dprinting" }
+    values: { layout: "item", section: "3dprinting" }
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .jekyll-cache/

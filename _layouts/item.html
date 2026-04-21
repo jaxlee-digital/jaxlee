@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="item">
+  <header class="item__header">
+    <p class="item__section"><a href="/{{ page.section | replace: '3dprinting', '3d' }}/">{{ page.section | replace: '3dprinting', '3D Printing' | capitalize }}</a></p>
+    <h1>{{ page.title }}</h1>
+    {% if page.date %}<time>{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}
+  </header>
+
+  {% if page.cover %}
+    <figure class="item__cover">
+      <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+    </figure>
+  {% endif %}
+
+  <div class="item__body">
+    {{ content }}
+  </div>
+</article>

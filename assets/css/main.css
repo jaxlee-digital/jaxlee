@@ -1,0 +1,149 @@
+/* Jaxlee — editorial, photo-forward, quiet.
+   Inspired by the sheehan.club vibe: generous whitespace, light type, centered nav. */
+
+:root {
+  --fg: #1a1a1a;
+  --fg-soft: #555;
+  --bg: #fafaf7;
+  --accent: #7a5a3a;
+  --rule: #e7e3db;
+  --serif: "Iowan Old Style", "Palatino", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --max: 68rem;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--accent); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Header */
+.site-header {
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.site-nav a {
+  text-decoration: none;
+  color: var(--fg-soft);
+}
+.site-nav a:hover,
+.site-nav a.is-current { color: var(--fg); }
+
+/* Main */
+.site-main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Hero */
+.hero { text-align: center; padding: 3rem 0 4rem; }
+.hero__title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+.hero__tagline {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--fg-soft);
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+/* Sections grid */
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.section-card h2 {
+  font-size: 1.2rem;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 1rem;
+}
+.section-card h2 a { text-decoration: none; }
+.section-card ul { list-style: none; padding: 0; margin: 0; }
+.section-card li { margin-bottom: 0.5rem; }
+
+/* Recent posts */
+.recent-posts h2 {
+  font-size: 1.2rem;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.recent-posts ul { list-style: none; padding: 0; }
+.recent-posts li { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
+.recent-posts time { color: var(--fg-soft); font-family: var(--sans); font-size: 0.85rem; }
+
+/* Item / Post */
+.item, .post { max-width: 42rem; margin: 0 auto; }
+.item__header, .post__header { margin-bottom: 2rem; }
+.item__section { font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; color: var(--fg-soft); margin: 0 0 0.5rem; }
+.item h1, .post h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 0.4rem; font-weight: 400; }
+.item time, .post time { font-family: var(--sans); color: var(--fg-soft); font-size: 0.85rem; }
+.item__cover { margin: 0 0 2rem; }
+
+/* Archive */
+.archive h1 { font-size: 2.2rem; font-weight: 400; }
+.archive__intro { color: var(--fg-soft); max-width: 42rem; }
+.archive__list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 2rem; margin-top: 2rem; }
+.archive__list a { text-decoration: none; display: block; }
+.archive__list img { aspect-ratio: 4/3; object-fit: cover; margin-bottom: 0.75rem; }
+.archive__list h3 { font-weight: 400; margin: 0 0 0.25rem; }
+.archive__list p { color: var(--fg-soft); font-size: 0.95rem; margin: 0; }
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--fg-soft);
+}
