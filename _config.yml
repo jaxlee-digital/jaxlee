@@ -1,9 +1,11 @@
 title: Jaxlee
-tagline: "Notes, pictures, and things made in quiet hours."
+tagline: "Discovering the extraordinary within the ordinary—daily routines, adventures, motherhood, creativity, exercise, software development, family, and acts of kindness."
 description: >-
   A personal field notebook — photography, software, woodworking, 3D printing,
-  and the occasional long-form piece.
-author: Jaxlee
+  sailing, and the occasional long-form piece. Dedicated to appreciating life's
+  finer details and celebrating the beauty of everyday moments.
+author: Sheehan Commette
+flickr: "https://www.flickr.com/people/127544400@N03/"
 email: ""
 baseurl: "/jaxlee"      # project-page subpath; set to "" if a custom domain is attached
 url: "https://jaxlee-digital.github.io"
