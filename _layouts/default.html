@@ -23,7 +23,11 @@
   </main>
 
   <footer class="site-footer">
-    <p>© {{ 'now' | date: "%Y" }} {{ site.author }}. Quiet corner of the internet.</p>
+    <p>
+      © {{ 'now' | date: "%Y" }} {{ site.author }}. Quiet corner of the internet.
+      {% if site.flickr %} &middot; <a href="{{ site.flickr }}">Flickr</a>{% endif %}
+      &middot; <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </p>
   </footer>
 </body>
 </html>
