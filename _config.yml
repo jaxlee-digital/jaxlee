@@ -6,7 +6,7 @@ description: >-
 author: Jaxlee
 email: ""
 baseurl: "/jaxlee"      # project-page subpath; set to "" if a custom domain is attached
-url: "https://jaxlee-digit.github.io"
+url: "https://jaxlee-digital.github.io"
 
 # Build settings
 markdown: kramdown
