@@ -1,5 +1,5 @@
 ---
-title: "Field notes — adventures"
+title: "Field notes, adventures"
 date: 2025-01-23
 excerpt: "A small gallery of travel, hitchhiking, and quiet moments. Ported from the old sheehan.club front page."
 cover: /assets/images/sheehan-club/hero-hitchhiking.jpg

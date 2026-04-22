@@ -52,7 +52,7 @@ collections:
 
 defaults:
   - scope: { path: "", type: "posts" }
-    values: { layout: "post" }
+    values: { layout: "post", author: "sheehan" }
   - scope: { path: "", type: "photography" }
     values: { layout: "item", section: "photography" }
   - scope: { path: "", type: "software" }

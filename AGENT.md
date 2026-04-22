@@ -67,12 +67,15 @@ Each section is a Jekyll collection. Add a markdown file, it shows up.
 hand-made things; one section is cleaner than two near-empty ones.
 **Blog renamed to Writing** to soften the daily-blog obligation.
 
-### Front matter (collection items)
+### Front matter (collection items + posts)
 
 ```yaml
 ---
 title: "Short, title-case"
 date: YYYY-MM-DD
+author: sheehan              # handle from _data/authors.yml
+co_authors: [nova]           # optional list of handles
+tags: [topic, type]          # see tag taxonomy below
 excerpt: "One sentence. Used on archives and home preview."
 cover: /assets/images/<section>/<file>.jpg   # optional
 ---
@@ -83,7 +86,8 @@ cover: /assets/images/<section>/<file>.jpg   # optional
 - Filename: `_posts/YYYY-MM-DD-kebab-slug.md`
 - Permalink pattern: `/blog/:year/:month/:slug/` (set in `_config.yml`)
 - Casual, first-person voice. No corporate filler.
-- Footer byline: `— Sheehan Commette` (em dash, space).
+- No footer byline on individual posts (handled by the byline
+  include now).
 
 ### Standalone pages
 
@@ -167,16 +171,149 @@ retired. Field notes can be anything — rough, in-progress, reflective.
 Use judgment on whether something's ready to post, but the rule isn't
 "only finished work."
 
+## Authorship
+
+Authors live in `_data/authors.yml`. Handles, not full names, go in
+front matter. Current handles:
+
+- `sheehan` (human, primary)
+- `nova` (AI, OpenClaw+Claude)
+
+### Byline rules
+
+- **Solo posts** set `author:` only. Byline: *"By Sheehan"*.
+- **Co-authored posts** add `co_authors: [handle, ...]`. Byline:
+  *"By Sheehan with Nova ✨"*.
+- Nova's signature ✨ renders automatically from `authors.yml`.
+- When Nova is in the byline (primary or co), an AI disclosure
+  line appears under the byline linking to `/authors/nova/`.
+- Default author if unset in a post: `sheehan` (via `_config.yml`
+  defaults). Always be explicit anyway.
+
+### When to credit Nova
+
+- **Credit her** when she actually wrote substantial prose,
+  scaffolded code, or did structural work for the post's subject.
+- **Don't credit her** for tiny edits, typo fixes, or formatting.
+- **Name the model** in the post body when AI tools are part of
+  the story ("Claude via OpenClaw", "ChatGPT", etc.). See STRICT
+  rules.
+
+### Author pages
+
+- `/authors/sheehan/` — bio + posts by Sheehan
+- `/authors/nova/` — bio + "how Nova works on this site" + Nova's
+  posts
+
+## Tag taxonomy
+
+Two orthogonal tag systems, applied together.
+
+**Topic tags** (what it's about):
+```
+brand, design, jekyll, infra, photography, software, craft,
+woodworking, 3d-printing, sailing, writing, meta, ai
+```
+
+**Post-type tags** (what kind of post it is):
+```
+note, project, retrospective, tutorial, field-log, gallery
+```
+
+Use **1–3 tags per post**. At least one topic tag and, if it fits,
+one type tag. Tags live at `/tag/<slug>/`.
+
+### Adding new tags
+
+When using a new tag in a post, create the tag page:
+
+```
+tag/<slug>.md
+---
+layout: tag
+permalink: /tag/<slug>/
+tag: <slug>
+title: "#<slug>"
+---
+```
+
+Keep the list tight. If a tag only fits one post, reconsider it.
+
 ## Writing voice
 
-Pulled from sheehan.club content and Sheehan's tone:
+Living reference, refined as Sheehan edits drafts. Update this
+section whenever a correction lands — future drafts should match.
+
+### Core posture
 
 - First-person, conversational, unpolished in a good way
 - Specifics over abstractions (tapioca starch, not "a starch")
-- Routine, outdoors, family, software as recurring themes
-- "Finding the extraordinary in the ordinary"
-- Don't overwrite or sanitize when porting existing posts
 - Title things plainly; let the work speak
+- Don't overwrite or sanitize when porting existing posts
+
+### Recurring themes
+
+- Routine, outdoors, family, software
+- "Finding the extraordinary in the ordinary"
+- Deliberate design — Sheehan has been shaping this brand for a
+  long time. Palette, logo, workspace, prints all chosen piece
+  by piece. Never write it as coincidence or "happened by accident."
+
+### STRICT rules (never violate without asking)
+
+- **NEVER use em-dashes (—) or en-dashes (–).** Use periods,
+  commas, parentheses, or colons instead. Applies to posts,
+  pages, excerpts, frontmatter, everything in the published site.
+  This is a hard line. If a draft contains one, rewrite the
+  sentence.
+- **No self-important phrasing.** Avoid "tight brief," "carefully
+  curated," "deliberately crafted," "meticulous," and anything
+  that sounds like a portfolio site selling itself. Plain is
+  always better.
+- **No sycophancy, no filler, no "happy to help" energy.** This
+  is Sheehan's voice, not a newsletter's. Dry when warranted.
+- **Cite AI correctly and specifically.** Whenever AI helped with
+  something mentioned in a post, name the tool, name the model
+  if relevant, and describe what it did and what Sheehan directed.
+  Examples:
+  - "ChatGPT drew the logo. I gave it the palette, motifs, and
+    feel I wanted."
+  - "Claude (via OpenClaw) scaffolded the Jekyll site from my
+    spec and wired up the CSS variables."
+  - "Midjourney generated the cover image from my prompt."
+  Wrong: vague phrasing like "designed by a friend," "generated,"
+  or hiding the tool's involvement. Also wrong: crediting AI
+  where Sheehan made the call (design direction, writing, final
+  decisions are his).
+
+  Tools currently in use on this project:
+  - **ChatGPT** (OpenAI) — logo design, some copy ideation
+  - **Claude via OpenClaw** — site scaffolding, porting,
+    infra documentation, post drafts
+
+### Things to avoid (learned from edits 2026-04-22)
+
+- **No "the brand wrote itself" / serendipity framing.** The
+  aesthetic is intentional, years-in-the-making work. Writing it
+  as a lucky alignment flattens real effort.
+- **Don't overclaim novelty.** If a topic is common ("I built a
+  Jekyll site"), keep the post tight and specific to Sheehan's
+  angle. Don't pad with generic walkthroughs.
+- **Credit tools correctly.** Logo was generated by ChatGPT based
+  on Sheehan's palette, motifs, and direction. Not a friend, not
+  found. When mentioning AI-assisted work, name the tool plainly
+  and keep ownership of the creative direction.
+- **Short over long when in doubt.** 350 words beats 1200 unless
+  there's something specific worth the length. Tutorial sections
+  (directory trees, step-by-step build walkthroughs) belong in
+  docs, not blog posts.
+
+### Structure defaults
+
+- Lead with the premise, not context-setting preamble
+- One idea per section; H2 between sections
+- Small honest moments > grand conclusions
+- Close with what's next or what's hard, not a summary
 
 ---
 

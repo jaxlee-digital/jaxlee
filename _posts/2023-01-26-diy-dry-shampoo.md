@@ -1,8 +1,9 @@
 ---
 title: "DIY Dry Shampoo"
 date: 2023-01-26
-author: Sheehan Commette
+author: sheehan
 cover: /assets/images/sheehan-club/dry-shampoo.jpg
+tags: [craft, tutorial]
 ---
 
 ![DIY dry shampoo]({{ '/assets/images/sheehan-club/dry-shampoo.jpg' | relative_url }})

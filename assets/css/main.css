@@ -799,6 +799,97 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   font-size: 0.95rem;
 }
 
+/* ---------- byline & authors ---------- */
+.byline {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  margin: 0.5rem 0 0;
+  line-height: 1.55;
+}
+.byline__label { color: var(--ink-faint); }
+.byline__author {
+  color: var(--ink);
+  border: 0;
+  font-weight: 500;
+}
+.byline__author:hover { color: var(--accent); border: 0; }
+.byline__author--ai .byline__sig { color: var(--accent); margin-left: 0.1em; }
+.byline__sep {
+  color: var(--ink-faint);
+  margin: 0 0.1em;
+  font-weight: 300;
+}
+.byline time {
+  color: var(--ink-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: inherit;
+}
+.byline__ai-note {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  margin: 0.4rem 0 0;
+  font-style: italic;
+}
+.byline__ai-note a { color: var(--ink-muted); border-bottom: 1px dotted var(--ink-faint); }
+.byline__ai-note a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.author-page__head {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.author-page__avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.author-page__head h1 { margin: 0.1em 0 0.3em; }
+.author-page__head .lede { color: var(--ink-soft); margin: 0; }
+.author-page__bio {
+  margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.author-page__posts { margin-top: 2rem; }
+@media (max-width: 640px) {
+  .author-page__head { flex-direction: column; text-align: center; }
+  .author-page__avatar { margin: 0 auto; }
+}
+
+/* ---------- tags ---------- */
+.tag-list {
+  font-family: var(--font-display);
+  margin: 2.5rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+}
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  margin: 0 0.25rem 0.25rem 0;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.tag:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--paper-alt);
+  border-bottom-color: var(--accent);
+}
+
 /* ---------- utilities ---------- */
 ::selection { background: var(--accent); color: var(--accent-ink); }
 
