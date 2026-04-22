@@ -153,14 +153,19 @@ then temporal (writing), then professional (résumés), then identity (about).
 
 ## Positioning
 
-**jaxlee digital is a field notebook for finished things.**
+**jaxlee digital is a field notebook.**
 
-- A record, not a feed
-- Finished work only — no half-done experiments, no rabbit holes,
-  no performative content
+- A record, not a feed — no schedule, no posting obligation
+- Open scope: photography, software, craft, writing, anything that
+  catches Sheehan's attention
 - Personal brand, not a studio. Not for hire (see sheehan.club for that).
 - Pseudonymous. Jaxlee = the creative identity, distinct from real-name
   professional presence on sheehan.club.
+
+**Note (2026-04-22):** the earlier "finished things only" framing was
+retired. Field notes can be anything — rough, in-progress, reflective.
+Use judgment on whether something's ready to post, but the rule isn't
+"only finished work."
 
 ## Writing voice
 
@@ -203,9 +208,12 @@ Pulled from sheehan.club content and Sheehan's tone:
 A running log of notable decisions and changes. Prepend new entries.
 
 ### 2026-04-22
+- **Positioning softened.** Tagline simplified to *A field notebook.*
+  The earlier "finished things only" framing was too narrow; field
+  notes can be anything. Manifesto updated; section intros that
+  mentioned "finished pieces" were generalized.
 - **Brand & positioning reset.** Site renamed Jaxlee → "jaxlee digital".
-  Tagline set to *A field notebook for finished things.* Positioning:
-  personal creative record, finished work only, not for hire.
+  Positioning: personal creative record, not for hire.
 - **Logo added.** Circular rose-gold brand mark in header, favicons,
   Apple touch icons. Source at `assets/images/brand/`.
 - **Palette retuned** to match the logo: rose-gold accent `#db997c`
