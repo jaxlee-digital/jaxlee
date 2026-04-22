@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 <section class="about">
-  <h1>About<span class="accent-dot">.</span></h1>
+  <h1>About</h1>
 
   <figure class="about__portrait">
     <img src="{{ '/assets/images/sheehan-club/portrait.jpeg' | relative_url }}" alt="Portrait">

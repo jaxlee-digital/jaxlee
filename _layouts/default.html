@@ -5,12 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/brand/jaxlee-digital-32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/images/brand/jaxlee-digital-192.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="256x256" href="{{ '/assets/images/brand/jaxlee-digital-256.png' | relative_url }}">
   {% seo %}
   {% feed_meta %}
 </head>
 <body class="page--{{ page.section | default: 'root' }}">
   <header class="site-header">
-    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img class="brand__mark" src="{{ '/assets/images/brand/jaxlee-digital-128.png' | relative_url }}" alt="" width="40" height="40">
+      <span class="brand__name">{{ site.title }}</span>
+    </a>
     <nav class="site-nav">
       {% for item in site.data.nav %}
         <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="is-current"{% endif %}>{{ item.title }}</a>
