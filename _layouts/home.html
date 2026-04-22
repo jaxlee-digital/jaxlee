@@ -1,42 +1,50 @@
 ---
 layout: default
 ---
-<section class="hero">
-  <h1 class="hero__title">{{ site.title }}</h1>
-  <p class="hero__tagline">{{ site.tagline }}</p>
+<section class="home-hero">
+  <img class="home-hero__mark" src="{{ '/assets/images/brand/jaxlee-digital-512.png' | relative_url }}" alt="">
+  <h1 class="home-hero__title">{{ site.title }}</h1>
+  <p class="home-hero__tagline">{{ site.tagline }}</p>
 </section>
 
-<section class="sections-grid">
-  {% assign sections = "photography,software,craft" | split: "," %}
-  {% for slug in sections %}
-    {% assign items = site[slug] | sort: "date" | reverse %}
-    <article class="section-card">
-      <h2><a href="/{{ slug }}/">{{ slug | capitalize }}</a></h2>
-      {% if items.size > 0 %}
-        <ul>
-          {% for item in items limit:3 %}
-            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <p class="section-card__empty">Coming soon.</p>
-      {% endif %}
-    </article>
-  {% endfor %}
+<section class="home-manifesto">
+  <p class="home-manifesto__ornament">&#123; &nbsp;·&nbsp; &#125;</p>
+  <p>
+    A record of finished things. Photography, software, craft, and the
+    occasional written piece &mdash; posted only once the work is done.
+  </p>
+  <p class="home-manifesto__sub">
+    Quiet corner. No schedule. No obligation.
+  </p>
 </section>
 
-<section class="recent-posts">
-  <h2>Latest writing</h2>
-  <ul>
-    {% for post in site.posts limit:5 %}
-      <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <time>{{ post.date | date: "%b %-d, %Y" }}</time>
+<section class="home-index">
+  <p class="section-label">The sections</p>
+  <ul class="home-index__list">
+    <li><a href="{{ '/photography/' | relative_url }}"><span class="home-index__name">Photography</span><span class="home-index__note">Light, color, the occasional quiet room.</span></a></li>
+    <li><a href="{{ '/software/' | relative_url }}"><span class="home-index__name">Software</span><span class="home-index__note">Small programs and side projects.</span></a></li>
+    <li><a href="{{ '/craft/' | relative_url }}"><span class="home-index__name">Craft</span><span class="home-index__note">Things made by hand &mdash; wood, 3D prints, experiments.</span></a></li>
+    <li><a href="{{ '/writing/' | relative_url }}"><span class="home-index__name">Writing</span><span class="home-index__note">Long-form notes on finished things.</span></a></li>
+    <li><a href="{{ '/resumes/' | relative_url }}"><span class="home-index__name">Résumés</span><span class="home-index__note">Working records &mdash; consulting, sailing, more.</span></a></li>
+  </ul>
+</section>
+
+{% comment %} Collect the latest item across all sections, dated ledger style {% endcomment %}
+{% assign latest = site.posts | concat: site.photography | concat: site.software | concat: site.craft | sort: "date" | reverse %}
+{% if latest.size > 0 %}
+<section class="home-latest">
+  <p class="section-label">Latest</p>
+  <ul class="home-latest__list">
+    {% for item in latest limit:6 %}
+      <li class="home-latest__row">
+        <a href="{{ item.url | relative_url }}">
+          <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%Y.%m.%d" }}</time>
+          <span class="home-latest__title">{{ item.title }}</span>
+        </a>
       </li>
-    {% else %}
-      <li class="section-card__empty">First piece is on the way.</li>
     {% endfor %}
   </ul>
 </section>
+{% endif %}
 
 {{ content }}
