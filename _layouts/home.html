@@ -1,14 +1,9 @@
 ---
 layout: default
 ---
-<section class="home-hero">
-  <figure class="home-hero__image">
-    <img src="{{ '/assets/images/home/workspace.jpg' | relative_url }}"
-         srcset="{{ '/assets/images/home/workspace-800.jpg' | relative_url }} 800w,
-                 {{ '/assets/images/home/workspace.jpg' | relative_url }} 1600w"
-         sizes="(max-width: 820px) 100vw, 45vw"
-         alt="Workspace — rose-gold keyboard, Himalayan salt lamp, amethyst cluster, PC tower, monitor">
-  </figure>
+<section class="home-hero"
+         style="background-image: url('{{ '/assets/images/home/workspace.jpg' | relative_url }}');">
+  <div class="home-hero__scrim"></div>
   <div class="home-hero__content">
     <img class="home-hero__mark" src="{{ '/assets/images/brand/jaxlee-digital-512.png' | relative_url }}" alt="">
     <h1 class="home-hero__title">{{ site.title }}</h1>
