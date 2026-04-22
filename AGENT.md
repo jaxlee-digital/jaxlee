@@ -261,6 +261,12 @@ section whenever a correction lands — future drafts should match.
 
 ### STRICT rules (never violate without asking)
 
+- **NEVER publish a post without explicit approval.** Drafts
+  live in `_drafts/` with a slug-only filename
+  (no date prefix). Sheehan's explicit "ship it" is required
+  before moving to `_posts/YYYY-MM-DD-slug.md` and pushing.
+  Preview with `bundle exec jekyll serve --drafts`. This rule
+  applies to solo, co-authored, and Nova-primary posts equally.
 - **NEVER use em-dashes (—) or en-dashes (–).** Use periods,
   commas, parentheses, or colons instead. Applies to posts,
   pages, excerpts, frontmatter, everything in the published site.
