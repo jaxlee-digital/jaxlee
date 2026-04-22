@@ -1,0 +1,17 @@
+---
+layout: archive
+title: Writing
+permalink: /writing/
+intro: "Long-form notes on finished things."
+---
+
+<ul class="archive__list">
+  {% for post in site.posts %}
+    <li class="archive__row">
+      <a class="archive__link" href="{{ post.url | relative_url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+        <span class="archive__title">{{ post.title }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

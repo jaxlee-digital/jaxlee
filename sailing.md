@@ -1,11 +1,12 @@
 ---
 layout: default
 title: Sailing
-permalink: /sailing/
+permalink: /resumes/sailing/
 ---
 
 <section class="prose">
-  <h1>Sail with me<span class="accent-dot">.</span></h1>
+  <p class="breadcrumb"><a href="{{ '/resumes/' | relative_url }}">← Résumés</a></p>
+  <h1>Sail with me</h1>
 
   <figure class="prose__cover">
     <img src="{{ '/assets/images/sheehan-club/sailing.jpg' | relative_url }}" alt="">

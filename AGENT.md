@@ -16,19 +16,20 @@ making site changes; updates it when Sheehan sets a new rule.
 All colors/fonts come from CSS custom properties in `main.css`. Don't
 add new hex colors inline; extend the palette variables if needed.
 
-### Palette (ported from sheehan.club, tuned)
+### Palette (pulled from the jaxlee digital logo)
 
-| Token         | Value     | Use                           |
-|---------------|-----------|-------------------------------|
-| `--ink`       | `#272727` | body text, headings           |
-| `--ink-soft`  | `#3e3e3e` | secondary text                |
-| `--ink-muted` | `#737373` | meta/muted                    |
-| `--ink-faint` | `#a9a9a9` | timestamps, section labels    |
-| `--rule`      | `#e7e7e7` | hairlines, borders            |
-| `--paper`     | `#fafafa` | page background (warm white)  |
-| `--paper-alt` | `#f2f2f2` | inline code background        |
-| `--accent`    | `#f0523d` | coral — signature accent      |
-| `--cool`      | `#00b2ff` | sky blue — reserve for rare   |
+| Token           | Value     | Use                                     |
+|-----------------|-----------|-----------------------------------------|
+| `--ink`         | `#25262c` | body text, headings                     |
+| `--ink-soft`    | `#3e3e3e` | secondary text                          |
+| `--ink-muted`   | `#737373` | meta/muted                              |
+| `--ink-faint`   | `#a9a9a9` | timestamps, section labels              |
+| `--rule`        | `#ece3d6` | hairlines, borders (toned to paper)     |
+| `--paper`       | `#fcf2e8` | page background (warm cream)            |
+| `--paper-alt`   | `#f5e8d8` | inline code background, raised cards    |
+| `--accent`      | `#db997c` | rose-gold — brand accent                |
+| `--accent-soft` | `#ddb49e` | lighter rose-gold — hovers, states      |
+| `--cool`        | `#00b2ff` | sky blue — reserved for rare use        |
 
 ### Type
 
@@ -38,11 +39,13 @@ add new hex colors inline; extend the palette variables if needed.
 
 ### Signature motifs
 
-- Hero titles end with a coral period (`<span class="accent-dot">.</span>`
-  or `::after` pseudo on `.hero__title` / `.archive h1`). Keep this.
+- **No signature period.** The coral-period-after-title motif from the
+  old palette was retired 2026-04-22 when the brand shifted to rose-gold.
+- **Brand mark:** circular logo (`assets/images/brand/jaxlee-digital-128.png`)
+  in the header next to the wordmark. 40px square, `border-radius: 50%`.
 - Section labels: tiny, uppercase, letter-spaced, with a 2px top rule.
 - Muted image saturation (`filter: saturate(0.95)`), lifted on hover.
-- Coral hover state on links; never underline in default state.
+- Rose-gold hover state on links; never underline in default state.
 
 ---
 
@@ -50,15 +53,19 @@ add new hex colors inline; extend the palette variables if needed.
 
 ### Collections → site sections
 
-Each craft is a Jekyll collection. Add a markdown file, it shows up.
+Each section is a Jekyll collection. Add a markdown file, it shows up.
 
 | Collection     | URL              | Nav label    |
 |----------------|------------------|--------------|
 | `_photography` | `/photography/`  | Photography  |
 | `_software`    | `/software/`     | Software     |
-| `_woodworking` | `/woodworking/`  | Woodworking  |
-| `_3dprinting`  | `/3d/`           | 3D Printing  |
-| `_posts`       | `/blog/`         | Blog         |
+| `_craft`       | `/craft/`        | Craft        |
+| `_resumes`     | `/resumes/`      | Résumés      |
+| `_posts`       | `/writing/`      | Writing      |
+
+**Woodworking + 3D printing merged into Craft** (2026-04-22). Both are
+hand-made things; one section is cleaner than two near-empty ones.
+**Blog renamed to Writing** to soften the daily-blog obligation.
 
 ### Front matter (collection items)
 
@@ -132,14 +139,28 @@ not modify existing layouts unless the change applies globally.
 Edit `_data/nav.yml`. Current order:
 
 ```
-Home → Photography → Software → Woodworking → 3D Printing
-    → Blog → Sailing → Work → About
+Home → Photography → Software → Craft → Writing → Résumés → About
 ```
 
-Rule: craft sections first (left-to-right, visual → technical →
-physical), then temporal (blog), then identity (sailing, work, about).
+Rule: creative sections first (visual → technical → physical),
+then temporal (writing), then professional (résumés), then identity (about).
+
+**Résumés** is a parent page listing individual CVs. Current children:
+`/resumes/consulting/`, `/resumes/sailing/`. Add new résumés by creating
+`/resumes/<name>/` pages and linking them from `resumes/index.md`.
 
 ---
+
+## Positioning
+
+**jaxlee digital is a field notebook for finished things.**
+
+- A record, not a feed
+- Finished work only — no half-done experiments, no rabbit holes,
+  no performative content
+- Personal brand, not a studio. Not for hire (see sheehan.club for that).
+- Pseudonymous. Jaxlee = the creative identity, distinct from real-name
+  professional presence on sheehan.club.
 
 ## Writing voice
 
@@ -150,6 +171,7 @@ Pulled from sheehan.club content and Sheehan's tone:
 - Routine, outdoors, family, software as recurring themes
 - "Finding the extraordinary in the ordinary"
 - Don't overwrite or sanitize when porting existing posts
+- Title things plainly; let the work speak
 
 ---
 
@@ -181,6 +203,21 @@ Pulled from sheehan.club content and Sheehan's tone:
 A running log of notable decisions and changes. Prepend new entries.
 
 ### 2026-04-22
+- **Brand & positioning reset.** Site renamed Jaxlee → "jaxlee digital".
+  Tagline set to *A field notebook for finished things.* Positioning:
+  personal creative record, finished work only, not for hire.
+- **Logo added.** Circular rose-gold brand mark in header, favicons,
+  Apple touch icons. Source at `assets/images/brand/`.
+- **Palette retuned** to match the logo: rose-gold accent `#db997c`
+  (was bright coral `#f0523d`), warm cream paper `#fcf2e8` (was
+  `#fafafa`), hairlines toned to match.
+- **Signature period removed** from hero and archive titles.
+- **Content architecture simplified.**
+  - Woodworking + 3D Printing collections merged into `_craft`
+  - Blog renamed to Writing (URL: `/writing/`)
+  - New `_resumes` section; `/sailing/` and `/work/` moved to
+    `/resumes/sailing/` and `/resumes/consulting/` with a landing
+    card list at `/resumes/`
 - **Split project docs from code conventions.** Project-at-a-glance,
   directory layout, deploy/verify runbooks, and auth/secrets moved to
   `infra/jaxlee-site/README.md`. `AGENT.md` now focused purely on the

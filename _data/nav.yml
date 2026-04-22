@@ -4,15 +4,11 @@
   url: /photography/
 - title: Software
   url: /software/
-- title: Woodworking
-  url: /woodworking/
-- title: 3D Printing
-  url: /3d/
-- title: Blog
-  url: /blog/
-- title: Sailing
-  url: /sailing/
-- title: Work
-  url: /work/
+- title: Craft
+  url: /craft/
+- title: Writing
+  url: /writing/
+- title: Résumés
+  url: /resumes/
 - title: About
   url: /about/

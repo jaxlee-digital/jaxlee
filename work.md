@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Work with me
-permalink: /work/
+title: Consulting
+permalink: /resumes/consulting/
 ---
 
 <section class="prose">
-  <h1>Work with me<span class="accent-dot">.</span></h1>
+  <p class="breadcrumb"><a href="{{ '/resumes/' | relative_url }}">← Résumés</a></p>
+  <h1>Consulting</h1>
 
   <figure class="prose__cover">
     <img src="{{ '/assets/images/sheehan-club/programming.jpg' | relative_url }}" alt="">

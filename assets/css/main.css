@@ -1,22 +1,23 @@
 /* =========================================================
-   Jaxlee — editorial / photo-forward
-   Palette lifted from sheehan.club; voice is our own.
+   jaxlee digital — field notebook for finished things
+   Palette: rose-gold & warm cream, pulled from the logo.
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Urbanist:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* palette */
-  --ink:        #272727;   /* primary text */
+  /* palette — pulled from the jaxlee digital logo */
+  --ink:        #25262c;   /* near-black, from the logo */
   --ink-soft:   #3e3e3e;
   --ink-muted:  #737373;
   --ink-faint:  #a9a9a9;
-  --rule:       #e7e7e7;
-  --paper:      #fafafa;   /* warm off-white */
-  --paper-alt:  #f2f2f2;
-  --accent:     #f0523d;   /* the signature burnt coral */
+  --rule:       #ece3d6;   /* hairlines, toned to paper */
+  --paper:      #fcf2e8;   /* warm cream, from the logo bg */
+  --paper-alt:  #f5e8d8;   /* inline code bg, slightly darker cream */
+  --accent:     #db997c;   /* rose-gold, the brand accent */
+  --accent-soft:#ddb49e;   /* lighter rose-gold for hovers/states */
   --accent-ink: #ffffff;
-  --cool:       #00b2ff;   /* reserved accent */
+  --cool:       #00b2ff;   /* reserved accent — use sparingly */
 
   /* type */
   --font-display: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -80,12 +81,22 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   border-bottom: 1px solid var(--rule);
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
   border: 0;
 }
+.brand__mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: block;
+}
+.brand__name { line-height: 1; }
 .brand:hover { color: var(--accent); border: 0; }
 .site-nav {
   display: flex;
@@ -118,10 +129,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   margin: 0 0 0.35em;
   line-height: 0.95;
 }
-.hero__title::after {
-  content: ".";
-  color: var(--accent);
-}
+/* signature period removed per brand update (2026-04-22) */
 .hero__tagline {
   font-family: var(--font-display);
   font-weight: 300;
@@ -208,7 +216,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   font-size: clamp(2rem, 5vw, 3.25rem);
   margin-bottom: 0.5em;
 }
-.archive h1::after { content: "."; color: var(--accent); }
+/* archive title period removed per brand update (2026-04-22) */
 .archive__intro {
   font-family: var(--font-display);
   font-weight: 300;
@@ -479,6 +487,47 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 .photo-grid figure:hover img {
   transform: scale(1.02);
   filter: saturate(1.1);
+}
+
+/* ---------- resume list ---------- */
+.resume-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: grid;
+  gap: 1rem;
+}
+.resume-list__item a {
+  display: block;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--paper);
+  transition: border-color .2s ease, background .2s ease;
+}
+.resume-list__item a:hover {
+  border-color: var(--accent);
+  background: var(--paper-alt);
+  border-bottom-color: var(--accent);
+}
+.resume-list__item h2 { margin: 0 0 0.35em; font-size: 1.25rem; }
+.resume-list__item p   { margin: 0; color: var(--ink-soft); }
+
+.breadcrumb {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 2rem;
+}
+.breadcrumb a { color: var(--ink-muted); border: 0; }
+.breadcrumb a:hover { color: var(--accent); border: 0; }
+
+.section-card__empty {
+  color: var(--ink-muted);
+  font-style: italic;
+  font-size: 0.95rem;
 }
 
 /* ---------- utilities ---------- */
