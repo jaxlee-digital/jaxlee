@@ -25,7 +25,7 @@
   <footer class="site-footer">
     <p>
       © {{ 'now' | date: "%Y" }} {{ site.author }}. Quiet corner of the internet.
-      {% if site.flickr %} &middot; <a href="{{ site.flickr }}">Flickr</a>{% endif %}
+      {% if site.social %}{% for link in site.social %} &middot; <a href="{{ link.url }}" rel="me noopener">{{ link.name }}</a>{% endfor %}{% elsif site.flickr %} &middot; <a href="{{ site.flickr }}">Flickr</a>{% endif %}
       &middot; <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </p>
   </footer>
