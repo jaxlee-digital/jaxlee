@@ -1,0 +1,53 @@
+{% comment %}
+  Byline rendering.
+  Usage: {% include byline.html %}
+  Reads page.author (handle) and optional page.co_authors (list of handles).
+{% endcomment %}
+
+{% assign primary = site.data.authors[page.author] %}
+{% if primary == nil and page.author %}
+  {% comment %} Fallback: author field is a plain name, not a handle {% endcomment %}
+  {% assign primary_fallback_name = page.author %}
+{% endif %}
+{% if primary %}
+  <p class="byline">
+    <span class="byline__label">By</span>
+    <a class="byline__author byline__author--{{ primary.type }}" href="{{ primary.link | relative_url }}">{{ primary.name }}{% if primary.signature %} <span class="byline__sig">{{ primary.signature }}</span>{% endif %}</a>
+    {% if page.co_authors %}
+      {% assign coauthors_list = "" %}
+      {% for handle in page.co_authors %}
+        {% assign co = site.data.authors[handle] %}
+        {% if co %}
+          {% capture co_html %}<a class="byline__author byline__author--{{ co.type }}" href="{{ co.link | relative_url }}">{{ co.name }}{% if co.signature %} <span class="byline__sig">{{ co.signature }}</span>{% endif %}</a>{% endcapture %}
+          {% if forloop.first %}<span class="byline__sep">with</span> {{ co_html }}
+          {% elsif forloop.last %}<span class="byline__sep">and</span> {{ co_html }}
+          {% else %}<span class="byline__sep">,</span> {{ co_html }}{% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if page.date %}
+      <span class="byline__sep">·</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+    {% endif %}
+  </p>
+{% elsif primary_fallback_name %}
+  <p class="byline">
+    <span class="byline__label">By</span>
+    <span class="byline__author">{{ primary_fallback_name }}</span>
+    {% if page.date %}
+      <span class="byline__sep">·</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+    {% endif %}
+  </p>
+  {% assign has_ai = false %}
+  {% if primary.type == "ai" %}{% assign has_ai = true %}{% endif %}
+  {% if page.co_authors %}
+    {% for handle in page.co_authors %}
+      {% assign co = site.data.authors[handle] %}
+      {% if co.type == "ai" %}{% assign has_ai = true %}{% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if has_ai %}
+    <p class="byline__ai-note">This post includes AI contribution. <a href="{{ '/authors/nova/' | relative_url }}">How Nova works on this site</a>.</p>
+  {% endif %}
+{% endif %}

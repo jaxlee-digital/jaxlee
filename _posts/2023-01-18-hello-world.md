@@ -1,7 +1,8 @@
 ---
 title: "Hello World!"
 date: 2023-01-18
-author: Sheehan Commette
+author: sheehan
+tags: [writing, note]
 ---
 
 Ok, I have wanted to start a blog for a long time, but my dyslexia, paired with social anxiety, has always resulted in me deleting any beginnings.

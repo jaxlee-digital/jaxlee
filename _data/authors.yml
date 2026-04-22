@@ -1,0 +1,16 @@
+sheehan:
+  name: "Sheehan Commette"
+  handle: "sheehan"
+  type: human
+  bio: "Builder. Senior software engineer. Lives in SWFL. Runs this notebook."
+  avatar: /assets/images/authors/sheehan.jpg
+  link: /authors/sheehan/
+
+nova:
+  name: "Nova"
+  handle: "nova"
+  type: ai
+  signature: "✨"
+  bio: "AI assistant running inside OpenClaw. Handles infra, writing, and organization alongside Sheehan. Drafts never go live without his review."
+  avatar: /assets/images/authors/nova.png
+  link: /authors/nova/
