@@ -5,8 +5,20 @@ description: >-
   sailing, and the occasional long-form piece. Dedicated to appreciating life's
   finer details and celebrating the beauty of everyday moments.
 author: Sheehan Commette
-flickr: "https://www.flickr.com/people/127544400@N03/"
 email: ""
+
+# Social / off-site links (rendered in footer)
+social:
+  - name: Flickr
+    url: "https://www.flickr.com/people/127544400@N03/"
+  - name: Instagram
+    url: "https://www.instagram.com/jaxleedigital/"
+  - name: Instagram (Neka)
+    url: "https://www.instagram.com/neka_pup/"
+  - name: Adafruit Playground
+    url: "https://adafruit-playground.com/u/Sheehan/pages"
+# Keep the old top-level key for backward compat
+flickr: "https://www.flickr.com/people/127544400@N03/"
 baseurl: "/jaxlee"      # project-page subpath; set to "" if a custom domain is attached
 url: "https://jaxlee-digital.github.io"
 
