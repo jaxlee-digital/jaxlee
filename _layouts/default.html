@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        referrerpolicy="no-referrer">
   <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/brand/jaxlee-digital-32.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/images/brand/jaxlee-digital-192.png' | relative_url }}">
@@ -32,9 +35,31 @@
   <footer class="site-footer">
     <p>
       © {{ 'now' | date: "%Y" }} {{ site.author }}. Quiet corner of the internet.
-      {% if site.social %}{% for link in site.social %} &middot; <a href="{{ link.url }}" rel="me noopener">{{ link.name }}</a>{% endfor %}{% elsif site.flickr %} &middot; <a href="{{ site.flickr }}">Flickr</a>{% endif %}
-      &middot; <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </p>
+    {% if site.social %}
+    <ul class="social-links" aria-label="Social links">
+      {% for link in site.social %}
+        <li>
+          <a href="{{ link.url }}" rel="me noopener" aria-label="{{ link.name }}" title="{{ link.name }}">
+            {% if link.icon %}
+              <i class="{{ link.icon }}" aria-hidden="true"></i>
+            {% elsif link.icon_img %}
+              <img src="{{ link.icon_img | relative_url }}" alt="" class="social-links__img">
+            {% else %}
+              <span>{{ link.name }}</span>
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+      <li>
+        <a href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed" title="RSS">
+          <i class="fa-solid fa-rss" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+    {% elsif site.flickr %}
+    <p><a href="{{ site.flickr }}">Flickr</a> &middot; <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
+    {% endif %}
   </footer>
 </body>
 </html>
