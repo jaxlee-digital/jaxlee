@@ -1,19 +1,21 @@
 ---
-layout: archive
-title: Writing
+title: "Moved to Field Notes"
 permalink: /writing/
-intro: "Long-form notes."
+sitemap: false
 ---
-
-<ul class="archive__list">
-  {% for post in site.posts %}
-    <li class="archive__row">
-      <a class="archive__link" href="{{ post.url | relative_url }}">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
-        <span class="archive__title">{{ post.title }}</span>
-      </a>
-    </li>
-  {% endfor %}
-</ul>
-
-<img class="neka-peek neka-peek--writing" src="{{ '/assets/images/icons/neka/sitting.png' | relative_url }}" alt="" aria-hidden="true">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Moved · Field Notes</title>
+  <meta http-equiv="refresh" content="0; url={{ '/field-notes/' | relative_url }}">
+  <link rel="canonical" href="{{ '/field-notes/' | absolute_url }}">
+  <style>body{font-family:sans-serif;max-width:36rem;margin:4rem auto;padding:0 1rem;color:#25262C;}</style>
+</head>
+<body>
+  <h1>Moved</h1>
+  <p>This page is now at <a href="{{ '/field-notes/' | relative_url }}"><strong>/field-notes/</strong></a>.</p>
+  <p>Redirecting…</p>
+  <script>window.location.replace({{ '/field-notes/' | relative_url | jsonify }});</script>
+</body>
+</html>

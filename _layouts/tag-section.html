@@ -5,21 +5,17 @@ layout: default
   <h1>{{ page.title }}</h1>
   {% if page.intro %}<p class="archive__intro">{{ page.intro }}</p>{% endif %}
 
-  <ul class="archive__list">
+  <ul class="post-cards">
     {% assign has_posts = false %}
-    {% for post in site.posts %}
+    {% assign sorted = site.posts | sort: "date" | reverse %}
+    {% for post in sorted %}
       {% if post.tags contains page.tag %}
         {% assign has_posts = true %}
-        <li>
-          <a href="{{ post.url | relative_url }}">
-            <time>{{ post.date | date: "%Y.%m.%d" }}</time>
-            <span class="archive__title">{{ post.title }}</span>
-          </a>
-        </li>
+        {% include post-card.html post=post %}
       {% endif %}
     {% endfor %}
     {% unless has_posts %}
-      <li class="section-card__empty">No posts here yet.</li>
+      <li class="post-cards__empty">No notes here yet.</li>
     {% endunless %}
   </ul>
 </section>
