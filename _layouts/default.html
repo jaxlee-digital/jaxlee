@@ -21,11 +21,109 @@
       <img class="brand__mark" src="{{ '/assets/images/brand/jaxlee-digital-128.png' | relative_url }}" alt="" width="40" height="40">
       <span class="brand__name">{{ site.title }}</span>
     </a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Main">
       {% for item in site.data.nav %}
-        <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="is-current"{% endif %}>{{ item.title }}</a>
+        {% if item.children %}
+          {% assign menu_id = item.title | slugify %}
+          {% assign is_in_menu = false %}
+          {% for child in item.children %}
+            {% if page.url == child.url %}{% assign is_in_menu = true %}{% endif %}
+          {% endfor %}
+          <div class="site-nav__menu" data-nav-menu>
+            <button type="button"
+                    class="site-nav__menu-btn{% if is_in_menu %} is-current{% endif %}"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="nav-{{ menu_id }}"
+                    data-nav-toggle>
+              {{ item.title }}
+              <span class="site-nav__chevron" aria-hidden="true">▾</span>
+            </button>
+            <ul class="site-nav__submenu" id="nav-{{ menu_id }}" role="menu" hidden>
+              {% for child in item.children %}
+                <li role="none">
+                  <a href="{{ child.url | relative_url }}" role="menuitem"{% if page.url == child.url %} class="is-current" aria-current="page"{% endif %}>{{ child.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% else %}
+          <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="is-current" aria-current="page"{% endif %}>{{ item.title }}</a>
+        {% endif %}
       {% endfor %}
     </nav>
+
+    <script>
+      (function () {
+        var menus = document.querySelectorAll('[data-nav-menu]');
+        if (!menus.length) return;
+
+        function closeAll(exceptBtn) {
+          menus.forEach(function (m) {
+            var btn = m.querySelector('[data-nav-toggle]');
+            if (btn === exceptBtn) return;
+            btn.setAttribute('aria-expanded', 'false');
+            m.querySelector('.site-nav__submenu').hidden = true;
+          });
+        }
+
+        menus.forEach(function (menu) {
+          var btn = menu.querySelector('[data-nav-toggle]');
+          var panel = menu.querySelector('.site-nav__submenu');
+          var items = panel.querySelectorAll('a');
+
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var expanded = btn.getAttribute('aria-expanded') === 'true';
+            closeAll(btn);
+            btn.setAttribute('aria-expanded', String(!expanded));
+            panel.hidden = expanded;
+          });
+
+          btn.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              btn.setAttribute('aria-expanded', 'true');
+              panel.hidden = false;
+              if (items[0]) items[0].focus();
+            } else if (e.key === 'Escape') {
+              btn.setAttribute('aria-expanded', 'false');
+              panel.hidden = true;
+            }
+          });
+
+          items.forEach(function (item, i) {
+            item.addEventListener('keydown', function (e) {
+              if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                (items[i + 1] || items[0]).focus();
+              } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                (items[i - 1] || items[items.length - 1]).focus();
+              } else if (e.key === 'Escape') {
+                e.preventDefault();
+                btn.setAttribute('aria-expanded', 'false');
+                panel.hidden = true;
+                btn.focus();
+              } else if (e.key === 'Tab') {
+                // Let Tab close the menu and move on naturally
+                btn.setAttribute('aria-expanded', 'false');
+                panel.hidden = true;
+              }
+            });
+          });
+        });
+
+        // Click outside closes
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('[data-nav-menu]')) closeAll();
+        });
+        // Escape anywhere closes
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeAll();
+        });
+      })();
+    </script>
   </header>
 
   <main class="site-main">

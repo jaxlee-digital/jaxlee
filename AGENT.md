@@ -55,17 +55,26 @@ add new hex colors inline; extend the palette variables if needed.
 
 Each section is a Jekyll collection. Add a markdown file, it shows up.
 
-| Collection     | URL              | Nav label    |
-|----------------|------------------|--------------|
-| `_photography` | `/photography/`  | Photography  |
-| `_software`    | `/software/`     | Software     |
-| `_craft`       | `/craft/`        | Craft        |
-| `_resumes`     | `/resumes/`      | Résumés      |
-| `_posts`       | `/writing/`      | Writing      |
+| Source         | URL              | Nav                                |
+|----------------|------------------|------------------------------------|
+| `_posts` all   | `/field-notes/`  | Field Notes → All                  |
+| `_posts` tagged `photography` | `/photography/` | Field Notes → Photography |
+| `_posts` tagged `software`    | `/software/`    | Field Notes → Software    |
+| `_posts` tagged `craft`       | `/craft/`       | Field Notes → Craft       |
+| `_log`         | `/log/`          | Log                                |
+| `_resumes`     | `/resumes/`      | Résumés                            |
 
-**Woodworking + 3D printing merged into Craft** (2026-04-22). Both are
-hand-made things; one section is cleaner than two near-empty ones.
-**Blog renamed to Writing** to soften the daily-blog obligation.
+**Section landings are tag-filtered post views** (2026-04-23).
+`_photography/` `_software/` `_craft/` collections were deleted;
+their content lives in `_posts/` with appropriate tags. Landing pages
+use the `tag-section` layout to filter and render cards. Nice URLs
+preserved. **Writing renamed to Field Notes** and made the top-level
+full-posts feed. Old `/writing/` redirects to `/field-notes/`.
+
+**Top-nav hierarchy:** the four post landings live under a "Field
+Notes" dropdown; Log, Résumés, and About stay top-level.
+
+**Woodworking + 3D printing merged into Craft** (2026-04-22).
 
 ### Front matter (collection items + posts)
 

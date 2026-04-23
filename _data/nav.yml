@@ -1,13 +1,16 @@
 - title: Home
   url: /
-- title: Photography
-  url: /photography/
-- title: Software
-  url: /software/
-- title: Craft
-  url: /craft/
-- title: Writing
-  url: /writing/
+- title: Field Notes
+  url: /field-notes/
+  children:
+    - title: All
+      url: /field-notes/
+    - title: Photography
+      url: /photography/
+    - title: Software
+      url: /software/
+    - title: Craft
+      url: /craft/
 - title: Log
   url: /log/
 - title: Résumés
