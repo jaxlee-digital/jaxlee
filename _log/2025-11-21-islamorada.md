@@ -5,7 +5,7 @@ location: "Islamorada, Florida Keys"
 cover: /assets/images/log/2025-11-21-islamorada/02-seafox.jpg
 lat: 24.9242
 lng: -80.6282
-excerpt: "A weekend in Islamorada."
+excerpt: "A weekend in Islamorada. Caught a big grouper."
 gallery:
   - src: /assets/images/log/2025-11-21-islamorada/02-seafox.jpg
   - src: /assets/images/log/2025-11-21-islamorada/11.jpg
@@ -25,4 +25,4 @@ gallery:
   - src: /assets/images/log/2025-11-21-islamorada/01.jpg
 ---
 
-A weekend in Islamorada.
+A weekend in Islamorada. Caught a big grouper.
