@@ -49,6 +49,9 @@ collections:
   resumes:
     output: true
     permalink: /resumes/:slug/
+  log:
+    output: true
+    permalink: /log/:slug/
 
 defaults:
   - scope: { path: "", type: "posts" }
@@ -61,6 +64,8 @@ defaults:
     values: { layout: "item", section: "craft" }
   - scope: { path: "", type: "resumes" }
     values: { layout: "item", section: "resumes" }
+  - scope: { path: "", type: "log" }
+    values: { layout: "log-entry", section: "log" }
 
 exclude:
   - README.md

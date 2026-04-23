@@ -1,0 +1,104 @@
+---
+layout: default
+title: Log
+intro: "Trips, days out, places worth a pin."
+permalink: /log/
+---
+<section class="log-index">
+  <h1>{{ page.title }}</h1>
+  {% if page.intro %}<p class="log-index__intro">{{ page.intro }}</p>{% endif %}
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+  <div id="log-map" class="log-map" aria-label="Map of log entries"></div>
+
+  {% assign raw_entries = site.log | default: empty %}
+  {% if raw_entries and raw_entries.size > 0 %}
+    {% assign entries = raw_entries | sort: "date" | reverse %}
+  {% else %}
+    {% assign entries = empty %}
+  {% endif %}
+
+  {% if entries.size > 0 %}
+    <ul class="log-index__list">
+      {% for e in entries %}
+        <li class="log-card">
+          <a href="{{ e.url | relative_url }}">
+            {% if e.cover %}<img src="{{ e.cover | relative_url }}" alt="">{% endif %}
+            <div>
+              <h3>{{ e.title }}</h3>
+              {% if e.date %}<time>{{ e.date | date: "%b %-d, %Y" }}</time>{% endif %}
+              {% if e.location %}<span class="log-card__loc"> · {{ e.location }}</span>{% endif %}
+              {% if e.excerpt %}<p>{{ e.excerpt | strip_html | truncatewords: 20 }}</p>{% endif %}
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="log-index__empty">No entries yet.</p>
+  {% endif %}
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+  <script>
+    (function () {
+      var entries = [
+        {% for e in entries %}
+          {% if e.lat and e.lng %}
+          {
+            title: {{ e.title | jsonify }},
+            url: {{ e.url | relative_url | jsonify }},
+            date: {{ e.date | date: "%b %-d, %Y" | jsonify }},
+            lat: {{ e.lat }},
+            lng: {{ e.lng }},
+            cover: {{ e.cover | relative_url | jsonify }},
+            pins: {{ e.pins | default: empty | jsonify }}
+          }{% unless forloop.last %},{% endunless %}
+          {% endif %}
+        {% endfor %}
+      ];
+
+      var mapEl = document.getElementById('log-map');
+      if (!mapEl) return;
+
+      var map = L.map('log-map', { scrollWheelZoom: false });
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        maxZoom: 19
+      }).addTo(map);
+
+      var bounds = [];
+      entries.forEach(function (e) {
+        var primary = L.marker([e.lat, e.lng]).addTo(map);
+        primary.bindPopup(
+          '<strong><a href="' + e.url + '">' + e.title + '</a></strong><br>' +
+          '<small>' + e.date + '</small>'
+        );
+        bounds.push([e.lat, e.lng]);
+
+        (e.pins || []).forEach(function (p) {
+          if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
+          var sub = L.circleMarker([p.lat, p.lng], {
+            radius: 6, weight: 2, color: '#DB997C', fillColor: '#DB997C', fillOpacity: 0.7
+          }).addTo(map);
+          sub.bindPopup(
+            '<em>' + (p.label || '') + '</em><br>' +
+            '<a href="' + e.url + '">' + e.title + '</a>'
+          );
+          bounds.push([p.lat, p.lng]);
+        });
+      });
+
+      if (bounds.length === 0) {
+        map.setView([26.45, -81.95], 10); // SWFL default
+      } else if (bounds.length === 1) {
+        map.setView(bounds[0], 12);
+      } else {
+        map.fitBounds(bounds, { padding: [30, 30] });
+      }
+    })();
+  </script>
+</section>
