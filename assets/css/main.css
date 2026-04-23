@@ -589,6 +589,11 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   visibility: hidden;
   transition: opacity 0.35s ease;
 }
+@media (prefers-reduced-motion: reduce) {
+  .home-carousel__slide { transition: none; }
+  .home-carousel__btn { transition: none; }
+  .neka-peek { transition: none; }
+}
 .home-carousel__slide.is-active {
   opacity: 1;
   visibility: visible;
