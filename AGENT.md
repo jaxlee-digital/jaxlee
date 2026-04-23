@@ -150,6 +150,64 @@ not modify existing layouts unless the change applies globally.
 
 ---
 
+## Accessibility & standards — hard requirement
+
+Everything shipped must meet WCAG 2.2 AA at minimum. No exceptions
+for "decorative" features, no "we'll fix it later." If a feature
+can't be shipped accessibly, don't ship it.
+
+### Defaults for every build
+
+- **Semantic HTML first.** `<button>` for actions, `<a>` for
+  navigation, proper heading hierarchy (one `<h1>` per page,
+  no skipping levels), `<nav>` / `<main>` / `<aside>` / `<footer>`
+  used per spec.
+- **Keyboard operable.** Every interactive element is reachable
+  and usable with Tab and arrow keys. No keyboard traps. Visible
+  focus style always present (don't kill `outline` without a
+  replacement).
+- **ARIA used correctly or not at all.** `aria-label` /
+  `aria-labelledby` for icon-only buttons. `aria-hidden="true"`
+  on decorative imagery. `aria-live="polite"` for content that
+  updates without navigation (carousels, bubbles, toasts).
+  Never use ARIA to paper over broken semantics — fix the
+  semantics.
+- **Alt text.** Every `<img>` has an `alt` attribute. Decorative
+  images use `alt=""` (empty, not missing) and `aria-hidden="true"`.
+  Content images describe the content, not "image of."
+- **Color contrast.** Body text ≥ 4.5:1 against background, large
+  text / UI controls ≥ 3:1. Don't rely on color alone to convey
+  state (add an icon, underline, or label).
+- **Motion and animation.** Respect `prefers-reduced-motion` for
+  anything that moves, scales, or transitions more than a trivial
+  amount. Never auto-play media. Never auto-advance carousels.
+- **Forms.** Every input has a visible `<label>` (not just a
+  placeholder). Error messages are programmatically associated
+  (`aria-describedby`). Errors announced, not just styled red.
+- **Touch targets.** Minimum 44x44px for anything tappable.
+- **Text zoom.** Layouts must hold up at 200% zoom without
+  horizontal scrolling or broken layout.
+- **Mobile.** Same accessibility rules apply. No keyboard-only
+  features that break touch.
+
+### Validation before "ship it"
+
+- Tab through the changed page. Everything reachable? Focus visible?
+- Read headings in order. Do they form a sensible outline?
+- Check color contrast on any new text/UI against both `--paper`
+  and `--paper-alt` backgrounds.
+- If it moves, check `prefers-reduced-motion` reduces or kills it.
+
+### When in doubt
+
+- If a pattern is commonly inaccessible (drag-drop, canvas, custom
+  dropdowns), flag it and propose an accessible version before
+  building.
+- MDN + WAI-ARIA Authoring Practices are the reference; not
+  Stack Overflow snippets.
+
+---
+
 ## CSS rules
 
 - **One file:** `assets/css/main.css`. Don't split unless/until it
