@@ -28,7 +28,11 @@ permalink: /log/
             {% if e.cover %}<img src="{{ e.cover | relative_url }}" alt="">{% endif %}
             <div>
               <h3>{{ e.title }}</h3>
-              {% if e.date %}<time>{{ e.date | date: "%b %-d, %Y" }}</time>{% endif %}
+              {% if e.recurring and e.visits %}
+                <time>{{ e.visits | size }} visit{% if e.visits.size != 1 %}s{% endif %}</time>
+              {% elsif e.date %}
+                <time>{{ e.date | date: "%b %-d, %Y" }}</time>
+              {% endif %}
               {% if e.location %}<span class="log-card__loc"> · {{ e.location }}</span>{% endif %}
               {% if e.excerpt %}<p>{{ e.excerpt | strip_html | truncatewords: 20 }}</p>{% endif %}
             </div>
@@ -55,6 +59,8 @@ permalink: /log/
             lat: {{ e.lat }},
             lng: {{ e.lng }},
             cover: {{ e.cover | relative_url | jsonify }},
+            recurring: {{ e.recurring | default: false | jsonify }},
+            visit_count: {% if e.visits %}{{ e.visits | size }}{% else %}0{% endif %},
             pins: {{ e.pins | default: empty | jsonify }}
           }{% unless forloop.last %},{% endunless %}
           {% endif %}
@@ -73,10 +79,13 @@ permalink: /log/
       var bounds = [];
       entries.forEach(function (e) {
         var primary = L.marker([e.lat, e.lng]).addTo(map);
-        primary.bindPopup(
-          '<strong><a href="' + e.url + '">' + e.title + '</a></strong><br>' +
-          '<small>' + e.date + '</small>'
-        );
+        var popup = '<strong><a href="' + e.url + '">' + e.title + '</a></strong><br>';
+        if (e.recurring && e.visit_count) {
+          popup += '<small>' + e.visit_count + ' visit' + (e.visit_count === 1 ? '' : 's') + '</small>';
+        } else {
+          popup += '<small>' + e.date + '</small>';
+        }
+        primary.bindPopup(popup);
         bounds.push([e.lat, e.lng]);
 
         (e.pins || []).forEach(function (p) {
