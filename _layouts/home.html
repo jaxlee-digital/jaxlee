@@ -13,36 +13,73 @@ layout: default
 
 <section class="home-gallery">
   <p class="section-label">Field notes</p>
-  <div class="home-gallery__grid">
-    <figure class="home-gallery__tile home-gallery__tile--wide">
-      <img src="{{ '/assets/images/sheehan-club/hero-hitchhiking.jpg' | relative_url }}" alt="Hitchhiking, open road">
-    </figure>
-    <figure class="home-gallery__tile">
-      <img src="{{ '/assets/images/sheehan-club/adventure1.jpg' | relative_url }}" alt="">
-    </figure>
-    <figure class="home-gallery__tile">
-      <img src="{{ '/assets/images/sheehan-club/adventure2.jpg' | relative_url }}" alt="">
-    </figure>
-    <figure class="home-gallery__tile">
-      <img src="{{ '/assets/images/sheehan-club/adventure3.jpg' | relative_url }}" alt="">
-    </figure>
-    <figure class="home-gallery__tile">
-      <img src="{{ '/assets/images/sheehan-club/adventure4.jpg' | relative_url }}" alt="">
-    </figure>
-    <figure class="home-gallery__tile">
-      <img src="{{ '/assets/images/sheehan-club/adventure5.jpg' | relative_url }}" alt="">
-    </figure>
-    <figure class="home-gallery__tile">
-      <img src="{{ '/assets/images/sheehan-club/adventure6.jpg' | relative_url }}" alt="">
-    </figure>
-    <figure class="home-gallery__tile home-gallery__tile--wide">
-      <img src="{{ '/assets/images/sheehan-club/family.jpg' | relative_url }}" alt="Family">
-    </figure>
+
+  <div class="home-carousel" id="home-carousel" aria-roledescription="carousel" aria-label="Field notes">
+    <button class="home-carousel__btn home-carousel__btn--prev" type="button" aria-label="Previous image" data-carousel-prev>
+      <span aria-hidden="true">&#8592;</span>
+    </button>
+
+    <ul class="home-carousel__track" aria-live="polite">
+      <li class="home-carousel__slide is-active">
+        <img src="{{ '/assets/images/sheehan-club/hero-hitchhiking.jpg' | relative_url }}" alt="Hitchhiking, open road">
+      </li>
+      <li class="home-carousel__slide">
+        <img src="{{ '/assets/images/sheehan-club/adventure1.jpg' | relative_url }}" alt="" loading="lazy">
+      </li>
+      <li class="home-carousel__slide">
+        <img src="{{ '/assets/images/sheehan-club/adventure2.jpg' | relative_url }}" alt="" loading="lazy">
+      </li>
+      <li class="home-carousel__slide">
+        <img src="{{ '/assets/images/sheehan-club/adventure3.jpg' | relative_url }}" alt="" loading="lazy">
+      </li>
+      <li class="home-carousel__slide">
+        <img src="{{ '/assets/images/sheehan-club/adventure4.jpg' | relative_url }}" alt="" loading="lazy">
+      </li>
+      <li class="home-carousel__slide">
+        <img src="{{ '/assets/images/sheehan-club/adventure5.jpg' | relative_url }}" alt="" loading="lazy">
+      </li>
+      <li class="home-carousel__slide">
+        <img src="{{ '/assets/images/sheehan-club/adventure6.jpg' | relative_url }}" alt="" loading="lazy">
+      </li>
+      <li class="home-carousel__slide">
+        <img src="{{ '/assets/images/sheehan-club/family.jpg' | relative_url }}" alt="Family" loading="lazy">
+      </li>
+    </ul>
+
+    <button class="home-carousel__btn home-carousel__btn--next" type="button" aria-label="Next image" data-carousel-next>
+      <span aria-hidden="true">&#8594;</span>
+    </button>
+
+    <p class="home-carousel__counter" data-carousel-counter aria-hidden="true">1 / 8</p>
   </div>
+
   <p class="home-gallery__more">
     <a href="{{ '/photography/' | relative_url }}">More photography →</a>
   </p>
 </section>
+
+<script>
+  (function () {
+    var root = document.getElementById('home-carousel');
+    if (!root) return;
+    var slides = root.querySelectorAll('.home-carousel__slide');
+    var prev = root.querySelector('[data-carousel-prev]');
+    var next = root.querySelector('[data-carousel-next]');
+    var counter = root.querySelector('[data-carousel-counter]');
+    var i = 0;
+    function update() {
+      slides.forEach(function (s, idx) { s.classList.toggle('is-active', idx === i); });
+      if (counter) counter.textContent = (i + 1) + ' / ' + slides.length;
+    }
+    prev.addEventListener('click', function () { i = (i - 1 + slides.length) % slides.length; update(); });
+    next.addEventListener('click', function () { i = (i + 1) % slides.length; update(); });
+    // Keyboard support when carousel is focused
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { prev.click(); }
+      else if (e.key === 'ArrowRight') { next.click(); }
+    });
+  })();
+</script>
 
 <section class="home-manifesto">
   <p class="home-manifesto__ornament">&#123; &nbsp;·&nbsp; &#125;</p>
