@@ -1158,9 +1158,62 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   line-height: 1;
 }
 .social-links__img {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.35rem;
+  height: 1.35rem;
   display: block;
-  opacity: 0.85;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.15s ease;
 }
 .social-links a:hover .social-links__img { opacity: 1; }
+
+/* ----- Neka sticky chatbot widget (home only) ----- */
+.neka-widget {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  pointer-events: none; /* children re-enable */
+}
+.neka-widget__avatar {
+  pointer-events: auto;
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--paper, #FCF2E8);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.neka-widget__avatar:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+}
+.neka-widget__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%; /* keep face visible */
+  display: block;
+}
+.neka-widget__bubble {
+  margin: 0 0 6px 0;
+  background: var(--paper-alt, #F5E8D8);
+  color: var(--ink, #25262C);
+  padding: 0.6rem 0.9rem;
+  border-radius: 14px 14px 4px 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  font-size: 0.9rem;
+  line-height: 1.25;
+  max-width: 12rem;
+}
+
+@media (max-width: 600px) {
+  .neka-widget { right: 0.75rem; bottom: 0.75rem; }
+  .neka-widget__avatar { width: 60px; height: 60px; }
+  .neka-widget__bubble { max-width: 10rem; font-size: 0.85rem; }
+}
