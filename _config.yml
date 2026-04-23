@@ -10,12 +10,16 @@ email: ""
 social:
   - name: Flickr
     url: "https://www.flickr.com/people/127544400@N03/"
+    icon: "fa-brands fa-flickr"
   - name: Instagram
     url: "https://www.instagram.com/jaxleedigital/"
+    icon: "fa-brands fa-instagram"
   - name: Instagram (Neka)
     url: "https://www.instagram.com/neka_pup/"
+    icon: "fa-brands fa-instagram"
   - name: Adafruit Playground
     url: "https://adafruit-playground.com/u/Sheehan/pages"
+    icon_img: "/assets/images/icons/adafruit.ico"
 # Keep the old top-level key for backward compat
 flickr: "https://www.flickr.com/people/127544400@N03/"
 baseurl: "/jaxlee"      # project-page subpath; set to "" if a custom domain is attached
