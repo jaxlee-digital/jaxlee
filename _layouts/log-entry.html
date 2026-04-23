@@ -6,7 +6,11 @@ layout: default
     <p class="log-entry__section"><a href="{{ '/log/' | relative_url }}">Log</a></p>
     <h1>{{ page.title }}</h1>
     <p class="log-entry__meta">
-      {% if page.date %}<time>{{ page.date | date: "%A, %b %-d, %Y" }}</time>{% endif %}
+      {% if page.recurring %}
+        {% if page.visits %}<span>{{ page.visits | size }} visit{% if page.visits.size != 1 %}s{% endif %}</span>{% endif %}
+      {% else %}
+        {% if page.date %}<time>{{ page.date | date: "%A, %b %-d, %Y" }}</time>{% endif %}
+      {% endif %}
       {% if page.location %} · <span>{{ page.location }}</span>{% endif %}
     </p>
   </header>
@@ -30,13 +34,40 @@ layout: default
     </dl>
   {% endif %}
 
-  {% if page.gallery %}
+  {% comment %} Single-trip gallery {% endcomment %}
+  {% if page.gallery and page.recurring != true %}
     <section class="log-entry__gallery">
       {% for img in page.gallery %}
         <figure>
           <img src="{{ img.src | relative_url }}" alt="{{ img.alt | default: '' }}" loading="lazy">
           {% if img.caption %}<figcaption>{{ img.caption }}</figcaption>{% endif %}
         </figure>
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  {% comment %} Recurring-place visits, newest first {% endcomment %}
+  {% if page.recurring and page.visits %}
+    {% assign visits_sorted = page.visits | sort: "date" | reverse %}
+    <section class="log-entry__visits">
+      {% for v in visits_sorted %}
+        <article class="log-visit" id="visit-{{ v.date | date: '%Y-%m-%d' }}">
+          <header class="log-visit__header">
+            <time>{{ v.date | date: "%A, %b %-d, %Y" }}</time>
+            {% if v.title %}<h3>{{ v.title }}</h3>{% endif %}
+          </header>
+          {% if v.note %}<p class="log-visit__note">{{ v.note }}</p>{% endif %}
+          {% if v.gallery %}
+            <div class="log-visit__gallery">
+              {% for img in v.gallery %}
+                <figure>
+                  <img src="{{ img.src | relative_url }}" alt="{{ img.alt | default: '' }}" loading="lazy">
+                  {% if img.caption %}<figcaption>{{ img.caption }}</figcaption>{% endif %}
+                </figure>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </article>
       {% endfor %}
     </section>
   {% endif %}

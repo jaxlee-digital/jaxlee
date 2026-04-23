@@ -1048,3 +1048,46 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 @media (max-width: 600px) {
   .house-entry__ba { grid-template-columns: 1fr; }
 }
+
+/* ----- Log recurring visits ----- */
+.log-entry__visits {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.log-visit {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.log-visit:last-child { border-bottom: none; }
+.log-visit__header {
+  margin-bottom: 0.75rem;
+}
+.log-visit__header time {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  color: var(--accent, #DB997C);
+  font-weight: 600;
+}
+.log-visit__header h3 {
+  margin: 0.25rem 0 0;
+  font-size: 1.15rem;
+}
+.log-visit__note {
+  max-width: 40rem;
+  margin: 0.5rem 0 1rem;
+}
+.log-visit__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.5rem;
+}
+.log-visit__gallery figure { margin: 0; }
+.log-visit__gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
