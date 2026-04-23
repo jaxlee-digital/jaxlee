@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<article class="log-entry">
+  <header class="log-entry__header">
+    <p class="log-entry__section"><a href="{{ '/log/' | relative_url }}">Log</a></p>
+    <h1>{{ page.title }}</h1>
+    <p class="log-entry__meta">
+      {% if page.date %}<time>{{ page.date | date: "%A, %b %-d, %Y" }}</time>{% endif %}
+      {% if page.location %} · <span>{{ page.location }}</span>{% endif %}
+    </p>
+  </header>
+
+  {% if page.cover %}
+    <figure class="log-entry__cover">
+      <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+    </figure>
+  {% endif %}
+
+  <div class="log-entry__body">
+    {{ content }}
+  </div>
+
+  {% if page.facts %}
+    <dl class="log-entry__facts">
+      {% for f in page.facts %}
+        <dt>{{ f.label }}</dt>
+        <dd>{{ f.value }}</dd>
+      {% endfor %}
+    </dl>
+  {% endif %}
+
+  {% if page.gallery %}
+    <section class="log-entry__gallery">
+      {% for img in page.gallery %}
+        <figure>
+          <img src="{{ img.src | relative_url }}" alt="{{ img.alt | default: '' }}" loading="lazy">
+          {% if img.caption %}<figcaption>{{ img.caption }}</figcaption>{% endif %}
+        </figure>
+      {% endfor %}
+    </section>
+  {% endif %}
+</article>
