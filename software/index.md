@@ -1,7 +1,7 @@
 ---
-layout: archive
+layout: tag-section
 title: Software
-collection: software
+tag: software
 intro: "Small programs, side projects, things that compile on good days."
 permalink: /software/
 ---

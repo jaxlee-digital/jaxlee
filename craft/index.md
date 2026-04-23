@@ -1,7 +1,7 @@
 ---
-layout: archive
+layout: tag-section
 title: Craft
-collection: craft
+tag: craft
 intro: "Things made by hand. Wood, 3D prints, the occasional experiment."
 permalink: /craft/
 ---

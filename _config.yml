@@ -41,15 +41,6 @@ paginate_path: "/writing/page:num/"
 
 # Collections
 collections:
-  photography:
-    output: true
-    permalink: /photography/:slug/
-  software:
-    output: true
-    permalink: /software/:slug/
-  craft:
-    output: true
-    permalink: /craft/:slug/
   resumes:
     output: true
     permalink: /resumes/:slug/
@@ -60,12 +51,6 @@ collections:
 defaults:
   - scope: { path: "", type: "posts" }
     values: { layout: "post", author: "sheehan" }
-  - scope: { path: "", type: "photography" }
-    values: { layout: "item", section: "photography" }
-  - scope: { path: "", type: "software" }
-    values: { layout: "item", section: "software" }
-  - scope: { path: "", type: "craft" }
-    values: { layout: "item", section: "craft" }
   - scope: { path: "", type: "resumes" }
     values: { layout: "item", section: "resumes" }
   - scope: { path: "", type: "log" }

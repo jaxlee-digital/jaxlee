@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<section class="archive">
+  <h1>{{ page.title }}</h1>
+  {% if page.intro %}<p class="archive__intro">{{ page.intro }}</p>{% endif %}
+
+  <ul class="archive__list">
+    {% assign has_posts = false %}
+    {% for post in site.posts %}
+      {% if post.tags contains page.tag %}
+        {% assign has_posts = true %}
+        <li>
+          <a href="{{ post.url | relative_url }}">
+            <time>{{ post.date | date: "%Y.%m.%d" }}</time>
+            <span class="archive__title">{{ post.title }}</span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% unless has_posts %}
+      <li class="section-card__empty">No posts here yet.</li>
+    {% endunless %}
+  </ul>
+</section>
