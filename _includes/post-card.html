@@ -10,9 +10,12 @@
       </div>
     {% endif %}
     <div class="post-card__body">
-      <time class="post-card__date" datetime="{{ post.date | date_to_xmlschema }}">
-        {{ post.date | date: "%Y.%m.%d" }}
-      </time>
+      <p class="post-card__meta">
+        <time class="post-card__date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%Y.%m.%d" }}
+        </time>
+        {% if post.collection == "log" %}<span class="post-card__badge">Log</span>{% endif %}
+      </p>
       <h3 class="post-card__title">{{ post.title }}</h3>
       {% assign summary = post.excerpt | default: "" | strip_html | strip %}
       {% if summary != "" %}

@@ -81,31 +81,14 @@ layout: default
   </p>
 </section>
 
-<section class="home-index">
-  <p class="section-label">The sections</p>
-  <ul class="home-index__list">
-    <li><a href="{{ '/field-notes/' | relative_url }}"><span class="home-index__name">Field Notes</span><span class="home-index__note">All notes, newest first.</span></a></li>
-    <li><a href="{{ '/photography/' | relative_url }}"><span class="home-index__name">Photography</span><span class="home-index__note">Light, color, the occasional quiet room.</span></a></li>
-    <li><a href="{{ '/software/' | relative_url }}"><span class="home-index__name">Software</span><span class="home-index__note">Small programs and side projects.</span></a></li>
-    <li><a href="{{ '/craft/' | relative_url }}"><span class="home-index__name">Craft</span><span class="home-index__note">Things made by hand &mdash; wood, 3D prints, experiments.</span></a></li>
-    <li><a href="{{ '/resumes/' | relative_url }}"><span class="home-index__name">Résumés</span><span class="home-index__note">Working records &mdash; consulting, sailing, more.</span></a></li>
-  </ul>
-</section>
-
-{% comment %} Latest: posts (blog) + log entries, newest first {% endcomment %}
+{% comment %} Latest: posts (blog) + log entries, newest first, as full post cards {% endcomment %}
 {% assign latest = site.posts | concat: site.log | sort: "date" | reverse %}
 {% if latest.size > 0 %}
 <section class="home-latest">
   <p class="section-label">Latest</p>
-  <ul class="home-latest__list">
+  <ul class="post-cards">
     {% for item in latest limit:7 %}
-      <li class="home-latest__row">
-        <a href="{{ item.url | relative_url }}">
-          <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%Y.%m.%d" }}</time>
-          <span class="home-latest__title">{{ item.title }}</span>
-          {% if item.collection == "log" %}<span class="home-latest__kind">Log</span>{% endif %}
-        </a>
-      </li>
+      {% include post-card.html post=item %}
     {% endfor %}
   </ul>
 </section>
