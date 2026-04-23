@@ -565,10 +565,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 /* Home carousel (one image at a time, click buttons to rotate) */
 .home-carousel {
   position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 0.75rem;
+  width: 100%;
   margin-bottom: 0.75rem;
 }
 .home-carousel__track {
@@ -605,42 +602,65 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   display: block;
   filter: saturate(0.96);
 }
+
+/* Buttons overlay the image, translucent coral so they're visible
+   on any photo. Centered vertically on each edge. */
 .home-carousel__btn {
   appearance: none;
-  border: 1.5px solid var(--ink);
-  background: var(--paper);
-  color: var(--ink);
-  width: 44px;
-  height: 44px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: 1.5px solid rgba(var(--paper-rgb, 252, 242, 232), 0.9);
+  background: rgba(219, 153, 124, 0.88); /* accent (coral/rose-gold), translucent */
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); /* arrow stays legible on any photo */
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   line-height: 1;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
-  flex-shrink: 0;
+  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
   font-family: var(--font-display);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
 }
+.home-carousel__btn--prev { left: 0.75rem; }
+.home-carousel__btn--next { right: 0.75rem; }
 .home-carousel__btn:hover,
 .home-carousel__btn:focus-visible {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--paper);
-  transform: translateY(-1px);
+  background: rgba(219, 153, 124, 1);
+  transform: translateY(-50%) scale(1.05);
   outline: none;
 }
-.home-carousel__btn:active { transform: translateY(0); }
+.home-carousel__btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.home-carousel__btn:active { transform: translateY(-50%) scale(0.98); }
+
 .home-carousel__counter {
-  grid-column: 2 / 3;
-  text-align: center;
-  margin: 0.5rem 0 0;
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  margin: 0;
+  padding: 0.25rem 0.75rem;
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   letter-spacing: 0.15em;
-  color: var(--ink-faint);
+  color: #fff;
   text-transform: uppercase;
+  background: rgba(37, 38, 44, 0.55);
+  border-radius: 999px;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 .home-gallery__more {
@@ -656,8 +676,9 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 .home-gallery__more a:hover { color: var(--accent); border: 0; }
 
 @media (max-width: 600px) {
-  .home-carousel { gap: 0.4rem; }
-  .home-carousel__btn { width: 38px; height: 38px; font-size: 1rem; }
+  .home-carousel__btn { width: 40px; height: 40px; font-size: 1.05rem; }
+  .home-carousel__btn--prev { left: 0.5rem; }
+  .home-carousel__btn--next { right: 0.5rem; }
   .home-carousel__track { aspect-ratio: 4 / 3; }
 }
 
