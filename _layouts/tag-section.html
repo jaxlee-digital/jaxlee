@@ -7,7 +7,16 @@ layout: default
 
   <ul class="post-cards">
     {% assign has_posts = false %}
-    {% assign sorted = site.posts | sort: "date" | reverse %}
+    {% comment %}
+      When no tag is set (Field Notes / All), include log entries too.
+      When a tag is set (Photography, Software, Craft), posts only.
+    {% endcomment %}
+    {% if page.tag %}
+      {% assign source = site.posts %}
+    {% else %}
+      {% assign source = site.posts | concat: site.log %}
+    {% endif %}
+    {% assign sorted = source | sort: "date" | reverse %}
     {% for post in sorted %}
       {% if page.tag %}
         {% unless post.tags contains page.tag %}{% continue %}{% endunless %}
