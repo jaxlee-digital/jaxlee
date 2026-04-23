@@ -997,3 +997,54 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   border-radius: 4px;
   display: block;
 }
+
+/* ----- House section ----- */
+.house-entry__header { margin-bottom: 1.5rem; }
+.house-entry__section a {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  color: var(--accent, #DB997C);
+  text-decoration: none;
+}
+.house-entry__meta { color: var(--muted, #6a6a6a); margin: 0.25rem 0 0; }
+.house-entry__body { max-width: 40rem; margin-bottom: 2rem; }
+.house-entry__ba {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.house-entry__ba figure { margin: 0; }
+.house-entry__ba img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+.house-entry__ba figcaption {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  color: var(--muted, #6a6a6a);
+  margin-top: 0.4rem;
+  text-align: center;
+}
+.house-entry__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.house-entry__gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .house-entry__ba { grid-template-columns: 1fr; }
+}
