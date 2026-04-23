@@ -25,6 +25,15 @@ layout: default
     {{ content }}
   </div>
 
+  {% if page.post %}
+    {% assign linked = site.posts | where: "slug", page.post | first %}
+    {% if linked %}
+      <p class="log-entry__linked-post">
+        <a href="{{ linked.url | relative_url }}">Read the full writeup: “{{ linked.title }}” →</a>
+      </p>
+    {% endif %}
+  {% endif %}
+
   {% if page.facts %}
     <dl class="log-entry__facts">
       {% for f in page.facts %}

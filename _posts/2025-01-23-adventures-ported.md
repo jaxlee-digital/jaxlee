@@ -1,8 +1,10 @@
 ---
 title: "Field notes, adventures"
 date: 2025-01-23
-excerpt: "A small gallery of travel, hitchhiking, and quiet moments. Ported from the old sheehan.club front page."
+author: sheehan
+tags: [photography]
 cover: /assets/images/sheehan-club/hero-hitchhiking.jpg
+excerpt: "A small gallery of travel, hitchhiking, and quiet moments. Ported from the old sheehan.club front page."
 ---
 
 A small gallery ported from the old sheehan.club front page. The full photo library lives on [Flickr](https://www.flickr.com/people/127544400@N03/).
