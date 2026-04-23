@@ -1,0 +1,28 @@
+{% comment %}
+  Reusable post card for /field-notes/ and tag-section landings.
+  Expects a `post` object in scope.
+{% endcomment %}
+<li class="post-card{% unless post.cover %} post-card--no-cover{% endunless %}">
+  <a class="post-card__link" href="{{ post.url | relative_url }}">
+    {% if post.cover %}
+      <div class="post-card__cover">
+        <img src="{{ post.cover | relative_url }}" alt="" loading="lazy">
+      </div>
+    {% endif %}
+    <div class="post-card__body">
+      <time class="post-card__date" datetime="{{ post.date | date_to_xmlschema }}">
+        {{ post.date | date: "%Y.%m.%d" }}
+      </time>
+      <h3 class="post-card__title">{{ post.title }}</h3>
+      {% assign summary = post.excerpt | default: "" | strip_html | strip %}
+      {% if summary != "" %}
+        <p class="post-card__excerpt">{{ summary }}</p>
+      {% endif %}
+      {% if post.tags and post.tags.size > 0 %}
+        <p class="post-card__tags">
+          {% for t in post.tags %}<span class="post-card__tag">#{{ t }}</span>{% endfor %}
+        </p>
+      {% endif %}
+    </div>
+  </a>
+</li>
