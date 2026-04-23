@@ -1158,9 +1158,12 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   line-height: 1;
 }
 .social-links__img {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.25rem;
+  height: 1.25rem;
   display: block;
-  opacity: 0.85;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: opacity 0.15s ease;
 }
 .social-links a:hover .social-links__img { opacity: 1; }
