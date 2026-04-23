@@ -86,3 +86,37 @@ layout: default
 {% endif %}
 
 {{ content }}
+
+<aside class="neka-widget" id="neka-widget" aria-label="Neka">
+  <button class="neka-widget__bubble" id="neka-bubble" type="button" aria-live="polite">
+    <span class="neka-widget__bubble-text">herro, my name is Neka</span>
+    <span class="neka-widget__bubble-close" aria-label="Dismiss">&times;</span>
+  </button>
+  <a class="neka-widget__avatar" href="https://www.instagram.com/neka_pup/"
+     target="_blank" rel="noopener" aria-label="Neka on Instagram">
+    <img src="{{ '/assets/images/icons/neka-full.png' | relative_url }}" alt="Neka">
+  </a>
+</aside>
+
+<script>
+  (function () {
+    var widget = document.getElementById('neka-widget');
+    var bubble = document.getElementById('neka-bubble');
+    if (!widget || !bubble) return;
+
+    // Show bubble after a short delay (feels more natural than instant).
+    setTimeout(function () { widget.classList.add('is-open'); }, 900);
+
+    // Auto-hide after 6 seconds.
+    var autoHide = setTimeout(function () {
+      widget.classList.remove('is-open');
+    }, 6900);
+
+    // Click bubble (or its close X) dismisses it early.
+    bubble.addEventListener('click', function (e) {
+      e.preventDefault();
+      widget.classList.remove('is-open');
+      clearTimeout(autoHide);
+    });
+  })();
+</script>
