@@ -66,17 +66,18 @@ layout: default
   </ul>
 </section>
 
-{% comment %} Collect the latest item across all sections, dated ledger style {% endcomment %}
-{% assign latest = site.posts | concat: site.photography | concat: site.software | concat: site.craft | sort: "date" | reverse %}
+{% comment %} Latest: posts (blog) + log entries, newest first {% endcomment %}
+{% assign latest = site.posts | concat: site.log | sort: "date" | reverse %}
 {% if latest.size > 0 %}
 <section class="home-latest">
   <p class="section-label">Latest</p>
   <ul class="home-latest__list">
-    {% for item in latest limit:6 %}
+    {% for item in latest limit:7 %}
       <li class="home-latest__row">
         <a href="{{ item.url | relative_url }}">
           <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%Y.%m.%d" }}</time>
           <span class="home-latest__title">{{ item.title }}</span>
+          {% if item.collection == "log" %}<span class="home-latest__kind">Log</span>{% endif %}
         </a>
       </li>
     {% endfor %}
