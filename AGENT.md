@@ -119,7 +119,11 @@ Use:
 | `item`        | Individual collection entries (cover + body)               |
 | `post`        | Blog posts                                                 |
 | `log-entry`   | `/log/` entries. one-off trips OR recurring places         |
-| `house-entry` | `/house/` projects. before/after + optional gallery        |
+
+House projects are **blog posts** with `tags: [house]`, not a separate
+collection. Use the `post` layout and include a `<figure class="ba-pair">`
+block in the body for before/after images. Landing page lives at
+`/tag/house/`.
 
 ### Log entry modes
 
