@@ -52,6 +52,9 @@ collections:
   log:
     output: true
     permalink: /log/:slug/
+  house:
+    output: true
+    permalink: /house/:slug/
 
 defaults:
   - scope: { path: "", type: "posts" }
@@ -66,6 +69,8 @@ defaults:
     values: { layout: "item", section: "resumes" }
   - scope: { path: "", type: "log" }
     values: { layout: "log-entry", section: "log" }
+  - scope: { path: "", type: "house" }
+    values: { layout: "house-entry", section: "house" }
 
 exclude:
   - README.md
