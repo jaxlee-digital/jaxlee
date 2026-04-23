@@ -111,13 +111,35 @@ Use:
 
 ## Layouts — when to use which
 
-| Layout     | Use for                                      |
-|------------|----------------------------------------------|
-| `default`  | Base wrapper — header, nav, footer           |
-| `home`     | `index.md` only                              |
-| `archive`  | Collection index pages (auto-lists items)    |
-| `item`     | Individual collection entries (cover + body) |
-| `post`     | Blog posts                                   |
+| Layout        | Use for                                                    |
+|---------------|------------------------------------------------------------|
+| `default`     | Base wrapper. header, nav, footer                          |
+| `home`        | `index.md` only                                            |
+| `archive`     | Collection index pages (auto-lists items)                  |
+| `item`        | Individual collection entries (cover + body)               |
+| `post`        | Blog posts                                                 |
+| `log-entry`   | `/log/` entries. one-off trips OR recurring places         |
+| `house-entry` | `/house/` projects. before/after + optional gallery        |
+
+### Log entry modes
+
+A `/log/` entry is either a **one-off trip** or a **recurring place**.
+
+**One-off trip** (e.g. `2026-04-18-pine-island-sound.md`):
+- Required: `title`, `date`, `cover`, `lat`, `lng`
+- Optional: `location`, `facts`, `gallery`, `pins`
+- No `recurring:` key (or `recurring: false`)
+
+**Recurring place** (e.g. `big-hickory.md`):
+- Required: `title`, `recurring: true`, `cover`, `lat`, `lng`, `visits: [...]`
+- Required: `date` (of most recent visit, used for sort on /log/ index)
+- `visits` is an array, newest or oldest order doesn't matter. layout
+  sorts by visit `date` descending.
+- Each visit: `date` (required), `note` (optional), `title` (optional),
+  `gallery` (array of `{src, alt?, caption?}`)
+- To add a visit: append one item to the `visits:` array, update
+  top-level `date:` to the new visit's date, optionally swap `cover:`.
+  That's it. No new file.
 
 New page types should extend `default` and add a scoped CSS class,
 not modify existing layouts unless the change applies globally.
@@ -267,15 +289,22 @@ section whenever a correction lands — future drafts should match.
   before moving to `_posts/YYYY-MM-DD-slug.md` and pushing.
   Preview with `bundle exec jekyll serve --drafts`. This rule
   applies to solo, co-authored, and Nova-primary posts equally.
+- **Deliver drafts as pull requests.** Work on a `feat/...` or
+  `draft/...` branch, push, open a PR against `main`. Sheehan
+  reviews and merges. Do not merge to `main` or push directly
+  to `main` for blog/log content without explicit "ship it" or
+  "just publish." Structural/infra changes (layouts, config,
+  CSS, fixes) may still go direct to main when appropriate.
 - **NEVER use em-dashes (—) or en-dashes (–).** Use periods,
   commas, parentheses, or colons instead. Applies to posts,
   pages, excerpts, frontmatter, everything in the published site.
   This is a hard line. If a draft contains one, rewrite the
   sentence.
-- **No self-important phrasing.** Avoid "tight brief," "carefully
-  curated," "deliberately crafted," "meticulous," and anything
-  that sounds like a portfolio site selling itself. Plain is
-  always better.
+- **No self-important phrasing.** If a sentence sounds like a
+  portfolio site selling itself, rewrite it. Show the work,
+  don't announce the work. Plain is better.
+  When in doubt, read it out loud: anything that sounds like
+  marketing copy has to go.
 - **No sycophancy, no filler, no "happy to help" energy.** This
   is Sheehan's voice, not a newsletter's. Dry when warranted.
 - **Cite AI correctly and specifically.** Whenever AI helped with
