@@ -9,13 +9,18 @@ layout: default
     {% assign has_posts = false %}
     {% assign sorted = site.posts | sort: "date" | reverse %}
     {% for post in sorted %}
-      {% if post.tags contains page.tag %}
-        {% assign has_posts = true %}
-        {% include post-card.html post=post %}
+      {% if page.tag %}
+        {% unless post.tags contains page.tag %}{% continue %}{% endunless %}
       {% endif %}
+      {% assign has_posts = true %}
+      {% include post-card.html post=post %}
     {% endfor %}
     {% unless has_posts %}
       <li class="post-cards__empty">No notes here yet.</li>
     {% endunless %}
   </ul>
+
+  {% if page.neka %}
+    <img class="neka-peek neka-peek--writing" src="{{ page.neka | prepend: '/assets/images/icons/neka/' | relative_url }}" alt="" aria-hidden="true">
+  {% endif %}
 </section>
