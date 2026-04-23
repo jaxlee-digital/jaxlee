@@ -492,9 +492,14 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 /* ---------- home page ---------- */
 .home-hero {
   position: relative;
-  width: 100%;
+  /* Bleed to viewport edges regardless of ancestor padding/max-width */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: calc(var(--rhythm) * -1 + 2rem);
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  max-width: none;
   height: clamp(420px, 62vh, 640px); /* capped height, fills width */
-  margin: calc(var(--rhythm) * -1 + 2rem) calc(var(--gutter) * -1) clamp(2rem, 5vw, 4rem);
   padding: 0;
   display: flex;
   align-items: center;
@@ -1033,10 +1038,8 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 
   .recent-posts li { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
 
-  /* Hero edge-to-edge on mobile (kills the gutter) */
+  /* Hero: adjust height on mobile; full-bleed already inherited */
   .home-hero {
-    margin-left: calc(var(--gutter) * -1);
-    margin-right: calc(var(--gutter) * -1);
     height: clamp(380px, 75vh, 560px);
   }
 }

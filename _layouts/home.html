@@ -87,8 +87,8 @@ layout: default
 <section class="home-latest">
   <p class="section-label">Latest</p>
   <ul class="post-cards">
-    {% for item in latest limit:7 %}
-      {% include post-card.html post=item %}
+    {% for post in latest limit:7 %}
+      {% include post-card.html post=post %}
     {% endfor %}
   </ul>
 </section>
