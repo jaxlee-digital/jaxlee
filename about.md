@@ -29,4 +29,6 @@ permalink: /about/
       <li><a href="{{ '/authors/nova/' | relative_url }}">Nova (AI assistant)</a></li>
     </ul>
   </aside>
+
+  <img class="neka-peek neka-peek--about" src="{{ '/assets/images/icons/neka/profile.png' | relative_url }}" alt="" aria-hidden="true">
 </section>

@@ -1217,3 +1217,49 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   .neka-widget__avatar { width: 48px; height: 48px; }
   .neka-widget__bubble { max-width: 9.5rem; font-size: 0.75rem; padding: 0.4rem 0.6rem; }
 }
+
+/* ----- Neka peek-outs (subtle background appearances) ----- */
+.neka-peek {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.88;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
+  z-index: 1;
+}
+
+/* Log page: Neka stands near the top-right corner, slightly off-edge,
+   "watching" the map below. */
+.log-index { position: relative; }
+.neka-peek--log {
+  top: -10px;
+  right: 4%;
+  width: 110px;
+  transform: scaleX(-1); /* face the content */
+}
+
+/* Writing archive: sitting Neka at the end of the list, like
+   "that's all for now, good sit." Right margin, below the list. */
+.writing + .neka-peek, body.page--root .neka-peek--writing,
+.neka-peek--writing {
+  position: relative;
+  margin: 2rem auto 0;
+  width: 160px;
+  right: auto; top: auto;
+  opacity: 0.9;
+}
+
+/* About page: profile Neka trotting into the right margin. */
+.about { position: relative; }
+.neka-peek--about {
+  bottom: 0;
+  right: -20px;
+  width: 130px;
+  opacity: 0.8;
+}
+
+@media (max-width: 720px) {
+  .neka-peek--log { width: 80px; right: 2%; }
+  .neka-peek--about { width: 90px; right: -10px; }
+  .neka-peek--writing { width: 120px; }
+}
