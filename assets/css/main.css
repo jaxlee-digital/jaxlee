@@ -613,10 +613,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  border: 1.5px solid rgba(var(--paper-rgb, 252, 242, 232), 0.9);
-  background: rgba(219, 153, 124, 0.88); /* accent (coral/rose-gold), translucent */
+  border: 1.5px solid transparent;
+  background: transparent; /* invisible at rest; coral pill appears on hover/focus */
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); /* arrow stays legible on any photo */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55); /* arrow stays legible on any photo */
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -636,9 +636,22 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 .home-carousel__btn--next { right: 0.75rem; }
 .home-carousel__btn:hover,
 .home-carousel__btn:focus-visible {
-  background: rgba(219, 153, 124, 1);
+  background: rgba(219, 153, 124, 0.88);
+  border-color: rgba(var(--paper-rgb, 252, 242, 232), 0.9);
   transform: translateY(-50%) scale(1.05);
   outline: none;
+}
+.home-hero:hover .home-carousel__btn,
+.home-hero:focus-within .home-carousel__btn {
+  background: rgba(219, 153, 124, 0.88);
+  border-color: rgba(var(--paper-rgb, 252, 242, 232), 0.9);
+}
+/* Touch devices: no hover state, so keep a faint pill visible at rest */
+@media (hover: none) {
+  .home-carousel__btn {
+    background: rgba(219, 153, 124, 0.35);
+    border-color: rgba(var(--paper-rgb, 252, 242, 232), 0.6);
+  }
 }
 .home-carousel__btn:focus-visible {
   outline: 2px solid #fff;
