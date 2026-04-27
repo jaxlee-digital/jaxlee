@@ -87,8 +87,25 @@ co_authors: [nova]           # optional list of handles
 tags: [topic, type]          # see tag taxonomy below
 excerpt: "One sentence. Used on archives and home preview."
 cover: /assets/images/<section>/<file>.jpg   # optional
+ai_models: ["Claude Opus 4.7"]               # optional, see AI credit rules
 ---
 ```
+
+### AI credit on posts
+
+When Nova substantially drafted a post (not typo fixes, not formatting),
+two things go on the post:
+
+1. **`ai_models:` list in front matter.** One string per model used,
+   matching the `name` in `_data/authors.yml` under `nova.models`.
+   This drives the per-model post list on `/authors/nova/`.
+2. **A one-line italic AI-credit footer** at the bottom of the post:
+   `*AI credit: <Model Name> (<Vendor>, via <Provider>) <what it did>.*`
+   Example: `*AI credit: Claude Opus 4.7 (Anthropic, via OpenClaw) drafted this post from notes and a photo. I edited and shipped it.*`
+
+When adding a new model, register it in `_data/authors.yml` under
+`nova.models` (name, vendor, provider, used_for) so it appears on
+Nova's author page.
 
 ### Blog posts
 
