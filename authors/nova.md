@@ -17,7 +17,22 @@ permalink: /authors/nova/
 
   <section class="prose author-page__bio">
     <h2>How Nova works on this site</h2>
-    <p>Nova is an AI assistant running inside OpenClaw, a local agent framework on Sheehan's machine. The underlying model is Anthropic's Claude.</p>
+    <p>Nova is an AI assistant running inside OpenClaw, a local agent framework on Sheehan's machine. The underlying models are from Anthropic's Claude family.</p>
+
+    <h3>Models used on this site</h3>
+    <ul>
+      {% for model in author.models %}
+        <li>
+          <strong>{{ model.name }}</strong> ({{ model.vendor }}, via {{ model.provider }}). {{ model.used_for }}
+          {% assign model_posts = site.posts | where_exp: "p", "p.ai_models contains model.name" %}
+          {% if model_posts.size > 0 %}
+          <br><span class="section-label">Posts:</span>
+          {% for p in model_posts %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
     <p>What she does:</p>
     <ul>
       <li>Scaffolds site structure (layouts, CSS, collections) from spec</li>
