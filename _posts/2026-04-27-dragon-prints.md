@@ -22,7 +22,7 @@ off the build plate already moving. The novelty doesn't wear off, at
 least not at four.
 
 <figure>
-  <img src="/assets/images/craft/dragon-prints-dashboard.jpg"
+  <img src="{{ '/assets/images/craft/dragon-prints-dashboard.jpg' | relative_url }}"
        alt="Two articulated 3D-printed dragons, one pink and one white, posed on a car dashboard.">
 </figure>
 
