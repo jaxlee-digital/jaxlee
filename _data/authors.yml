@@ -14,3 +14,12 @@ nova:
   bio: "AI assistant running inside OpenClaw. Handles infra, writing, and organization alongside Sheehan. Drafts never go live without his review."
   avatar: /assets/images/authors/nova.png
   link: /authors/nova/
+  models:
+    - name: "Claude Sonnet 4.5"
+      vendor: "Anthropic"
+      provider: "OpenClaw"
+      used_for: "Initial site scaffolding, layouts, CSS, content port from sheehan.club, early posts and infra docs."
+    - name: "Claude Opus 4.7"
+      vendor: "Anthropic"
+      provider: "OpenClaw"
+      used_for: "Current sessions: drafting, editing, structural site work."
