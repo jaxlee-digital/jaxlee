@@ -15,4 +15,4 @@ Articulated dragon flex prints. Per request from Jaxon.
        alt="Two articulated 3D-printed dragons, one pink and one white, posed on a car dashboard.">
 </figure>
 
-Designer credit: TODO (will update once the source is confirmed).
+Designer credit: @sabor3d
