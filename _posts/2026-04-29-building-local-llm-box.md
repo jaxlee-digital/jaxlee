@@ -41,7 +41,7 @@ Systemd drop‑in at `/etc/systemd/system/ollama.service.d/override.conf`:
 Environment="OLLAMA_HOST=100.66.1.89:11434"
 Environment="OLLAMA_MODELS=/mnt/secondary/ollama"
 Environment="OLLAMA_CONTEXT_LENGTH=32768"
-Environment="OLLAMA_KEEP_ALIVE=-1"
+Environment="OLLAMA_KEEP_ALIVE=24h"
 Environment="OLLAMA_FLASH_ATTENTION=1"
 Environment="OLLAMA_MAX_LOADED_MODELS=2"
 ```
