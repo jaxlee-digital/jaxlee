@@ -915,41 +915,28 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 .byline__ai-note a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* ---------- AI contributions footer ----------
-   Lightweight, metallic-rose treatment. Sits at end of post body.
+   Light, italic, low-emphasis. Sits at end of post body.
    Use: <div class="ai-contrib"> ... </div>
 */
 .ai-contrib {
-  margin: clamp(2rem, 4vw, 3rem) 0 0;
-  padding: 0.9rem 1rem 0.95rem;
+  margin: 1.25rem 0 0;
+  padding: 0.5rem 0 0;
   border-top: 1px solid var(--rule);
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  line-height: 1.55;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  font-style: italic;
   color: var(--ink-muted);
 }
 .ai-contrib__label {
   display: inline-block;
-  margin: 0 0 0.35rem;
-  padding: 0;
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: linear-gradient(
-    100deg,
-    var(--accent-soft) 0%,
-    var(--accent) 35%,
-    #f1d2bd 55%,
-    var(--accent) 75%,
-    var(--accent-soft) 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: ai-contrib-shimmer 6s linear infinite;
+  margin: 0 0 0.15rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
 }
 .ai-contrib ul {
   list-style: none;
@@ -957,29 +944,17 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   padding: 0;
 }
 .ai-contrib li {
-  margin: 0.15rem 0;
+  margin: 0.05rem 0;
   padding: 0;
   font-weight: 300;
 }
-.ai-contrib li::before {
-  content: "· ";
-  color: var(--accent);
-  margin-right: 0.15rem;
-}
 .ai-contrib strong {
   font-weight: 500;
+  font-style: italic;
   color: var(--ink-soft);
 }
 .ai-contrib a { color: var(--ink-muted); border-bottom: 1px dotted var(--ink-faint); }
 .ai-contrib a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-
-@keyframes ai-contrib-shimmer {
-  0%   { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ai-contrib__label { animation: none; }
-}
 
 .author-page__head {
   display: flex;
