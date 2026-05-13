@@ -53,4 +53,9 @@ permalink: /resumes/sailing/
     <li>U.S. Sailing Certified Level 1 Sailing Coach</li>
     <li>Certified in CPR</li>
   </ul>
+
+  <figure class="prose__cover">
+    <img src="{{ '/assets/images/sailing/eckerd-2007-2011.jpg' | relative_url }}" alt="Eckerd College sailing team, 2007–2011">
+    <figcaption>Eckerd College sailing team, 2007–2011.</figcaption>
+  </figure>
 </section>
