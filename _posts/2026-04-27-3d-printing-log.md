@@ -10,6 +10,11 @@ cover: /assets/images/craft/dragon-prints-dashboard.jpg
 
 Running log of prints off the **Bambu Lab A1 mini**.
 
+## Filaments
+
+- **AMOLEN PLA Matte, Terracotta** — 1.75mm. Favorite.
+  [Amazon](https://a.co/d/04BJXoLc)
+
 ## 2026-05-13 — Sparkle Motion electronics holder
 
 Printed holder for an Adafruit Sparkle Motion mini (ESP32-S3 LED
