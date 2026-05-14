@@ -1,6 +1,7 @@
 ---
 title: "Field notes, adventures"
 date: 2025-01-23
+last_updated: 2025-01-23
 author: sheehan
 tags: [photography]
 cover: /assets/images/sheehan-club/hero-hitchhiking.jpg

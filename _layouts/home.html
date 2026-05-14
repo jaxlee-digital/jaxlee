@@ -79,7 +79,7 @@ layout: default
 </section>
 
 {% comment %} Latest: posts (blog) + log entries, newest first, as full post cards {% endcomment %}
-{% assign latest = site.posts | concat: site.log | sort: "date" | reverse %}
+{% assign latest = site.posts | concat: site.log | sort: "last_updated" | reverse %}
 {% if latest.size > 0 %}
 <section class="home-latest">
   <p class="section-label">Latest</p>

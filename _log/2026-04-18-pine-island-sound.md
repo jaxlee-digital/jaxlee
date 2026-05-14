@@ -1,6 +1,7 @@
 ---
 title: "Pine Island Sound — signpost, shrimp fleet, lunch"
 date: 2026-04-18
+last_updated: 2026-04-18
 location: "Lovers Key → Pine Island Sound"
 cover: /assets/images/log/2026-04-18-sanibel/04-signpost.jpg
 lat: 26.5200

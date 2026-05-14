@@ -1,6 +1,7 @@
 ---
 
 date: 2026-04-29 18:45:00 -0400
+last_updated: 2026-04-29
 tags: [ai, infra, tutorial, ollama]
 excerpt: "A build log of getting a Framework Desktop with the AMD Ryzen AI Max+ 395 configured as a remote-accessible LLM inference server."
 cover: /assets/images/llm-box/framework-desktop.jpg

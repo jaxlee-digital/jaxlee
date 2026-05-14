@@ -1,6 +1,7 @@
 ---
 title: "Hello World!"
 date: 2023-01-18
+last_updated: 2023-01-18
 author: sheehan
 tags: [writing, note]
 ---

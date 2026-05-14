@@ -1,14 +1,22 @@
 ---
 title: "3D printing log"
 date: 2026-04-27
+last_updated: 2026-05-14
 author: sheehan
 co_authors: [nova]
 tags: [craft, 3d-printing]
 excerpt: "Running log of prints off the Bambu Lab A1 mini."
-cover: /assets/images/craft/dragon-prints-dashboard.jpg
+cover: /assets/images/craft/desk-2026-05-14.jpg
 ---
 
 Running log of prints off the **Bambu Lab A1 mini**.
+
+## Printing station
+
+<figure>
+  <img src="{{ '/assets/images/craft/printing-station.jpg' | relative_url }}"
+       alt="Bambu Lab A1 mini on a desk, flanked by external filament spool holders with multiple colors loaded, painted skate decks on the wall behind.">
+</figure>
 
 ## Filaments
 
@@ -45,4 +53,14 @@ Per request from Jaxon. Designer credit: @sabor3d.
 <figure>
   <img src="{{ '/assets/images/craft/dragon-prints-dashboard.jpg' | relative_url }}"
        alt="Two articulated 3D-printed dragons, one pink and one white, posed on a car dashboard.">
+</figure>
+
+## 2026-03-14 — Framework Desktop front-panel tiles
+
+Printed the red checkered tiles on the front of the Framework Desktop
+that runs the local LLM box.
+
+<figure>
+  <img src="{{ '/assets/images/craft/framework-desktop-tiles.jpg' | relative_url }}"
+       alt="Framework Desktop with custom 3D-printed red checkered tiles inserted into the front panel.">
 </figure>

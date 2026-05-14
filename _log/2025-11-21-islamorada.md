@@ -1,6 +1,7 @@
 ---
 title: "Islamorada"
 date: 2025-11-21
+last_updated: 2025-11-21
 location: "Islamorada, Florida Keys"
 cover: /assets/images/log/2025-11-21-islamorada/02-seafox.jpg
 lat: 24.9242
