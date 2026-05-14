@@ -14,6 +14,9 @@ Running log of prints off the **Bambu Lab A1 mini**.
 
 - **AMOLEN PLA Matte, Terracotta** — 1.75mm. Favorite.
   [Amazon](https://a.co/d/04BJXoLc)
+- **Overture PLA, Gray Blue** — 1.75mm. Favorite.
+- **Polymaker PolyTerra PLA, Muted Purple** — 1.75mm. Favorite.
+- **Bambu Lab PLA Metallic, Gold** — 1.75mm.
 
 ## 2026-05-13 — Sparkle Motion electronics holder
 
