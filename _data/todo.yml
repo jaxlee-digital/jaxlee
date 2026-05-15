@@ -1,0 +1,29 @@
+updated: 2026-05-15
+note: "Static list. Edit in the repo, push to update."
+
+groups:
+  - id: home
+    title: Home
+    items:
+      - title: "Caulk the guest bath baseboards"
+        note: "Picked up the silicone, need a dry afternoon."
+      - title: "Replace garage fridge water filter"
+        due: 2026-06-01
+      - title: "Hang the new shelf above the desk"
+        done: true
+
+  - id: errands
+    title: Errands
+    items:
+      - title: "Pick up Jaxon's hip-hop class shortlist callbacks"
+      - title: "Order Nordic Naturals refill"
+        note: "Direct from nordic.com, not Amazon."
+
+  - id: projects
+    title: Projects
+    items:
+      - title: "Ocean Spray FL: finalize seawall injection pricing sheet"
+      - title: "jaxlee.com: write radiation week-3 update"
+        note: "Draft only, review before publish."
+      - title: "Rails talk: pick a thesis"
+        due: 2026-07-01

@@ -1852,3 +1852,91 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 .breakfast-list li {
   margin-bottom: 0.5rem;
 }
+
+.todo-section {
+  margin: 2rem 0;
+}
+.todo-section h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.todo-section__count {
+  font-size: 0.8rem;
+  color: var(--muted, #666);
+  font-weight: normal;
+}
+.todo-section__empty {
+  color: var(--muted, #666);
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.todo-item {
+  border: 1px solid var(--border, #e5e5e5);
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.75rem;
+}
+.todo-item__title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.todo-item__due {
+  font-size: 0.8rem;
+  color: var(--muted, #666);
+  white-space: nowrap;
+}
+.todo-item__note {
+  flex: 1 0 100%;
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted, #666);
+}
+.todo-item--done .todo-item__title {
+  text-decoration: line-through;
+  color: var(--muted, #666);
+}
+.todo-list--done .todo-item {
+  border-style: dashed;
+}
+.todo-done {
+  margin-top: 1rem;
+}
+.todo-done > summary {
+  cursor: pointer;
+  color: var(--muted, #666);
+  font-size: 0.9rem;
+}
+
+.site-footer__nav {
+  margin-bottom: 0.75rem;
+}
+.site-footer__nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.site-footer__nav a {
+  color: var(--muted, #666);
+  text-decoration: none;
+}
+.site-footer__nav a:hover {
+  text-decoration: underline;
+}

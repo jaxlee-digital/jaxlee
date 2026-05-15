@@ -156,6 +156,13 @@
   </main>
 
   <footer class="site-footer">
+    <nav class="site-footer__nav" aria-label="Footer">
+      <ul>
+        {% for item in site.data.nav %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
     <p>
       © {{ 'now' | date: "%Y" }} {{ site.author }}. Quiet corner of the internet.
     </p>

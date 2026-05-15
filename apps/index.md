@@ -17,4 +17,10 @@ Small, single-purpose appslets. Each one does exactly one thing.
       <p>This week's dinners and Jaxon's breakfasts.</p>
     </a>
   </li>
+  <li class="appslet-list__item">
+    <a href="{{ '/apps/todo/' | relative_url }}">
+      <h2>Todo</h2>
+      <p>Current list, grouped by area. Static — edit in the repo to update.</p>
+    </a>
+  </li>
 </ul>
