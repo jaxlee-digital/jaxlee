@@ -1,0 +1,59 @@
+week_of: 2026-05-18
+note: "3 dinners, cook for 5 servings (leftovers become next-day lunch). ~30 min weeknight friendly."
+
+dinners:
+  - title: "Sheet-pan chicken thighs + lemon-garlic vegetables"
+    time: "~30 min"
+    ingredients:
+      - Bone-in chicken thighs
+      - Broccoli
+      - Baby potatoes
+      - Lemon
+      - Garlic
+      - Olive oil
+      - Oregano
+    method: "Toss everything on a sheet pan with olive oil, lemon, garlic, oregano. Roast at 425°F for ~30 min."
+    leftover_lunch: "Shredded chicken + roasted veg over greens with vinaigrette."
+    kid_mod: "Chicken cut small. Set aside some plain potatoes before the lemon goes on."
+
+  - title: "Ground beef + black bean tacos"
+    time: "~20 min"
+    ingredients:
+      - Ground beef (85/15)
+      - Black beans
+      - Cumin, chili powder, paprika
+      - Corn tortillas
+      - Shredded cabbage
+      - Avocado
+      - Lime
+      - Salsa
+    method: "Brown beef, add beans + spices, simmer 5 min. Warm tortillas. Build."
+    leftover_lunch: "Taco bowls — same filling over rice or greens."
+    kid_mod: "Plain seasoned beef on a tortilla. Skip salsa and cabbage."
+
+  - title: "Salmon + rice + broccolini"
+    time: "~25 min"
+    ingredients:
+      - Salmon filets
+      - Jasmine or brown rice
+      - Broccolini
+      - Garlic
+      - Chili flakes
+      - Soy sauce
+      - Honey
+      - Fresh ginger
+    method: "Start rice. Pan-sear salmon ~4 min/side. Sauté broccolini with garlic + chili. Glaze salmon with soy-honey-ginger."
+    leftover_lunch: "Salmon rice bowl with cucumber and soy-sesame drizzle."
+    kid_mod: "Plain salmon flaked over rice. Broccolini on the side, no chili flakes."
+
+jaxon_breakfasts:
+  - title: "Overnight oats"
+    note: "Oats + oat or almond milk + banana + maple. Make Sunday, keeps 4 days."
+  - title: "PB banana toast"
+    note: "Whole-grain bread, peanut butter, banana, honey drizzle."
+  - title: "Scrambled eggs + toast + berries"
+    note: "Eggs cooked in olive oil (no milk needed)."
+  - title: "Frozen waffles + PB + fruit"
+    note: "Eggos or Van's, smear of peanut butter, banana or berries."
+  - title: "Banana-oat pancakes"
+    note: "1 banana + 1 egg + ½ cup oats blended. Freezes well."
