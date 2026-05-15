@@ -7,6 +7,16 @@ layout: default
     {% include byline.html %}
   </header>
 
+  {% if page.hero %}
+  <figure class="post__hero">
+    <img src="{{ page.hero | relative_url }}"
+         alt="{{ page.hero_alt | default: page.title | escape }}">
+    {% if page.hero_caption %}
+    <figcaption>{{ page.hero_caption }}</figcaption>
+    {% endif %}
+  </figure>
+  {% endif %}
+
   <div class="post__body">
     {{ content }}
   </div>

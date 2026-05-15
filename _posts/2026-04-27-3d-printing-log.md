@@ -7,6 +7,8 @@ co_authors: [nova]
 tags: [craft, 3d-printing]
 excerpt: "Running log of prints off the Bambu Lab A1 mini."
 cover: /assets/images/craft/desk-2026-05-14.jpg
+hero: /assets/images/craft/desk-2026-05-14.jpg
+hero_alt: "Desk with the Bambu Lab A1 mini 3D printer and recent prints."
 ---
 
 Running log of prints off the **Bambu Lab A1 mini**.
