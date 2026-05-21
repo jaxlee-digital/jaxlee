@@ -7,6 +7,13 @@ publishing or deploying anything to this repo.
 ## TL;DR
 
 - **Repo:** `jaxlee-digital/jaxlee` (GitHub)
+- **Local path:** `~/.openclaw/workspace/jaxlee-site/` — this is
+  its **own git repo**, nested inside the workspace but not part
+  of the workspace repo. **Always target it explicitly with `git
+  -C /home/sheehan/.openclaw/workspace/jaxlee-site …`.** `cd` does
+  not persist across exec calls in the OpenClaw gateway, so `cd`
+  + `git status` will silently run against the workspace repo
+  and miss this site's changes.
 - **Live:** https://jaxlee-digital.github.io/jaxlee
 - **Engine:** Jekyll via `github-pages` gem, default-branch build
 - **Theme:** custom (in-repo)
@@ -84,6 +91,35 @@ Per `USER.md` and `SOUL.md`:
 
 Acceptable approval phrases: "publish it", "ship it",
 "promote to post", "looks good, push". Anything ambiguous → ask.
+
+## Git ops — location matters
+
+**Use `git -C <absolute-path>` for every git command.** `cd` does
+not persist between exec calls in the OpenClaw gateway — each
+command re-enters from `workdir`, so `cd jaxlee-site && git …`
+actually runs git from the workspace root. The workspace repo is
+a separate git repo that tracks this whole tree as content, so a
+wrong-path `git add -A` will silently stage workspace files.
+
+Right pattern:
+
+```bash
+SITE=/home/sheehan/.openclaw/workspace/jaxlee-site
+git -C "$SITE" status
+git -C "$SITE" add <files>
+git -C "$SITE" commit -m "..."
+git -C "$SITE" push origin main
+```
+
+Sanity check before any add/commit:
+
+```bash
+git -C "$SITE" rev-parse --show-toplevel
+# must print: /home/sheehan/.openclaw/workspace/jaxlee-site
+```
+
+If it prints the workspace path instead, you're targeting the
+wrong repo — stop and re-check the `-C` path.
 
 ## Identity / git auth
 
