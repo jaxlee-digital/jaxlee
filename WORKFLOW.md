@@ -39,18 +39,22 @@ promote, push.
 
 ## Local preview
 
-Ruby + Bundler on host:
+See `skills/jekyll-podman-preview/` for the full recipe. Variables
+for this site:
 
 ```bash
-SITE=/home/sheehan/.openclaw/workspace/jaxlee-site
-( cd "$SITE" && bundle install )                          # first time
-( cd "$SITE" && bundle exec jekyll serve )                # http://localhost:4000/jaxlee
-( cd "$SITE" && bundle exec jekyll serve --drafts )       # include _drafts/
+SITE_SLUG="jaxlee"
+SITE_PATH="/home/sheehan/.openclaw/workspace/jaxlee-site"
+PORT="4001"
+BASEURL="/jaxlee"
+EXTRA_FLAGS=""          # set to "--drafts" to include _drafts/
 ```
 
-If you'd rather use Podman (no host Ruby), adapt the
-`oceanspray-site/WORKFLOW.md` container recipe — same image,
-just point at `jaxlee-site` and use `--baseurl /jaxlee`.
+Browse at `http://localhost:4001/jaxlee/`.
+
+Port 4001 (not 4000) so jaxlee and oceanspray previews can run
+simultaneously without colliding. If you only ever run one at a
+time, either port works.
 
 ## Accessibility & standards
 
