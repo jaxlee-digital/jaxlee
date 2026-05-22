@@ -92,6 +92,52 @@ Per `USER.md` and `SOUL.md`:
 Acceptable approval phrases: "publish it", "ship it",
 "promote to post", "looks good, push". Anything ambiguous → ask.
 
+**Send screenshots at all three viewports before asking for
+approval** — desktop, tablet, mobile. Mobile catches things
+desktop hides (nav collapse, hero cropping, CTA reachability,
+text reflow).
+
+Viewports:
+
+| Label | Size | Approximates |
+|---|---|---|
+| `desktop` | 1280×900 | Laptop |
+| `tablet` | 820×1180 | iPad portrait |
+| `mobile` | 390×844 | iPhone 14/15 |
+
+Reusable helper (note `/jaxlee` baseurl):
+
+```bash
+shoot() {
+  # shoot <url-path-after-baseurl> <slug>
+  local path="$1" slug="$2"
+  mkdir -p /tmp/jaxlee-preview-shots
+  chmod 777 /tmp/jaxlee-preview-shots
+  for vp in "desktop:1280,900" "tablet:820,1180" "mobile:390,844"; do
+    local label="${vp%%:*}" size="${vp##*:}"
+    podman run --rm --network host --user 0:0 \
+      -v /tmp/jaxlee-preview-shots:/out:Z \
+      docker.io/zenika/alpine-chrome --no-sandbox \
+      --hide-scrollbars --window-size="$size" \
+      --screenshot="/out/${slug}-${label}.png" \
+      "http://localhost:4000/jaxlee${path}"
+    cp "/tmp/jaxlee-preview-shots/${slug}-${label}.png" \
+      "/home/sheehan/.openclaw/workspace/jaxlee-${slug}-${label}.png"
+  done
+}
+
+# Examples:
+shoot "/" home
+shoot "/blog/2026/05/your-post-slug/" post
+```
+
+Attach via `MEDIA:` lines, labeled. Check mobile for nav, no
+horizontal scroll, CTAs above the fold. Clean up images after push:
+`rm -f /home/sheehan/.openclaw/workspace/jaxlee-*-{desktop,tablet,mobile}.png`
+
+Trivial copy edits (typo, one-word body change) may skip tablet
+/ mobile when no layout change is possible. Default is all three.
+
 ## Git ops — location matters
 
 **Use `git -C <absolute-path>` for every git command.** `cd` does
