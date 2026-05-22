@@ -7,179 +7,82 @@ publishing or deploying anything to this repo.
 ## TL;DR
 
 - **Repo:** `jaxlee-digital/jaxlee` (GitHub)
-- **Local path:** `~/.openclaw/workspace/jaxlee-site/` — this is
-  its **own git repo**, nested inside the workspace but not part
-  of the workspace repo. **Always target it explicitly with `git
-  -C /home/sheehan/.openclaw/workspace/jaxlee-site …`.** `cd` does
-  not persist across exec calls in the OpenClaw gateway, so `cd`
-  + `git status` will silently run against the workspace repo
-  and miss this site's changes.
+- **Local path:** `~/.openclaw/workspace/jaxlee-site/` — its **own
+  git repo**, nested inside the workspace. Use
+  `git -C /home/sheehan/.openclaw/workspace/jaxlee-site …` for
+  every git command (see `skills/git-safe-commit/`).
 - **Live:** https://jaxlee-digital.github.io/jaxlee
 - **Engine:** Jekyll via `github-pages` gem, default-branch build
 - **Theme:** custom (in-repo)
 - **Custom domain:** none (jaxlee.com not owned)
-- **Baseurl:** `/jaxlee` (do not blank without a domain attached)
+- **Baseurl:** `/jaxlee` (do not blank without a custom domain)
 - **Identity:** `jaxlee-digital` GitHub account (separate from
-  Sheehan's primary identity)
+  Sheehan's primary), per-repo credential helper
+  `/home/sheehan/.openclaw/bin/git-credential-jaxlee`
 
 Full background: `infra/jaxlee-site/README.md`.
 
 ## Common jobs
 
-### Publish a blog post
-
-1. Read `skills/jekyll-publish-post/SKILL.md`.
-2. Draft into `_drafts/<slug>.md`.
-3. Preview locally (see below).
-4. Show Sheehan; wait for explicit approval.
-5. Promote draft → `_posts/YYYY-MM-DD-<slug>.md`.
-6. Commit + push via `skills/git-safe-commit/` and
-   `skills/jekyll-deploy/`.
-
-### Deploy a layout, asset, or config change
-
-1. Read `skills/jekyll-deploy/SKILL.md`.
-2. Make the change.
-3. Preview locally.
-4. Show Sheehan the diff; wait for approval.
-5. Commit + push.
-6. Verify live.
-
-### Add a new resume, log entry, project, etc.
+| Job | Skill / section |
+|---|---|
+| Publish a blog post | `skills/jekyll-publish-post/` |
+| Edit a layout, asset, or `_config.yml` | edit → preview → screenshot → approve → push (`skills/jekyll-deploy/`) |
+| Add resume / log entry / project | Draft → review → promote → push, same as posts |
+| Update `llms.txt` | `skills/agentic-browsing/` (not shipped yet here) |
+| Audit accessibility | `skills/a11y-audit/` |
+| Shoot preview screenshots | `skills/jekyll-screenshot-preview/` |
 
 This site has collections beyond `_posts/`: `_resumes`, `_log`,
-and a `_drafts/`. Same approval flow — draft, review, promote,
-push.
+and a `_drafts/`. Same approval flow as posts — draft, review,
+promote, push.
 
 ## Local preview
 
-Ruby + Bundler required (or use Podman per
-`infra/oceanspray-site/README.md` style; jaxlee README still
-documents native Ruby).
-
-```bash
-cd ~/.openclaw/workspace/jaxlee-site
-bundle install               # first time
-bundle exec jekyll serve     # http://localhost:4000/jaxlee
-bundle exec jekyll serve --drafts   # to preview _drafts/
-```
-
-If you'd rather use Podman (no host Ruby), adapt the
-`oceanspray-site` README's container recipe — same image,
-just point at `jaxlee-site` and use `--baseurl /jaxlee`.
-
-## Repo-specific rules
-
-- **`baseurl` is `/jaxlee`.** Keep it that way until a custom
-  domain is attached. Blanking it breaks every internal link.
-- **Internal links** must use `{{ site.baseurl }}/path/` —
-  never hardcoded `/jaxlee/path/`.
-- **GitHub Pages plugins only.** Allowed: `jekyll-feed`,
-  `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-paginate`.
-  Anything else won't build.
-- **No `.github/workflows/`.** Pages does the build directly.
-  Don't add Actions unless we're consciously moving off the
-  default-branch build.
-
-## Approval gate
-
-Per `USER.md` and `SOUL.md`:
-
-- Drafts only until approved.
-- Only finished, polished work goes up.
-- Nothing publishes without Sheehan's explicit OK.
-
-Acceptable approval phrases: "publish it", "ship it",
-"promote to post", "looks good, push". Anything ambiguous → ask.
-
-**Send screenshots at all three viewports before asking for
-approval** — desktop, tablet, mobile. Mobile catches things
-desktop hides (nav collapse, hero cropping, CTA reachability,
-text reflow).
-
-Viewports:
-
-| Label | Size | Approximates |
-|---|---|---|
-| `desktop` | 1280×900 | Laptop |
-| `tablet` | 820×1180 | iPad portrait |
-| `mobile` | 390×844 | iPhone 14/15 |
-
-Reusable helper (note `/jaxlee` baseurl):
-
-```bash
-shoot() {
-  # shoot <url-path-after-baseurl> <slug>
-  local path="$1" slug="$2"
-  mkdir -p /tmp/jaxlee-preview-shots
-  chmod 777 /tmp/jaxlee-preview-shots
-  for vp in "desktop:1280,900" "tablet:820,1180" "mobile:390,844"; do
-    local label="${vp%%:*}" size="${vp##*:}"
-    podman run --rm --network host --user 0:0 \
-      -v /tmp/jaxlee-preview-shots:/out:Z \
-      docker.io/zenika/alpine-chrome --no-sandbox \
-      --hide-scrollbars --window-size="$size" \
-      --screenshot="/out/${slug}-${label}.png" \
-      "http://localhost:4000/jaxlee${path}"
-    cp "/tmp/jaxlee-preview-shots/${slug}-${label}.png" \
-      "/home/sheehan/.openclaw/workspace/jaxlee-${slug}-${label}.png"
-  done
-}
-
-# Examples:
-shoot "/" home
-shoot "/blog/2026/05/your-post-slug/" post
-```
-
-Attach via `MEDIA:` lines, labeled. Check mobile for nav, no
-horizontal scroll, CTAs above the fold. Clean up images after push:
-`rm -f /home/sheehan/.openclaw/workspace/jaxlee-*-{desktop,tablet,mobile}.png`
-
-Trivial copy edits (typo, one-word body change) may skip tablet
-/ mobile when no layout change is possible. Default is all three.
-
-## Git ops — location matters
-
-**Use `git -C <absolute-path>` for every git command.** `cd` does
-not persist between exec calls in the OpenClaw gateway — each
-command re-enters from `workdir`, so `cd jaxlee-site && git …`
-actually runs git from the workspace root. The workspace repo is
-a separate git repo that tracks this whole tree as content, so a
-wrong-path `git add -A` will silently stage workspace files.
-
-Right pattern:
+Ruby + Bundler on host:
 
 ```bash
 SITE=/home/sheehan/.openclaw/workspace/jaxlee-site
-git -C "$SITE" status
-git -C "$SITE" add <files>
-git -C "$SITE" commit -m "..."
-git -C "$SITE" push origin main
+( cd "$SITE" && bundle install )                          # first time
+( cd "$SITE" && bundle exec jekyll serve )                # http://localhost:4000/jaxlee
+( cd "$SITE" && bundle exec jekyll serve --drafts )       # include _drafts/
 ```
 
-Sanity check before any add/commit:
+If you'd rather use Podman (no host Ruby), adapt the
+`oceanspray-site/WORKFLOW.md` container recipe — same image,
+just point at `jaxlee-site` and use `--baseurl /jaxlee`.
 
-```bash
-git -C "$SITE" rev-parse --show-toplevel
-# must print: /home/sheehan/.openclaw/workspace/jaxlee-site
-```
+## Accessibility & standards
 
-If it prints the workspace path instead, you're targeting the
-wrong repo — stop and re-check the `-C` path.
+**WCAG 2.2 AA on everything user-facing.** Full checklist:
+`jaxlee-site/AGENT.md` "Accessibility & standards" — that file is
+the canonical reference for *both* sites. Audit tool:
+`skills/a11y-audit/`.
 
-## Identity / git auth
+Run the audit before any deploy that touches templates, layouts,
+or new pages. Skip for routine posts that reuse existing
+components.
 
-This repo is under the `jaxlee-digital` GitHub account, which
-is **not** Sheehan's primary identity. Per-repo credential
-helper must be set:
+## Repo-specific rules
 
-```bash
-git -C ~/.openclaw/workspace/jaxlee-site config --get-all credential.helper
-```
+- **`baseurl` is `/jaxlee`.** Keep it. Blanking breaks every link
+  until a custom domain is attached.
+- **Internal links** must use `{{ site.baseurl }}/path/`. Never
+  hardcode `/jaxlee/path/`.
+- **GitHub Pages plugins only.** Allowed: `jekyll-feed`,
+  `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-paginate`.
+- **No `.github/workflows/`.** Pages builds directly from the
+  default branch. Don't add Actions unless deliberately moving
+  off the default-branch build.
 
-If unset and push fails with `could not read Username`, see
-`infra/oceanspray-site/README.md` § Git auth for the pattern
-(same helper applies).
+## Approval gate
+
+- Drafts only until approved. Finished work only.
+- **Send desktop + tablet + mobile screenshots** with every visual
+  change. Helper + viewports: `skills/jekyll-screenshot-preview/`
+  (set `SITE_SLUG="jaxlee"` and `URL_BASE="http://localhost:4000/jaxlee"`).
+- Acceptable approval phrases: "publish it", "ship it",
+  "promote to post", "looks good, push". Ambiguous → ask.
 
 ## Where things live
 
@@ -192,9 +95,13 @@ If unset and push fails with `could not read Username`, see
 - `assets/` — images, CSS output, JS
 - `_resumes/`, `_log/`, `photography/`, `software/`,
   `sailing.md`, `work.md`, `writing/` — collection content
+- `AGENT.md` — color palette + the canonical Accessibility &
+  standards checklist used by both sites
 - `_config.yml` — site config
 
 ## Verify deploy
+
+See `skills/jekyll-deploy/`. Quick site-specific checks:
 
 ```bash
 curl -sI https://jaxlee-digital.github.io/jaxlee/ | head -5
@@ -204,6 +111,10 @@ curl -s https://jaxlee-digital.github.io/jaxlee/sitemap.xml | grep -m1 lastmod
 ## Related
 
 - `infra/jaxlee-site/README.md` — full infra notes
+- `AGENT.md` — accessibility checklist, palette, layout/include conventions
 - `skills/jekyll-publish-post/SKILL.md`
 - `skills/jekyll-deploy/SKILL.md`
 - `skills/git-safe-commit/SKILL.md`
+- `skills/jekyll-screenshot-preview/SKILL.md`
+- `skills/a11y-audit/SKILL.md`
+- `skills/agentic-browsing/SKILL.md`
