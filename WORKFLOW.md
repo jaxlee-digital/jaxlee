@@ -91,7 +91,8 @@ components.
 ## Where things live
 
 - `_posts/` — published posts
-- `_drafts/` — drafts (not built unless `--drafts`)
+- `_drafts/` — drafts (not built unless `--drafts`).
+  **Gitignored.** Drafts are local-only WIP; only `_posts/` ships.
 - `_layouts/` — page templates
 - `_includes/` — partial templates
 - `_sass/` — styles
