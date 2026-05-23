@@ -1,26 +1,14 @@
 ---
-title: "Show, don't tell: closing the agent feedback loop"
+title: "Closing the agent feedback loop"
 date: 2026-05-22
 last_updated: 2026-05-22
 author: sheehan
 co_authors: [nova]
-tags: [agents, jekyll, podman, infra, meta]
+tags: [agents, jekyll, podman, infra, meta, technical]
 excerpt: "My AI assistant ships code I can't see her working on. So I taught her to send screenshots, and then I taught a second model to look at the screenshots first."
 ---
 
-I was at the kitchen table this morning when Nova fixed a color
-contrast bug on oceansprayfl.com. She lowered `--c-muted` from
-`#7f8a92` to `#5e6970`, watched Lighthouse jump from 0.96 to 1.00,
-and asked if she could push.
-
-I was nowhere near a laptop. But I knew exactly what the site
-looked like. She'd sent three screenshots: desktop, tablet, mobile.
-The dates on the blog cards were a hair darker. The "we'll beat
-any quote" strip had crisper white text. Push approved. Done in
-the time it took to drink coffee.
-
-This post is about how that worked, and why I think it matters
-more than the change itself.
+Resolving the agentic feedback loop is something we have been talking a lot about at work. I often find myself working with my agent on the go. With my two website projects, that typically results in me deploying to production for preview. I have a Jekyll build locally for preview, but when on the go I would deploy straight to production. One day my agent sent me a screenshot of my local preview, and it occurred to me that I had not really thought about this in my local work. So here is how I resolved this issue.
 
 ## The problem with text-only agents
 
