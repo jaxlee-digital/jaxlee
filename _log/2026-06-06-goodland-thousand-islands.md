@@ -48,3 +48,29 @@ walked the shell line.
 
 Lunch at the Little Bar. Dockside, old Florida, hasn't changed
 and doesn't need to.
+
+---
+
+## Notes for Next Time
+
+### Ten Thousand Islands: Shelling and Beaches by Boat
+
+**North Zone** — launch from Caxambas Park, Marco Island
+
+- **Kice Island** — 1.5 miles from Caxambas ramp. Best shells pile up behind the dead trees on the Gulf side. Anchor and land at Blind Pass on the south end. Boat-access only.
+- **Dickman's Island** — Best overall shelling in the Cape Romano cluster. Shaded by Australian pines at the point. Beach camping allowed.
+- **Cape Romano** — Junonia territory. Deep Gulf currents push rare shells here. Avoid the Cape Romano Shoals south of the point — shallow, shifting bottom, charted as DANGER.
+- **Caxambas Sandbars / Karina Island** — Inside Caxambas Pass, built on old oyster bar and reef. Good shelling without the open-water run.
+- **Morgan Beach** — Standard charter captain stop along with Kice and Caxambas.
+
+**South Zone** — launch from Goodland or Everglades City
+
+- **Tiger Key** — Crescent Gulf-side beach. Deep water on the north side. Watch shallow on the west at low tide.
+- **Picnic Key** — Gulf-side beach just south of Tiger Key. Open and exposed when storms blow in.
+- **Pavilion Key** — Biggest beach in the islands. About 13 miles from Everglades City across open water. Calm-day run only.
+
+**Tips**
+
+- Time landings for falling or low tide when shell lines are exposed.
+- Passes fish well for trout, tarpon, snook, and jack on the outgoing tide.
+- Tiger, Picnic, and Pavilion are inside Everglades National Park.
