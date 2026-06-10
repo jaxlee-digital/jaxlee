@@ -1,7 +1,7 @@
 ---
 title: "3D printing log"
 date: 2026-04-27
-last_updated: 2026-05-14
+last_updated: 2026-06-02
 author: sheehan
 co_authors: [nova]
 tags: [craft, 3d-printing]
@@ -27,6 +27,11 @@ Running log of prints off the **Bambu Lab A1 mini**.
 - **Overture PLA, Gray Blue** — 1.75mm. Favorite.
 - **Polymaker PolyTerra PLA, Muted Purple** — 1.75mm. Favorite.
 - **Bambu Lab PLA Metallic, Gold** — 1.75mm.
+- **Elegoo PLA** — 1.75mm. Prone to breakage. I store filaments with
+  desiccant packets when not in use, and I've subjected all my active
+  spools to extended humid conditions with rarely any breakage — but
+  Elegoo is the exception. It's the only one of the four spools I keep
+  loaded on the AMS that breaks with any regularity.
 
 ## 2026-05-13 — Sparkle Motion electronics holder
 
