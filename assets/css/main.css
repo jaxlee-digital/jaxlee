@@ -1853,6 +1853,114 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   margin-bottom: 0.5rem;
 }
 
+/* ---- Recipe index ---- */
+.recipe-index {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.recipe-index__item a {
+  display: block;
+  padding: 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.recipe-index__item a:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.recipe-index__item h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.recipe-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.recipe-tags li {
+  font-size: 0.78rem;
+  background: var(--paper-alt);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.1rem 0.45rem;
+  color: var(--ink-muted);
+}
+
+/* ---- Single recipe ---- */
+.recipe {
+  max-width: 720px;
+}
+.recipe__header {
+  margin-bottom: 2rem;
+}
+.recipe__title {
+  margin: 0 0 0.25rem;
+}
+.recipe__attribution {
+  margin: 0 0 0.75rem;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+.recipe__notes {
+  color: var(--ink-soft);
+  margin: 0.5rem 0 1rem;
+  font-style: italic;
+}
+.recipe__body {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 640px) {
+  .recipe__body {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+.recipe__ingredients ul,
+.recipe__instructions ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.5rem;
+}
+.recipe__ingredients li,
+.recipe__instructions li {
+  margin-bottom: 0.4rem;
+  line-height: 1.55;
+}
+.recipe__instructions li {
+  margin-bottom: 0.75rem;
+}
+.recipe__original {
+  margin: 2.5rem 0 0;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 480px;
+}
+.recipe__original img {
+  width: 100%;
+  display: block;
+}
+.recipe__original figcaption {
+  padding: 0.6rem 0.85rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  background: var(--paper-alt);
+}
+.appslet-eyebrow {
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+}
+
 .todo-section {
   margin: 2rem 0;
 }

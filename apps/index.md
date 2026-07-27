@@ -23,4 +23,10 @@ Small, single-purpose appslets. Each one does exactly one thing.
       <p>Current list, grouped by area. Static — edit in the repo to update.</p>
     </a>
   </li>
+  <li class="appslet-list__item">
+    <a href="{{ '/apps/recipes/' | relative_url }}">
+      <h2>Recipes</h2>
+      <p>Family recipes, collected and kept.</p>
+    </a>
+  </li>
 </ul>
