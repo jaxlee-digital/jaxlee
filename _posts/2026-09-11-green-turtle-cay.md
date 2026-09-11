@@ -48,6 +48,8 @@ We hit the ferry dock in matching shirts, found our way to Big O's, waded into t
 
 ![The Layin' Lowe golf cart]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-16.jpg)
 
+![Pool at the beach bar]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-17.jpg)
+
 Twenty years of this island. Still hasn't gotten old.
 
 ---
