@@ -68,6 +68,8 @@ We hit the ferry dock in matching shirts, found our way to Big O's, waded into t
 
 ![Red Solo cups in the shallows — the sandbar selfie]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-26.jpg)
 
+![Green Turtle Club Resort & Marina dock at golden hour]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-27.jpg)
+
 Twenty years of this island. Still hasn't gotten old.
 
 ---
