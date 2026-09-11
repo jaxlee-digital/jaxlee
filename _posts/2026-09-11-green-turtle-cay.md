@@ -60,6 +60,8 @@ We hit the ferry dock in matching shirts, found our way to Big O's, waded into t
 
 ![Sheehan and Jaxon on the porch]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-22.jpg)
 
+![The whole K crew on the dock — matching shirts, Jaxon front and center]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-23.jpg)
+
 Twenty years of this island. Still hasn't gotten old.
 
 ---
