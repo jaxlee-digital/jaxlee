@@ -52,6 +52,8 @@ Jaxon wore a Spider-Man life vest and mirrored sunglasses and had zero concerns.
 
 ![Mom and dad at the bar, that water behind them]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-21.jpg)
 
+![Jaxon hanging on mom at dinner]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-31.jpg)
+
 ![Snow cones in the village shade]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-29.jpg)
 
 ![Nipper's dock sign — Great Guana Cay]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-30.jpg)
