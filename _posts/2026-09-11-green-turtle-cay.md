@@ -28,6 +28,8 @@ This year we packed up the whole crew: siblings, significant others, the next ge
 
 ![Walking the beach]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-08.jpg)
 
+![Jaxon at the helm, Spider-Man vest, that water ahead]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-28.jpg)
+
 Jaxon wore a Spider-Man life vest and mirrored sunglasses and had zero concerns. Correct behavior.
 
 ![Jaxon watching the water from the ferry]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-09.jpg)
