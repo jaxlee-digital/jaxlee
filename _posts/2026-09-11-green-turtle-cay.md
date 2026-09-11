@@ -64,6 +64,8 @@ We hit the ferry dock in matching shirts, found our way to Big O's, waded into t
 
 ![On the boat, open water]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-24.jpg)
 
+![Spider lilies in the morning light]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-25.jpg)
+
 Twenty years of this island. Still hasn't gotten old.
 
 ---
