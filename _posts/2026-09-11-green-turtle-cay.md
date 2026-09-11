@@ -58,6 +58,8 @@ We hit the ferry dock in matching shirts, found our way to Big O's, waded into t
 
 ![Pool at the beach bar]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-17.jpg)
 
+![Sheehan and Jaxon on the porch]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-22.jpg)
+
 Twenty years of this island. Still hasn't gotten old.
 
 ---
