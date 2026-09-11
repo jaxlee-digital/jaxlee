@@ -54,7 +54,9 @@ Jaxon wore a Spider-Man life vest and mirrored sunglasses and had zero concerns.
 
 ![Snow cones in the village shade]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-29.jpg)
 
-We hit the ferry dock in matching shirts, found our way to Big O's, waded into the flats until we couldn't anymore, and did what we always do here — nothing and everything all at once.
+![Nipper's dock sign — Great Guana Cay]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-30.jpg)
+
+We hit the ferry dock in matching shirts, found our way to Big O's, stopped at Nipper's on Great Guana Cay, waded into the flats until we couldn't anymore, and did what we always do here — nothing and everything all at once.
 
 ![Sunset from the balcony]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-15.jpg)
 
