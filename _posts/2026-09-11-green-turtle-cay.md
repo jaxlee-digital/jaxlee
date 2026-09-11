@@ -80,6 +80,8 @@ We hit the ferry dock in matching shirts, found our way to Big O's, stopped at N
 
 ![Poolside at the Green Turtle Club — drinks, coral stone, big clouds]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-38.jpg)
 
+![Jaxon standing on a surfboard in the pool, ocean behind him]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-39.jpg)
+
 ![Sheehan and Jaxon on the porch]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-22.jpg)
 
 ![The whole K crew on the dock — matching shirts, Jaxon front and center]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-23.jpg)
