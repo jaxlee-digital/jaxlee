@@ -66,6 +66,8 @@ Jaxon wore a Spider-Man life vest and mirrored sunglasses and had zero concerns.
 
 ![Nipper's dock sign — Great Guana Cay]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-30.jpg)
 
+![Poolside at Nipper's — Jaxon in the water behind]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-36.jpg)
+
 We hit the ferry dock in matching shirts, found our way to Big O's, stopped at Nipper's on Great Guana Cay, waded into the flats until we couldn't anymore, and did what we always do here — nothing and everything all at once.
 
 ![Sunset from the balcony]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-15.jpg)
