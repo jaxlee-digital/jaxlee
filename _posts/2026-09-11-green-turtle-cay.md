@@ -66,6 +66,8 @@ We hit the ferry dock in matching shirts, found our way to Big O's, waded into t
 
 ![Spider lilies in the morning light]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-25.jpg)
 
+![Red Solo cups in the shallows — the sandbar selfie]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-26.jpg)
+
 Twenty years of this island. Still hasn't gotten old.
 
 ---
