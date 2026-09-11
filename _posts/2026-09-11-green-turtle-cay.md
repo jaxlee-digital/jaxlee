@@ -6,6 +6,8 @@ author: sheehan
 tags: [travel, family, bahamas]
 ---
 
+![Red geraniums, island porch in the background]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-32.jpg)
+
 Twenty years. We've been coming back to Green Turtle Cay for twenty years.
 
 Houseboats, houses, different configurations of the K family at different stages of life — but always this place. Something about it just sticks.
