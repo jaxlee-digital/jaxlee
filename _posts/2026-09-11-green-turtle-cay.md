@@ -34,6 +34,8 @@ Jaxon wore a Spider-Man life vest and mirrored sunglasses and had zero concerns.
 
 ![Jaxon — Spider-Man vest, mirrored shades, unbothered]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-10.jpg)
 
+![Jaxon and grandpa on the back of the ferry, island in the wake]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-11.jpg)
+
 We hit the ferry dock in matching shirts, found our way to Big O's, waded into the flats until we couldn't anymore, and did what we always do here — nothing and everything all at once.
 
 Twenty years of this island. Still hasn't gotten old.
