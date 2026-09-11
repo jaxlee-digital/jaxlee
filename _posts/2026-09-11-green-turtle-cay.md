@@ -44,6 +44,8 @@ Jaxon wore a Spider-Man life vest and mirrored sunglasses and had zero concerns.
 
 ![Jaxon and grandpa on the back of the ferry, island in the wake]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-11.jpg)
 
+![Loading up at the dock, open water ahead]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-35.jpg)
+
 ![Leaving the dock — Green Turtle Cay marina in the wake]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-12.jpg)
 
 ![Jaxon and dad on the ferry, squall on the horizon]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-13.jpg)
