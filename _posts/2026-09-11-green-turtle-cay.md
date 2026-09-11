@@ -14,7 +14,9 @@ Twenty years. We've been coming back to Green Turtle Cay for twenty years.
 
 Houseboats, houses, different configurations of the K family at different stages of life — but always this place. Something about it just sticks.
 
-This year we packed up the whole crew: siblings, significant others, the next generation already in full stride. A big house, three golf carts, a boat, and that water. That ridiculous, impossible turquoise water that somehow still catches you off guard every time.
+This year we packed up the whole crew: siblings, significant others, the next generation already in full stride. A big house, three golf carts, a boat, and that water.
+
+![Lunch at the big house — the whole crew around the table]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-34.jpg) That ridiculous, impossible turquoise water that somehow still catches you off guard every time.
 
 ![Ferry dock arrival]({{ site.baseurl }}/assets/images/posts/green-turtle-cay/2026-01.jpg)
 
