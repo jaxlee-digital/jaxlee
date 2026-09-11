@@ -2,6 +2,7 @@
 layout: post
 title: "Green Turtle Cay — Twenty Years Running"
 date: 2026-09-11 12:15:00 -0400
+last_updated: 2026-09-11
 author: sheehan
 tags: [travel, family, bahamas]
 ---
