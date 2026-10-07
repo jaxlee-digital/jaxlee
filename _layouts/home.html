@@ -59,10 +59,12 @@ layout: default
     }
     prev.addEventListener('click', function () { i = (i - 1 + slides.length) % slides.length; update(); });
     next.addEventListener('click', function () { i = (i + 1) % slides.length; update(); });
-    // Keyboard support when carousel is focused
-    root.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { prev.click(); }
-      else if (e.key === 'ArrowRight') { next.click(); }
+    // Keyboard support: only handle arrow keys on carousel buttons
+    [prev, next].forEach(function (btn) {
+      btn.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); prev.click(); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); }
+      });
     });
   })();
 </script>
@@ -79,7 +81,7 @@ layout: default
 </section>
 
 {% comment %} Latest: posts (blog) + log entries, newest first, as full post cards {% endcomment %}
-{% assign latest = site.posts | concat: site.log | sort: "last_updated" | reverse %}
+{% assign latest = site.posts | concat: site.log | sort: "date" | reverse %}
 {% if latest.size > 0 %}
 <section class="home-latest">
   <p class="section-label">Latest</p>

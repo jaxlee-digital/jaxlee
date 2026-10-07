@@ -17,7 +17,6 @@
   --accent:     #db997c;   /* rose-gold, the brand accent */
   --accent-soft:#ddb49e;   /* lighter rose-gold for hovers/states */
   --accent-ink: #ffffff;
-  --cool:       #00b2ff;   /* reserved accent — use sparingly */
 
   /* type */
   --font-display: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;

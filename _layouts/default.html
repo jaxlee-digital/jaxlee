@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha384-PPIZEGYM1v8zp5Py7UjFb79S58UeqCL9pYVnVPURKEqvioPROaVAJKKLzvH2rDnI"
+        crossorigin="anonymous"
         referrerpolicy="no-referrer">
   <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/brand/jaxlee-digital-32.png' | relative_url }}">
@@ -44,10 +46,10 @@
               {{ item.title }}
               <span class="site-nav__chevron" aria-hidden="true">▾</span>
             </button>
-            <ul class="site-nav__submenu" id="nav-{{ menu_id }}" role="menu" hidden>
+            <ul class="site-nav__submenu" id="nav-{{ menu_id }}" hidden>
               {% for child in item.children %}
-                <li role="none">
-                  <a href="{{ child.url | relative_url }}" role="menuitem"{% if page.url == child.url %} class="is-current" aria-current="page"{% endif %}>{{ child.title }}</a>
+                <li>
+                  <a href="{{ child.url | relative_url }}"{% if page.url == child.url %} class="is-current" aria-current="page"{% endif %}>{{ child.title }}</a>
                 </li>
               {% endfor %}
             </ul>
@@ -70,12 +72,13 @@
             siteNav.classList.toggle('is-open', !expanded);
             document.body.classList.toggle('nav-open', !expanded);
           });
-          // Close on Escape
+          // Close on Escape, return focus to toggle
           document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && mainToggle.getAttribute('aria-expanded') === 'true') {
               mainToggle.setAttribute('aria-expanded', 'false');
               siteNav.classList.remove('is-open');
               document.body.classList.remove('nav-open');
+              mainToggle.focus();
             }
           });
         }
