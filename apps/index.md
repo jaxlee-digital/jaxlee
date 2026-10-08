@@ -29,4 +29,10 @@ Small, single-purpose appslets. Each one does exactly one thing.
       <p>Family recipes, collected and kept.</p>
     </a>
   </li>
+  <li class="appslet-list__item">
+    <a href="{{ '/apps/exercises/' | relative_url }}">
+      <h2>Exercises</h2>
+      <p>Home gym reference. Browse by muscle group or equipment.</p>
+    </a>
+  </li>
 </ul>

@@ -1,0 +1,489 @@
+# Exercise library
+# Fields:
+#   id: unique slug
+#   name: display name
+#   muscles: list of muscle-map IDs
+#   equipment: list — all valid options (bodyweight, dumbbells, bands, pull-up-bar, bench)
+#   core_note: how the core is involved
+#   description: cues and form notes
+#   variations: list of {name, equipment, note}
+#   image: path relative to /assets/images/exercises/
+#   video: optional YouTube URL
+
+exercises:
+
+  # ── CHEST ────────────────────────────────────────────────────────────────
+
+  - id: push-up
+    name: Push-Up
+    muscles: [chest, triceps, core, shoulders]
+    equipment: [bodyweight]
+    core_note: Brace the entire trunk. Hips must stay level — the plank position is the point.
+    description: |
+      Hands shoulder-width apart, fingers forward. Lower chest to an inch off the floor, elbows tracking back at roughly 45°. Press to full lockout. Don't let hips sag or pike.
+    variations:
+      - name: Incline Push-Up
+        equipment: [bodyweight, bench]
+        note: Hands on bench. Easier — good starting point or warm-up.
+      - name: Decline Push-Up
+        equipment: [bodyweight, bench]
+        note: Feet on bench, hands on floor. More upper chest and shoulder demand.
+      - name: Close-Grip Push-Up
+        equipment: [bodyweight]
+        note: Hands under chest, elbows tight to sides. Shifts load to triceps.
+      - name: Wide-Grip Push-Up
+        equipment: [bodyweight]
+        note: Hands wider than shoulders. More chest, less triceps.
+      - name: Banded Push-Up
+        equipment: [bodyweight, bands]
+        note: Band across upper back, hands on ends. Adds resistance at the top.
+    image: push-up.png
+
+  - id: dumbbell-chest-press
+    name: Dumbbell Chest Press
+    muscles: [chest, triceps, shoulders]
+    equipment: [dumbbells, bench]
+    core_note: Feet flat on floor, low back neutral. Don't arch to lift heavier.
+    description: |
+      Lie on bench, dumbbells at chest height, elbows at ~75°. Press straight up until arms nearly lock. Lower under control for a 2-count. Shoulder blades pulled together and down throughout.
+    variations:
+      - name: Floor Press
+        equipment: [dumbbells]
+        note: Same as bench press but lying on the floor. Limits range of motion — easier on shoulders.
+      - name: Incline Press
+        equipment: [dumbbells, bench]
+        note: Bench at ~30-45°. Shifts emphasis to upper chest and front delts.
+      - name: Single-Arm Press
+        equipment: [dumbbells, bench]
+        note: One dumbbell at a time. Core works harder to resist rotation.
+    image: dumbbell-chest-press.png
+
+  - id: dumbbell-fly
+    name: Dumbbell Fly
+    muscles: [chest, shoulders]
+    equipment: [dumbbells, bench]
+    core_note: Ribs down, core tight — resist the urge to arch as the weights open.
+    description: |
+      Lie on bench with dumbbells above chest, slight bend in elbows. Open arms in a wide arc until a stretch is felt across the chest. Squeeze pecs to bring them back together. Keep the elbow angle fixed throughout.
+    variations:
+      - name: Floor Fly
+        equipment: [dumbbells]
+        note: Same movement on the floor. Limits the bottom range — good for shoulder issues.
+      - name: Band Fly
+        equipment: [bands]
+        note: Anchor bands at chest height behind you, one in each hand. Constant tension through the full range.
+    image: dumbbell-fly.png
+
+  # ── BACK ─────────────────────────────────────────────────────────────────
+
+  - id: pull-up
+    name: Pull-Up
+    muscles: [back-upper, biceps, core]
+    equipment: [pull-up-bar]
+    core_note: Dead-hang start demands full trunk bracing to prevent swinging. Keep legs straight or crossed.
+    description: |
+      Overhand grip, hands just outside shoulder width. Pull until chin clears the bar, leading with the elbows. Lower fully between reps — no half reps. Avoid kipping unless explicitly training it.
+    variations:
+      - name: Chin-Up
+        equipment: [pull-up-bar]
+        note: Underhand (supinated) grip. Greater biceps involvement.
+      - name: Wide-Grip Pull-Up
+        equipment: [pull-up-bar]
+        note: Hands wider than shoulders. More lat emphasis, less biceps.
+      - name: Neutral-Grip Pull-Up
+        equipment: [pull-up-bar]
+        note: Palms facing each other. Easier on the shoulders and elbows.
+      - name: Banded Assisted Pull-Up
+        equipment: [pull-up-bar, bands]
+        note: Loop band over bar, kneel or stand in it. Reduces bodyweight load — good for building toward full pull-ups.
+    image: pull-up.png
+
+  - id: dumbbell-row
+    name: Dumbbell Row
+    muscles: [back-upper, back-lower, biceps]
+    equipment: [dumbbells, bench]
+    core_note: Brace the working-side obliques hard to prevent rotation. Non-working arm and knee on bench for support.
+    description: |
+      One hand and knee on bench. Pull dumbbell to hip, elbow grazing the side. Feel the lat contract at the top — don't just raise the arm. Lower fully. Keep spine parallel to the floor.
+    variations:
+      - name: Bent-Over Row (Two-Arm)
+        equipment: [dumbbells]
+        note: Hinge at hips, both dumbbells, row to lower chest. No bench needed.
+      - name: Band Row
+        equipment: [bands]
+        note: Anchor band at chest height, row with one or both arms. Good for constant tension.
+      - name: Chest-Supported Row
+        equipment: [dumbbells, bench]
+        note: Lie face-down on incline bench. Eliminates lower back involvement entirely.
+    image: dumbbell-row.png
+
+  - id: band-pull-apart
+    name: Band Pull-Apart
+    muscles: [back-upper, shoulders]
+    equipment: [bands]
+    core_note: "Standing version: brace the core to avoid leaning back as the band opens."
+    description: |
+      Hold band at shoulder height with both hands, arms extended. Pull the band apart until it touches your chest, squeezing the shoulder blades together hard. Slow return. Keep arms level throughout.
+    variations:
+      - name: Overhead Pull-Apart
+        equipment: [bands]
+        note: Start with arms overhead and pull apart, ending behind the head. More shoulder mobility demand.
+      - name: Low Pull-Apart
+        equipment: [bands]
+        note: Arms at hip height. Hits lower traps more.
+    image: band-pull-apart.png
+
+  # ── SHOULDERS ─────────────────────────────────────────────────────────────
+
+  - id: dumbbell-shoulder-press
+    name: Dumbbell Shoulder Press
+    muscles: [shoulders, triceps, core]
+    equipment: [dumbbells]
+    core_note: Standing demands significant anti-extension from the abs. Seated removes this — choose accordingly.
+    description: |
+      Start with dumbbells at ear height, elbows at 90°. Press overhead to near lockout. Lower under control. Keep ribs down — don't flare or hyperextend the low back.
+    variations:
+      - name: Arnold Press
+        equipment: [dumbbells]
+        note: Start with palms facing you, rotate to face forward as you press. Hits all three delt heads.
+      - name: Band Shoulder Press
+        equipment: [bands]
+        note: Stand on band, press handles overhead. Constant tension, no momentum.
+      - name: Single-Arm Press
+        equipment: [dumbbells]
+        note: One arm at a time. Core works harder to stay upright.
+    image: dumbbell-shoulder-press.png
+
+  - id: lateral-raise
+    name: Lateral Raise
+    muscles: [shoulders]
+    equipment: [dumbbells, bands]
+    core_note: Light core engagement to stay upright. Use bands for constant tension or dumbbells for peak contraction at the top.
+    description: |
+      Arms at sides, slight bend in elbows. Raise to shoulder height, leading with elbows, not wrists. Pause briefly at the top. Lower slowly — 3 seconds down. Don't shrug.
+    variations:
+      - name: Band Lateral Raise
+        equipment: [bands]
+        note: Stand on band, one handle in each hand. More tension at the bottom range where dumbbells are easiest.
+      - name: Bent-Over Lateral Raise
+        equipment: [dumbbells]
+        note: Hinge forward at hips, raise arms to sides. Targets rear delts.
+      - name: Single-Arm Cable-Style Raise
+        equipment: [bands]
+        note: Anchor band low, raise across body. Isolates one side at a time.
+    image: lateral-raise.png
+
+  - id: face-pull-band
+    name: Band Face Pull
+    muscles: [shoulders, back-upper]
+    equipment: [bands]
+    core_note: Anchor the core to prevent leaning back as you pull.
+    description: |
+      Anchor band at face height. Pull toward your face, hands separating wide, elbows flaring out. External rotate at the top — hands finish beside ears. Great for shoulder health and rear delt work.
+    variations:
+      - name: High-Anchor Face Pull
+        equipment: [bands]
+        note: Anchor above head. Slightly different pull angle, more upper trap involvement.
+      - name: Half-Kneeling Face Pull
+        equipment: [bands]
+        note: One knee down. Removes leg drive, forces cleaner core bracing.
+    image: face-pull-band.png
+
+  # ── ARMS ──────────────────────────────────────────────────────────────────
+
+  - id: dumbbell-curl
+    name: Dumbbell Curl
+    muscles: [biceps]
+    equipment: [dumbbells]
+    core_note: Brace to stop the torso from swinging — if you're rocking, drop the weight.
+    description: |
+      Standing, arms at sides, palms forward. Curl to shoulder height without moving the elbows forward. Supinate fully at the top. Lower in 3 seconds. Alternate or both at once.
+    variations:
+      - name: Hammer Curl
+        equipment: [dumbbells]
+        note: Neutral grip (palms facing each other) throughout. Hits brachialis and brachioradialis more.
+      - name: Incline Curl
+        equipment: [dumbbells, bench]
+        note: Seated on inclined bench, arms hang back. Stretches the long head of biceps at the bottom.
+      - name: Concentration Curl
+        equipment: [dumbbells]
+        note: Seated, elbow braced on inner thigh. Isolates the bicep peak.
+      - name: Band Curl
+        equipment: [bands]
+        note: Stand on band, handles in hands. Constant tension through the full range.
+    image: dumbbell-curl.png
+
+  - id: tricep-dip
+    name: Tricep Dip
+    muscles: [triceps, chest, shoulders]
+    equipment: [bodyweight, bench]
+    core_note: Keep hips close to the bench. Core tight to avoid excessive back arch.
+    description: |
+      Hands on bench edge, fingers forward, feet out. Lower until elbows reach ~90°, keeping the back close to the bench. Press back up to lockout. Add weight on lap to progress.
+    variations:
+      - name: Feet-Elevated Dip
+        equipment: [bodyweight, bench]
+        note: Feet on a second surface higher than the bench. Increases range and load.
+      - name: Weighted Dip
+        equipment: [dumbbells, bench]
+        note: Place a dumbbell on your lap. Adds resistance beyond bodyweight.
+    image: tricep-dip.png
+
+  - id: band-tricep-pushdown
+    name: Band Tricep Pushdown
+    muscles: [triceps]
+    equipment: [bands]
+    core_note: Brace the core — elbows stay pinned to the sides; the trunk should not move at all.
+    description: |
+      Anchor band overhead. Starting with elbows at 90°, push handles down to full extension. Pause at the bottom. Slow on the return. Elbows stay fixed at your sides throughout.
+    variations:
+      - name: Single-Arm Pushdown
+        equipment: [bands]
+        note: One arm at a time. Easier to feel the tricep working in isolation.
+      - name: Overhead Tricep Extension
+        equipment: [bands, dumbbells]
+        note: Band anchored low (or hold dumbbell), extend overhead. Long head of triceps gets a full stretch.
+    image: band-tricep-pushdown.png
+
+  # ── CORE ──────────────────────────────────────────────────────────────────
+
+  - id: plank
+    name: Plank
+    muscles: [core, shoulders]
+    equipment: [bodyweight]
+    core_note: The whole point. Squeeze glutes and abs together — think of pulling the pelvis toward the ribcage.
+    description: |
+      Forearms on floor, elbows under shoulders. Hold a straight line from head to heels. Breathe steadily. Stop when form breaks — 10 perfect seconds beats 60 sloppy ones.
+    variations:
+      - name: High Plank
+        equipment: [bodyweight]
+        note: Arms extended instead of on forearms. More shoulder and wrist demand.
+      - name: Side Plank
+        equipment: [bodyweight]
+        note: One forearm, feet stacked. Hits obliques and hip abductors hard.
+      - name: Plank with Shoulder Tap
+        equipment: [bodyweight]
+        note: High plank, alternate tapping opposite shoulder. Anti-rotation demand.
+      - name: Plank with Band Row
+        equipment: [bodyweight, bands]
+        note: Band anchored in front, row one arm while holding plank. Total core challenge.
+    image: plank.png
+
+  - id: dead-bug
+    name: Dead Bug
+    muscles: [core]
+    equipment: [bodyweight]
+    core_note: Core keeps the low back pressed into the floor as limbs move — that is the entire exercise.
+    description: |
+      Lie on back, arms straight up, knees at 90° in the air. Lower opposite arm and leg toward the floor simultaneously, keeping the low back flat. Return and switch sides. Move slowly.
+    variations:
+      - name: Dead Bug with Band
+        equipment: [bodyweight, bands]
+        note: Band around feet adds resistance to the leg extension. Harder to keep the low back down.
+      - name: Dead Bug Arms Only
+        equipment: [bodyweight]
+        note: Keep legs still, only lower the arms. Easier regression.
+    image: dead-bug.png
+
+  - id: hollow-body-hold
+    name: Hollow Body Hold
+    muscles: [core]
+    equipment: [bodyweight]
+    core_note: Maximum anti-extension demand — the foundation of gymnastic core strength.
+    description: |
+      Lie on back, arms overhead. Press the low back into the floor and lift shoulders and legs off simultaneously until a hollow banana shape is held. Start with knees bent to make it manageable.
+    variations:
+      - name: Hollow Body Rock
+        equipment: [bodyweight]
+        note: Same position, rock forward and back. Maintains tension throughout the movement.
+      - name: Tuck Hollow Hold
+        equipment: [bodyweight]
+        note: Knees pulled to chest instead of legs extended. Easier starting point.
+    image: hollow-body-hold.png
+
+  - id: hanging-knee-raise
+    name: Hanging Knee Raise
+    muscles: [core, back-upper]
+    equipment: [pull-up-bar]
+    core_note: Pelvis must posteriorly tilt (tuck under) at the top — just raising the legs doesn't fully work the lower abs.
+    description: |
+      Dead hang from bar. Bring knees to chest by flexing at hips, then tuck the pelvis under at the top. Lower slowly — no swinging. Progress to straight-leg raises.
+    variations:
+      - name: Hanging Leg Raise
+        equipment: [pull-up-bar]
+        note: Legs straight throughout. Significantly harder — requires more hip flexor and lower ab strength.
+      - name: Hanging Oblique Raise
+        equipment: [pull-up-bar]
+        note: Bring knees up and to one side. Hits the obliques.
+    image: hanging-knee-raise.png
+
+  # ── LEGS / SQUAT FAMILY ───────────────────────────────────────────────────
+
+  - id: squat
+    name: Squat
+    muscles: [quads, glutes, core]
+    equipment: [bodyweight, dumbbells, bands]
+    core_note: Bracing the core keeps an upright torso and protects the low back under load. Think big breath in, hold it through the rep.
+    description: |
+      Feet shoulder-width apart, toes slightly out. Sit back and down until thighs reach parallel or below. Drive through the full foot to stand. Keep chest tall, knees tracking over toes throughout.
+    variations:
+      - name: Goblet Squat
+        equipment: [dumbbells]
+        note: Hold one dumbbell vertically at the chest. Helps maintain an upright torso.
+      - name: Sumo Squat
+        equipment: [bodyweight, dumbbells]
+        note: Wide stance, toes out further. More inner thigh and glute involvement.
+      - name: Banded Squat
+        equipment: [bands]
+        note: Stand on band, hold handles at shoulders. Resistance increases through the full range.
+      - name: Pulse Squat
+        equipment: [bodyweight, dumbbells, bands]
+        note: Stay in the bottom half of the squat and pulse. Isometric burn.
+      - name: Jump Squat
+        equipment: [bodyweight]
+        note: Squat down, explode up into a jump, land softly. Adds power and cardio demand.
+    image: squat.png
+
+  # ── LEGS / LUNGE FAMILY ───────────────────────────────────────────────────
+
+  - id: lunge
+    name: Lunge
+    muscles: [quads, glutes, hamstrings, core]
+    equipment: [bodyweight, dumbbells, bands]
+    core_note: Strong core prevents lateral lean — especially important as fatigue sets in.
+    description: |
+      Step forward, lower the back knee toward the floor, keeping the front shin vertical. Drive through the front heel to return. Don't let the front knee cave inward. Keep torso upright throughout.
+    variations:
+      - name: Reverse Lunge
+        equipment: [bodyweight, dumbbells]
+        note: Step back instead of forward. Easier on the knees, more control.
+      - name: Walking Lunge
+        equipment: [bodyweight, dumbbells]
+        note: Alternate legs moving forward. Adds balance and coordination demand.
+      - name: Bulgarian Split Squat
+        equipment: [bodyweight, dumbbells]
+        note: Rear foot elevated on bench behind you. Much greater quad and glute load — one of the hardest single-leg moves.
+      - name: Lateral Lunge
+        equipment: [bodyweight, dumbbells]
+        note: Step out to the side, sit into that hip, return. Hits inner thighs and glutes from a different angle.
+      - name: Banded Lunge
+        equipment: [bands]
+        note: Stand on band, hold handles at shoulders. Adds resistance through the push-off.
+    image: lunge.png
+
+  # ── LEGS / DEADLIFT FAMILY ────────────────────────────────────────────────
+
+  - id: deadlift
+    name: Deadlift
+    muscles: [hamstrings, glutes, back-lower, back-upper, core]
+    equipment: [dumbbells, bands]
+    core_note: Bracing here is critical — this is a spine-loading movement. Any rounding under load is a red flag. Big breath, brace before every rep.
+    description: |
+      Dumbbells in front of thighs, feet hip-width. Hinge at the hips, pushing them back, lowering weights close to the legs. Keep a neutral spine throughout. Drive hips forward to return to standing. Slight knee bend.
+    variations:
+      - name: Romanian Deadlift
+        equipment: [dumbbells, bands]
+        note: Same hinge pattern but focus on the hamstring stretch. Lower only until you feel a pull, not to the floor.
+      - name: Stiff-Leg Deadlift
+        equipment: [dumbbells]
+        note: Legs nearly straight throughout. Maximum hamstring stretch — don't round the back.
+      - name: Single-Leg RDL
+        equipment: [dumbbells, bodyweight]
+        note: Balance on one leg while hinging. Demands serious hip stability and core control. Start light.
+      - name: Sumo Deadlift
+        equipment: [dumbbells]
+        note: Wide stance, toes out, hands between legs. More inner thigh and glute drive.
+      - name: Band Deadlift
+        equipment: [bands]
+        note: Stand on band, hinge and pull handles up. Resistance increases as you stand — hardest at the top.
+    image: deadlift.png
+
+  # ── LEGS / GLUTE BRIDGE FAMILY ────────────────────────────────────────────
+
+  - id: glute-bridge
+    name: Glute Bridge
+    muscles: [glutes, hamstrings, core]
+    equipment: [bodyweight, dumbbells, bands]
+    core_note: Core maintains a neutral spine as the hips extend — prevents the low back from taking over.
+    description: |
+      Lie on back, feet flat, knees bent. Drive hips to the ceiling, squeezing glutes hard at the top. Hold 1 second. Lower without touching the floor between reps. Place a dumbbell on hips or band across thighs to add resistance.
+    variations:
+      - name: Single-Leg Bridge
+        equipment: [bodyweight, dumbbells]
+        note: One foot on the floor, other leg extended. Much harder — isolates one glute at a time.
+      - name: Banded Bridge
+        equipment: [bands]
+        note: Band across thighs just above the knees. Push knees out against the band to activate the glute medius.
+      - name: Hip Thrust
+        equipment: [bodyweight, dumbbells, bands]
+        note: Upper back on bench, feet on floor, hips off the ground. Greater range of motion than a floor bridge. Full glute extension at the top.
+      - name: Frog Pump
+        equipment: [bodyweight]
+        note: Lie on back, soles of feet together, knees out. Short-range pump reps. High-volume glute burnout.
+    image: glute-bridge.png
+
+  # ── GLUTES / DONKEY KICK FAMILY ───────────────────────────────────────────
+
+  - id: donkey-kick
+    name: Donkey Kick
+    muscles: [glutes, core]
+    equipment: [bodyweight, bands]
+    core_note: Quadruped position — brace the core hard to keep the hips level and prevent rotation as the leg moves.
+    description: |
+      On hands and knees, back flat. Drive one heel toward the ceiling, knee bent at 90°, squeezing the glute at the top. Hips stay square — no twisting. Lower without touching the floor. Loop a band above the knee or around the foot for resistance.
+    variations:
+      - name: Banded Donkey Kick
+        equipment: [bands]
+        note: Loop band just above the knee or around the foot. Adds resistance throughout the range.
+      - name: Donkey Kick Pulse
+        equipment: [bodyweight, bands]
+        note: Hold at the top and pulse with small movements. High-rep burnout.
+      - name: Straight-Leg Kickback
+        equipment: [bodyweight, bands]
+        note: Same movement but leg stays straight. Shifts some load to hamstrings.
+    image: donkey-kick.png
+
+  # ── GLUTES / FIRE HYDRANT FAMILY ──────────────────────────────────────────
+
+  - id: fire-hydrant
+    name: Fire Hydrant
+    muscles: [glutes, core]
+    equipment: [bodyweight, bands]
+    core_note: Same quadruped demand as donkey kick — hips must stay level. Resisting the urge to tilt is where the core work happens.
+    description: |
+      On hands and knees. Keeping the knee bent at 90°, raise one leg out to the side like a dog at a fire hydrant. Hip height is the target — no higher. Squeeze the glute at the top, lower with control. Add a band above the knees for resistance.
+    variations:
+      - name: Banded Fire Hydrant
+        equipment: [bands]
+        note: Band just above the knees. Adds resistance and keeps you honest about how far you're opening.
+      - name: Fire Hydrant with Kick
+        equipment: [bodyweight, bands]
+        note: At the top of the hydrant, extend the leg straight out to the side before returning. Adds hip abductor and glute med work.
+      - name: Fire Hydrant Pulse
+        equipment: [bodyweight, bands]
+        note: Hold at the top and pulse. Burnout finisher.
+      - name: Standing Fire Hydrant
+        equipment: [bodyweight, bands]
+        note: Stand, brace against a wall for balance, raise the leg to the side. More functional — works the hip in a standing position.
+    image: fire-hydrant.png
+
+  # ── LEGS / CALF ───────────────────────────────────────────────────────────
+
+  - id: calf-raise
+    name: Calf Raise
+    muscles: [calves]
+    equipment: [bodyweight, dumbbells]
+    core_note: Minimal on two legs. Single-leg version raises the balance demand significantly.
+    description: |
+      Stand on the edge of a step (or flat ground). Rise onto toes fully, hold a second, lower below step level for a full stretch. Do both legs or single-leg. Hold a dumbbell for load.
+    variations:
+      - name: Single-Leg Calf Raise
+        equipment: [bodyweight, dumbbells]
+        note: One foot at a time. Much harder — most people are surprised how weak their calves are unilaterally.
+      - name: Seated Calf Raise
+        equipment: [dumbbells]
+        note: Seated, dumbbell on knee, raise and lower. Hits the soleus (deeper calf muscle) more than standing.
+      - name: Banded Calf Raise
+        equipment: [bands]
+        note: Stand on band, loop over shoulders or hold handles. Adds resistance at the top.
+    image: calf-raise.png

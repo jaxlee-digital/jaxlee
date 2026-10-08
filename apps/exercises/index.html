@@ -1,0 +1,339 @@
+---
+layout: default
+title: Exercises
+section: apps
+permalink: /apps/exercises/
+description: Home gym exercise library. Browse by muscle or equipment.
+---
+
+<article class="appslet exercises-app">
+  <header class="appslet__header">
+    <p class="appslet__eyebrow"><a href="{{ '/apps/' | relative_url }}">← Apps</a></p>
+    <h1>Exercises</h1>
+    <p class="appslet__description">Home gym reference. Click a muscle group or filter by equipment.</p>
+  </header>
+
+  <div class="appslet__body">
+
+    <!-- ── Body map + equipment filters ───────────────────────────── -->
+    <section class="ex-controls" aria-label="Filter exercises">
+
+      <div class="ex-body-maps">
+
+        <!-- FRONT -->
+        <div class="ex-body-map" aria-label="Front of body">
+          <p class="ex-body-map__label">Front</p>
+          <svg viewBox="0 0 120 260" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="Front body diagram — click a region to filter">
+            <title>Front body diagram</title>
+
+            <!-- Head -->
+            <ellipse cx="60" cy="18" rx="14" ry="17" class="bm-head bm-inert" />
+
+            <!-- Neck -->
+            <rect x="54" y="33" width="12" height="8" rx="2" class="bm-neck bm-inert" />
+
+            <!-- Shoulders -->
+            <ellipse cx="28" cy="52" rx="13" ry="9" class="bm-region" data-muscle="shoulders"
+                     tabindex="0" role="button" aria-pressed="false" aria-label="Shoulders" />
+            <ellipse cx="92" cy="52" rx="13" ry="9" class="bm-region" data-muscle="shoulders"
+                     tabindex="0" role="button" aria-pressed="false" aria-label="Shoulders" />
+
+            <!-- Chest -->
+            <path d="M41 44 Q60 40 79 44 L79 68 Q60 72 41 68 Z" class="bm-region" data-muscle="chest"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Chest" />
+
+            <!-- Biceps -->
+            <rect x="16" y="62" width="11" height="28" rx="5" class="bm-region" data-muscle="biceps"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Biceps" />
+            <rect x="93" y="62" width="11" height="28" rx="5" class="bm-region" data-muscle="biceps"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Biceps" />
+
+            <!-- Forearms -->
+            <rect x="13" y="92" width="10" height="26" rx="4" class="bm-forearm bm-inert" />
+            <rect x="97" y="92" width="10" height="26" rx="4" class="bm-forearm bm-inert" />
+
+            <!-- Core / Abs -->
+            <path d="M41 68 Q60 72 79 68 L79 110 Q60 116 41 110 Z" class="bm-region" data-muscle="core"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Core" />
+
+            <!-- Quads -->
+            <path d="M41 115 L54 115 L56 170 L40 170 Z" class="bm-region" data-muscle="quads"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Quads" />
+            <path d="M66 115 L79 115 L80 170 L64 170 Z" class="bm-region" data-muscle="quads"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Quads" />
+
+            <!-- Calves (front shin) -->
+            <path d="M40 172 L55 172 L54 218 L41 218 Z" class="bm-region" data-muscle="calves"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Calves" />
+            <path d="M65 172 L80 172 L79 218 L66 218 Z" class="bm-region" data-muscle="calves"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Calves" />
+
+            <!-- Feet -->
+            <ellipse cx="47" cy="228" rx="9" ry="5" class="bm-foot bm-inert" />
+            <ellipse cx="73" cy="228" rx="9" ry="5" class="bm-foot bm-inert" />
+
+            <!-- Labels -->
+            <text x="60" y="57" class="bm-label">Chest</text>
+            <text x="60" y="92" class="bm-label">Core</text>
+            <text x="60" y="145" class="bm-label">Quads</text>
+          </svg>
+        </div>
+
+        <!-- BACK -->
+        <div class="ex-body-map" aria-label="Back of body">
+          <p class="ex-body-map__label">Back</p>
+          <svg viewBox="0 0 120 260" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="Back body diagram — click a region to filter">
+            <title>Back body diagram</title>
+
+            <!-- Head -->
+            <ellipse cx="60" cy="18" rx="14" ry="17" class="bm-head bm-inert" />
+
+            <!-- Neck -->
+            <rect x="54" y="33" width="12" height="8" rx="2" class="bm-neck bm-inert" />
+
+            <!-- Shoulders (back) -->
+            <ellipse cx="28" cy="52" rx="13" ry="9" class="bm-region" data-muscle="shoulders"
+                     tabindex="0" role="button" aria-pressed="false" aria-label="Shoulders" />
+            <ellipse cx="92" cy="52" rx="13" ry="9" class="bm-region" data-muscle="shoulders"
+                     tabindex="0" role="button" aria-pressed="false" aria-label="Shoulders" />
+
+            <!-- Upper back / lats -->
+            <path d="M41 44 Q60 40 79 44 L79 80 Q60 86 41 80 Z" class="bm-region" data-muscle="back-upper"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Upper back" />
+
+            <!-- Triceps -->
+            <rect x="16" y="62" width="11" height="28" rx="5" class="bm-region" data-muscle="triceps"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Triceps" />
+            <rect x="93" y="62" width="11" height="28" rx="5" class="bm-region" data-muscle="triceps"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Triceps" />
+
+            <!-- Lower back -->
+            <path d="M41 80 Q60 86 79 80 L79 115 Q60 120 41 115 Z" class="bm-region" data-muscle="back-lower"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Lower back" />
+
+            <!-- Glutes -->
+            <path d="M41 115 Q60 120 79 115 L80 148 Q60 154 40 148 Z" class="bm-region" data-muscle="glutes"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Glutes" />
+
+            <!-- Hamstrings -->
+            <path d="M41 150 L54 150 L55 198 L40 198 Z" class="bm-region" data-muscle="hamstrings"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Hamstrings" />
+            <path d="M66 150 L79 150 L80 198 L65 198 Z" class="bm-region" data-muscle="hamstrings"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Hamstrings" />
+
+            <!-- Calves (back) -->
+            <path d="M41 200 L54 200 L53 228 L42 228 Z" class="bm-region" data-muscle="calves"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Calves" />
+            <path d="M66 200 L79 200 L78 228 L67 228 Z" class="bm-region" data-muscle="calves"
+                  tabindex="0" role="button" aria-pressed="false" aria-label="Calves" />
+
+            <!-- Feet -->
+            <ellipse cx="47" cy="236" rx="9" ry="5" class="bm-foot bm-inert" />
+            <ellipse cx="73" cy="236" rx="9" ry="5" class="bm-foot bm-inert" />
+
+            <!-- Labels -->
+            <text x="60" y="65" class="bm-label">Upper back</text>
+            <text x="60" y="100" class="bm-label">Lower back</text>
+            <text x="60" y="134" class="bm-label">Glutes</text>
+            <text x="60" y="176" class="bm-label">Hamstrings</text>
+          </svg>
+        </div>
+
+      </div><!-- .ex-body-maps -->
+
+      <!-- Equipment filter -->
+      <div class="ex-equipment-filters" role="group" aria-label="Filter by equipment">
+        <p class="ex-filter-label">Equipment</p>
+        <div class="ex-equipment-btns">
+          <button class="ex-eq-btn" data-equipment="all" aria-pressed="true">All</button>
+          <button class="ex-eq-btn" data-equipment="bodyweight" aria-pressed="false">Bodyweight</button>
+          <button class="ex-eq-btn" data-equipment="dumbbells" aria-pressed="false">Dumbbells</button>
+          <button class="ex-eq-btn" data-equipment="bands" aria-pressed="false">Bands</button>
+          <button class="ex-eq-btn" data-equipment="pull-up-bar" aria-pressed="false">Pull-up bar</button>
+          <button class="ex-eq-btn" data-equipment="bench" aria-pressed="false">Bench</button>
+        </div>
+      </div>
+
+      <!-- Active filter indicator -->
+      <p class="ex-filter-status" aria-live="polite" aria-atomic="true"></p>
+
+    </section><!-- .ex-controls -->
+
+    <!-- ── Exercise grid ───────────────────────────────────────────── -->
+    <section class="ex-grid" aria-label="Exercise list">
+      {% assign exercises = site.data.exercises.exercises %}
+      {% for ex in exercises %}
+      <article class="ex-card"
+               data-muscles="{{ ex.muscles | join: ' ' }}"
+               data-equipment="{{ ex.equipment | join: ' ' }}"
+               id="ex-{{ ex.id }}">
+
+        <div class="ex-card__illustration">
+          {% if ex.image %}
+          <img src="{{ '/assets/images/exercises/' | append: ex.image | relative_url }}"
+               alt="Step-by-step illustration of {{ ex.name }}"
+               width="320" height="220" loading="lazy" />
+          {% else %}
+          <div class="ex-card__illustration-placeholder" aria-hidden="true">
+            <span>illustration coming</span>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="ex-card__body">
+          <h2 class="ex-card__name">{{ ex.name }}</h2>
+
+          <ul class="ex-card__tags" aria-label="Equipment needed">
+            {% for eq in ex.equipment %}
+            <li class="ex-tag ex-tag--eq">{{ eq | replace: '-', ' ' }}</li>
+            {% endfor %}
+          </ul>
+
+          <ul class="ex-card__tags ex-card__tags--muscles" aria-label="Muscles worked">
+            {% for m in ex.muscles %}
+            <li class="ex-tag ex-tag--muscle">{{ m | replace: '-', ' ' }}</li>
+            {% endfor %}
+          </ul>
+
+          <p class="ex-card__description">{{ ex.description }}</p>
+
+          <div class="ex-card__core">
+            <span class="ex-card__core-label">Core:</span>
+            {{ ex.core_note }}
+          </div>
+
+          {% if ex.variations %}
+          <details class="ex-card__variations">
+            <summary class="ex-card__variations-toggle">Variations ({{ ex.variations | size }})</summary>
+            <ul class="ex-card__variations-list">
+              {% for v in ex.variations %}
+              <li class="ex-variation">
+                <span class="ex-variation__name">{{ v.name }}</span>
+                <ul class="ex-variation__eq" aria-label="Equipment">
+                  {% for eq in v.equipment %}
+                  <li class="ex-tag ex-tag--eq ex-tag--sm">{{ eq | replace: '-', ' ' }}</li>
+                  {% endfor %}
+                </ul>
+                <p class="ex-variation__note">{{ v.note }}</p>
+              </li>
+              {% endfor %}
+            </ul>
+          </details>
+          {% endif %}
+
+          {% if ex.video %}
+          <a class="ex-card__video-link" href="{{ ex.video }}" target="_blank" rel="noopener noreferrer"
+             aria-label="Watch {{ ex.name }} on YouTube (opens in new tab)">
+            Watch on YouTube
+          </a>
+          {% endif %}
+        </div>
+
+      </article>
+      {% endfor %}
+    </section><!-- .ex-grid -->
+
+    <p class="ex-empty-msg" hidden aria-live="polite">No exercises match that filter. Try a different muscle or equipment.</p>
+
+  </div><!-- .appslet__body -->
+</article>
+
+<script>
+(function () {
+  'use strict';
+
+  var activeMuscle = null;
+  var activeEquipment = 'all';
+
+  var cards = Array.from(document.querySelectorAll('.ex-card'));
+  var muscleRegions = Array.from(document.querySelectorAll('.bm-region'));
+  var eqBtns = Array.from(document.querySelectorAll('.ex-eq-btn'));
+  var statusEl = document.querySelector('.ex-filter-status');
+  var emptyMsg = document.querySelector('.ex-empty-msg');
+
+  // ── Muscle map interaction ─────────────────────────────────────────
+
+  function setMuscle(muscle) {
+    // Toggle off if already active
+    if (activeMuscle === muscle) {
+      activeMuscle = null;
+    } else {
+      activeMuscle = muscle;
+    }
+
+    // Update region aria-pressed state
+    muscleRegions.forEach(function (el) {
+      var isActive = activeMuscle && el.dataset.muscle === activeMuscle;
+      el.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      el.classList.toggle('is-active', isActive);
+    });
+
+    applyFilters();
+  }
+
+  muscleRegions.forEach(function (el) {
+    el.addEventListener('click', function () { setMuscle(el.dataset.muscle); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setMuscle(el.dataset.muscle);
+      }
+    });
+  });
+
+  // ── Equipment filter ───────────────────────────────────────────────
+
+  eqBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activeEquipment = btn.dataset.equipment;
+      eqBtns.forEach(function (b) {
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+      applyFilters();
+    });
+  });
+
+  // ── Apply both filters ─────────────────────────────────────────────
+
+  function applyFilters() {
+    var visibleCount = 0;
+
+    cards.forEach(function (card) {
+      var muscles = card.dataset.muscles.split(' ');
+      var equipment = card.dataset.equipment.split(' ');
+
+      var muscleMatch = !activeMuscle || muscles.indexOf(activeMuscle) !== -1;
+      var eqMatch = activeEquipment === 'all' || equipment.indexOf(activeEquipment) !== -1;
+
+      var show = muscleMatch && eqMatch;
+      card.hidden = !show;
+      if (show) visibleCount++;
+    });
+
+    emptyMsg.hidden = visibleCount > 0;
+    updateStatus(visibleCount);
+  }
+
+  function updateStatus(count) {
+    var parts = [];
+    if (activeMuscle) parts.push(activeMuscle.replace('-', ' '));
+    if (activeEquipment !== 'all') parts.push(activeEquipment.replace('-', ' '));
+
+    if (parts.length === 0) {
+      statusEl.textContent = '';
+    } else {
+      statusEl.textContent = count + ' exercise' + (count !== 1 ? 's' : '') + ' — ' + parts.join(' + ');
+    }
+  }
+
+  // ── Keyboard: Escape clears muscle filter ─────────────────────────
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && activeMuscle) {
+      setMuscle(activeMuscle); // toggles off
+    }
+  });
+
+})();
+</script>
