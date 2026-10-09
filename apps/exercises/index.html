@@ -87,57 +87,62 @@ description: Home gym exercise library. Browse by muscle or equipment.
                role="img" aria-label="Back body diagram — click a region to filter">
             <title>Back body diagram</title>
 
-            <!-- Head -->
+            <!-- Head — identical to front -->
             <ellipse cx="60" cy="18" rx="14" ry="17" class="bm-head bm-inert" />
 
-            <!-- Neck -->
+            <!-- Neck — identical to front -->
             <rect x="54" y="33" width="12" height="8" rx="2" class="bm-neck bm-inert" />
 
-            <!-- Shoulders (back) -->
+            <!-- Shoulders — identical anchor points to front -->
             <ellipse cx="28" cy="52" rx="13" ry="9" class="bm-region" data-muscle="shoulders"
                      tabindex="0" role="button" aria-pressed="false" aria-label="Shoulders" />
             <ellipse cx="92" cy="52" rx="13" ry="9" class="bm-region" data-muscle="shoulders"
                      tabindex="0" role="button" aria-pressed="false" aria-label="Shoulders" />
 
-            <!-- Upper back / lats -->
+            <!-- Upper back / lats — same top edge as front chest (y=44) -->
             <path d="M41 44 Q60 40 79 44 L79 80 Q60 86 41 80 Z" class="bm-region" data-muscle="back-upper"
                   tabindex="0" role="button" aria-pressed="false" aria-label="Upper back" />
 
-            <!-- Triceps -->
+            <!-- Triceps — same y range as front biceps (y=62 to y=90) -->
             <rect x="16" y="62" width="11" height="28" rx="5" class="bm-region" data-muscle="triceps"
                   tabindex="0" role="button" aria-pressed="false" aria-label="Triceps" />
             <rect x="93" y="62" width="11" height="28" rx="5" class="bm-region" data-muscle="triceps"
                   tabindex="0" role="button" aria-pressed="false" aria-label="Triceps" />
 
-            <!-- Lower back -->
-            <path d="M41 80 Q60 86 79 80 L79 115 Q60 120 41 115 Z" class="bm-region" data-muscle="back-lower"
+            <!-- Forearms — identical to front -->
+            <rect x="13" y="92" width="10" height="26" rx="4" class="bm-forearm bm-inert" />
+            <rect x="97" y="92" width="10" height="26" rx="4" class="bm-forearm bm-inert" />
+
+            <!-- Lower back — picks up where upper back ends (y=80) same bottom as front core (y=110) -->
+            <path d="M41 80 Q60 86 79 80 L79 110 Q60 116 41 110 Z" class="bm-region" data-muscle="back-lower"
                   tabindex="0" role="button" aria-pressed="false" aria-label="Lower back" />
 
-            <!-- Glutes -->
-            <path d="M41 115 Q60 120 79 115 L80 148 Q60 154 40 148 Z" class="bm-region" data-muscle="glutes"
+            <!-- Glutes — slightly narrower, same rounded shape -->
+            <path d="M40 113 Q60 109 80 113 Q86 124 84 142 Q76 152 60 154 Q44 152 36 142 Q34 124 40 113 Z"
+                  class="bm-region" data-muscle="glutes"
                   tabindex="0" role="button" aria-pressed="false" aria-label="Glutes" />
 
-            <!-- Hamstrings -->
-            <path d="M41 150 L54 150 L55 198 L40 198 Z" class="bm-region" data-muscle="hamstrings"
+            <!-- Hamstrings — same paths as front quads -->
+            <path d="M41 150 L54 150 L56 170 L40 170 Z" class="bm-region" data-muscle="hamstrings"
                   tabindex="0" role="button" aria-pressed="false" aria-label="Hamstrings" />
-            <path d="M66 150 L79 150 L80 198 L65 198 Z" class="bm-region" data-muscle="hamstrings"
+            <path d="M66 150 L79 150 L80 170 L64 170 Z" class="bm-region" data-muscle="hamstrings"
                   tabindex="0" role="button" aria-pressed="false" aria-label="Hamstrings" />
 
-            <!-- Calves (back) -->
-            <path d="M41 200 L54 200 L53 228 L42 228 Z" class="bm-region" data-muscle="calves"
+            <!-- Calves — same paths as front calves -->
+            <path d="M40 172 L55 172 L54 218 L41 218 Z" class="bm-region" data-muscle="calves"
                   tabindex="0" role="button" aria-pressed="false" aria-label="Calves" />
-            <path d="M66 200 L79 200 L78 228 L67 228 Z" class="bm-region" data-muscle="calves"
+            <path d="M65 172 L80 172 L79 218 L66 218 Z" class="bm-region" data-muscle="calves"
                   tabindex="0" role="button" aria-pressed="false" aria-label="Calves" />
 
-            <!-- Feet -->
-            <ellipse cx="47" cy="236" rx="9" ry="5" class="bm-foot bm-inert" />
-            <ellipse cx="73" cy="236" rx="9" ry="5" class="bm-foot bm-inert" />
+            <!-- Feet — same as front -->
+            <ellipse cx="47" cy="228" rx="9" ry="5" class="bm-foot bm-inert" />
+            <ellipse cx="73" cy="228" rx="9" ry="5" class="bm-foot bm-inert" />
 
             <!-- Labels -->
             <text x="60" y="65" class="bm-label">Upper back</text>
-            <text x="60" y="100" class="bm-label">Lower back</text>
-            <text x="60" y="134" class="bm-label">Glutes</text>
-            <text x="60" y="176" class="bm-label">Hamstrings</text>
+            <text x="60" y="97" class="bm-label">Lower back</text>
+            <text x="60" y="133" class="bm-label">Glutes</text>
+            <text x="60" y="174" class="bm-label">Hamstrings</text>
           </svg>
         </div>
 
