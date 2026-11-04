@@ -1,9 +1,10 @@
 ---
-layout: post
 title: "My Photos Live on My Drive Now"
-date: 2026-11-04 06:00:00 -0500
+date: 2026-11-04
+last_updated: 2026-11-04
 author: sheehan
 tags: [software, self-hosting, privacy]
+excerpt: "I set up Immich last night. My photos now live on my own drive instead of Apple's servers."
 ---
 
 I set up Immich last night. It took a few hours. My photos are now backed up to an 18-terabyte drive sitting under my desk instead of Apple's servers in some data center I'll never see.
