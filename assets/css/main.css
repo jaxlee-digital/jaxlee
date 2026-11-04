@@ -1468,7 +1468,8 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 /* ----- Nav dropdown (disclosure pattern) ----- */
 .site-nav__menu {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 }
 .site-nav__menu-btn {
   appearance: none;
