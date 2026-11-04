@@ -20,8 +20,8 @@ social:
     icon_img: "/assets/images/icons/adafruit.ico"
 # Keep the old top-level key for backward compat
 flickr: "https://www.flickr.com/people/127544400@N03/"
-baseurl: "/jaxlee"      # project-page subpath; set to "" if a custom domain is attached
-url: "https://jaxlee-digital.github.io"
+baseurl: ""            # custom domain — no subpath
+url: "https://jaxleedigital.com"
 
 # Build settings
 markdown: kramdown
