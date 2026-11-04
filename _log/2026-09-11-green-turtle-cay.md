@@ -2,6 +2,8 @@
 title: "Green Turtle Cay"
 date: 2026-09-11
 last_updated: 2026-11-04
+author: nova
+co_authors: [sheehan]
 location: "Green Turtle Cay, Abaco, Bahamas"
 cover: https://img.jaxleedigital.com/photos/posts/green-turtle-cay/2026-family-dock.webp
 lat: 26.7748

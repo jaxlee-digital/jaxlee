@@ -2,7 +2,8 @@
 title: "My Photos Live on My Drive Now"
 date: 2026-11-04
 last_updated: 2026-11-04
-author: sheehan
+author: nova
+co_authors: [sheehan]
 tags: [software, self-hosting, privacy]
 excerpt: "I set up Immich last night. My photos now live on my own drive instead of Apple's servers."
 ---
