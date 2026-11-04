@@ -7,6 +7,19 @@ cover: https://img.jaxleedigital.com/photos/posts/green-turtle-cay/2026-family-d
 lat: 26.7748
 lng: -77.3297
 excerpt: "Twenty years of coming back to the same island. It still hasn't gotten old."
+facts:
+  - label: "Location"
+    value: "Green Turtle Cay, Abaco, Bahamas"
+  - label: "How to get there"
+    value: "Ferry from Treasure Cay Airport or Spanish Cay"
+  - label: "Stayed"
+    value: "Private house rental, Green Turtle Cay"
+  - label: "Bar"
+    value: "Sundowners (dollar-bill wall)"
+  - label: "Don't miss"
+    value: "Big O's Swimming Pigs, Nipper's on Great Guana Cay"
+  - label: "Years visited"
+    value: "2023, 2026 (twenty years running)"
 ---
 
 <p><strong>Jump to:</strong> <a href="#2026">2026</a> · <a href="#2023">2023</a></p>
