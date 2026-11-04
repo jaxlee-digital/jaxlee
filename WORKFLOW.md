@@ -11,11 +11,12 @@ publishing or deploying anything to this repo.
   git repo**, nested inside the workspace. Use
   `git -C /home/sheehan/.openclaw/workspace/jaxlee-site …` for
   every git command (see `skills/git-safe-commit/`).
-- **Live:** https://jaxlee-digital.github.io/jaxlee
+- **Live:** https://jaxleedigital.com
 - **Engine:** Jekyll via `github-pages` gem, default-branch build
 - **Theme:** custom (in-repo)
-- **Custom domain:** none (jaxlee.com not owned)
-- **Baseurl:** `/jaxlee` (do not blank without a custom domain)
+- **Custom domain:** `jaxleedigital.com` (Cloudflare DNS, nameservers moved from Squarespace 2026-11-04)
+- **Image CDN:** `https://img.jaxleedigital.com` — Nginx/Immich on OptiPlex, Cloudflare proxied. Photos live at `/mnt/media/photos/`. Use for all new post images instead of committing to repo.
+- **Baseurl:** `` (blank — custom domain active)
 - **Identity:** `jaxlee-digital` GitHub account (separate from
   Sheehan's primary), per-repo credential helper
   `/home/sheehan/.openclaw/bin/git-credential-jaxlee`
@@ -67,12 +68,66 @@ Run the audit before any deploy that touches templates, layouts,
 or new pages. Skip for routine posts that reuse existing
 components.
 
+## Authorship guidelines
+
+All content has an author and optional co-authors. Use handles defined in `_data/authors.yml`.
+
+**When Nova drafts the post:**
+- `author: nova` + `co_authors: [sheehan]`
+- Byline renders: "By Nova ✨ with Sheehan Commette"
+- AI disclosure note auto-renders via byline include
+
+**When Sheehan writes, Nova edits/assists:**
+- `author: sheehan` + `co_authors: [nova]`
+- Byline renders: "By Sheehan Commette with Nova ✨"
+
+**When Sheehan writes solo:**
+- `author: sheehan` only
+
+Examples:
+- `_posts/2026-11-04-owning-my-photos.md` — Nova primary, Sheehan co-author
+- `_log/2026-09-11-green-turtle-cay.md` — Nova primary, Sheehan co-author
+- `_posts/2026-04-22-building-jaxlee-digital.md` — Sheehan primary, Nova co-author
+
+## Image hosting
+
+New post images go on the image CDN, not committed to the repo:
+
+1. Copy image to `/mnt/media/photos/posts/<slug>/` on the OptiPlex
+2. Reference as `https://img.jaxleedigital.com/photos/posts/<slug>/filename.jpg`
+3. Only commit images to `assets/` for legacy posts or if the CDN is unavailable
+
+The CDN is Nginx served from the 18.2 TB drive, proxied through Cloudflare.
+
+## Log entries (`_log/`)
+
+Use `_log/` for travel, outings, and place-based entries. Key front matter:
+
+```yaml
+title: "Place Name"
+date: YYYY-MM-DD
+last_updated: YYYY-MM-DD
+author: nova          # or sheehan
+co_authors: [sheehan] # or [nova]
+location: "City, State/Country"
+cover: https://img.jaxleedigital.com/photos/posts/<slug>/hero.jpg
+lat: 00.0000
+lng: -00.0000
+excerpt: "One line."
+facts:
+  - label: "Key"
+    value: "Value"
+```
+
+For multi-year/recurring places, use inline `<h2 id="YYYY">` headings in the body with a jump nav at the top:
+```html
+<p><strong>Jump to:</strong> <a href="#2026">2026</a> · <a href="#2023">2023</a></p>
+```
+
 ## Repo-specific rules
 
-- **`baseurl` is `/jaxlee`.** Keep it. Blanking breaks every link
-  until a custom domain is attached.
-- **Internal links** must use `{{ site.baseurl }}/path/`. Never
-  hardcode `/jaxlee/path/`.
+- **`baseurl` is blank** (custom domain active). Do not add `/jaxlee`.
+- **Internal links** use `{{ site.baseurl }}/path/` or `relative_url` filter.
 - **GitHub Pages plugins only.** Allowed: `jekyll-feed`,
   `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-paginate`.
 - **No `.github/workflows/`.** Pages builds directly from the
