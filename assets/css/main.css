@@ -2135,6 +2135,88 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
 }
 
 /* Equipment filters */
+/* Push / Pull filter */
+.ex-pushpull-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ex-pushpull-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.ex-pp-btn {
+  background: var(--paper-alt);
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  min-height: 44px;
+  line-height: 1;
+}
+
+.ex-pp-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+  color: var(--ink);
+}
+
+.ex-pp-btn[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.ex-pp-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Core moves toggle */
+.ex-core-move-filter {
+  display: flex;
+  justify-content: center;
+}
+
+.ex-core-btn {
+  background: var(--paper-alt);
+  border: 1px solid #f0d070;
+  color: #8a6a00;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.82rem;
+  padding: 0.35rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  min-height: 44px;
+  line-height: 1;
+}
+
+.ex-core-btn:hover {
+  background: #fff8e1;
+}
+
+.ex-core-btn[aria-pressed="true"] {
+  background: #fff8e1;
+  border-color: #d4a800;
+  color: #6a4f00;
+  font-weight: 600;
+}
+
+.ex-core-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .ex-equipment-filters {
   display: flex;
   flex-direction: column;
@@ -2305,6 +2387,38 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--rhythm) 0; }
   background: transparent;
   border: 1px solid var(--rule);
   color: var(--ink-muted);
+}
+
+/* Push / pull type tag */
+.ex-tag--pp {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.65rem;
+  padding: 0.15rem 0.6rem;
+}
+
+.ex-tag--pp-push  { background: #e8f4fd; color: #1a6fa8; border: 1px solid #b3d7f0; }
+.ex-tag--pp-pull  { background: #fdf0e8; color: #a84f1a; border: 1px solid #f0ccb3; }
+.ex-tag--pp-legs  { background: #edf8ed; color: #2a7a2a; border: 1px solid #b3deb3; }
+.ex-tag--pp-core  { background: #f5edf8; color: #7a2a8a; border: 1px solid #d8b3e8; }
+
+/* Core move badge */
+.ex-tag--core-move {
+  background: #fff8e1;
+  color: #8a6a00;
+  border: 1px solid #f0d070;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.6rem;
+}
+
+/* Meta row (push/pull + core move badges) */
+.ex-card__meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Description */

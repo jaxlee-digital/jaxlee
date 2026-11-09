@@ -148,6 +148,18 @@ description: Home gym exercise library. Browse by muscle or equipment.
 
       </div><!-- .ex-body-maps -->
 
+      <!-- Push / Pull filter -->
+      <div class="ex-pushpull-filters" role="group" aria-label="Filter by push or pull">
+        <p class="ex-filter-label">Type</p>
+        <div class="ex-pushpull-btns">
+          <button class="ex-pp-btn" data-pushpull="all" aria-pressed="true">All</button>
+          <button class="ex-pp-btn" data-pushpull="push" aria-pressed="false">Push</button>
+          <button class="ex-pp-btn" data-pushpull="pull" aria-pressed="false">Pull</button>
+          <button class="ex-pp-btn" data-pushpull="legs" aria-pressed="false">Legs</button>
+          <button class="ex-pp-btn" data-pushpull="core" aria-pressed="false">Core</button>
+        </div>
+      </div>
+
       <!-- Equipment filter -->
       <div class="ex-equipment-filters" role="group" aria-label="Filter by equipment">
         <p class="ex-filter-label">Equipment</p>
@@ -159,6 +171,11 @@ description: Home gym exercise library. Browse by muscle or equipment.
           <button class="ex-eq-btn" data-equipment="pull-up-bar" aria-pressed="false">Pull-up bar</button>
           <button class="ex-eq-btn" data-equipment="bench" aria-pressed="false">Bench</button>
         </div>
+      </div>
+
+      <!-- Core moves toggle -->
+      <div class="ex-core-move-filter" role="group" aria-label="Show core moves only">
+        <button class="ex-core-btn" aria-pressed="false">⭐ Core moves only</button>
       </div>
 
       <!-- Active filter indicator -->
@@ -173,6 +190,8 @@ description: Home gym exercise library. Browse by muscle or equipment.
       <article class="ex-card"
                data-muscles="{{ ex.muscles | join: ' ' }}"
                data-equipment="{{ ex.equipment | join: ' ' }}"
+               data-pushpull="{{ ex.push_pull }}"
+               data-core-move="{{ ex.core_move }}"
                id="ex-{{ ex.id }}">
 
         <div class="ex-card__illustration">
@@ -189,6 +208,15 @@ description: Home gym exercise library. Browse by muscle or equipment.
 
         <div class="ex-card__body">
           <h2 class="ex-card__name">{{ ex.name }}</h2>
+
+          <div class="ex-card__meta-row">
+            {% if ex.push_pull %}
+            <span class="ex-tag ex-tag--pp ex-tag--pp-{{ ex.push_pull }}">{{ ex.push_pull }}</span>
+            {% endif %}
+            {% if ex.core_move %}
+            <span class="ex-tag ex-tag--core-move" title="Core move">⭐ core move</span>
+            {% endif %}
+          </div>
 
           <ul class="ex-card__tags" aria-label="Equipment needed">
             {% for eq in ex.equipment %}
@@ -251,10 +279,14 @@ description: Home gym exercise library. Browse by muscle or equipment.
 
   var activeMuscle = null;
   var activeEquipment = 'all';
+  var activePushPull = 'all';
+  var coreMovesOnly = false;
 
   var cards = Array.from(document.querySelectorAll('.ex-card'));
   var muscleRegions = Array.from(document.querySelectorAll('.bm-region'));
   var eqBtns = Array.from(document.querySelectorAll('.ex-eq-btn'));
+  var ppBtns = Array.from(document.querySelectorAll('.ex-pp-btn'));
+  var coreMoveBtn = document.querySelector('.ex-core-btn');
   var statusEl = document.querySelector('.ex-filter-status');
   var emptyMsg = document.querySelector('.ex-empty-msg');
 
@@ -288,6 +320,26 @@ description: Home gym exercise library. Browse by muscle or equipment.
     });
   });
 
+  // ── Push / Pull filter ────────────────────────────────────────────
+
+  ppBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activePushPull = btn.dataset.pushpull;
+      ppBtns.forEach(function (b) {
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+      applyFilters();
+    });
+  });
+
+  // ── Core moves toggle ─────────────────────────────────────────────
+
+  coreMoveBtn.addEventListener('click', function () {
+    coreMovesOnly = !coreMovesOnly;
+    coreMoveBtn.setAttribute('aria-pressed', coreMovesOnly ? 'true' : 'false');
+    applyFilters();
+  });
+
   // ── Equipment filter ───────────────────────────────────────────────
 
   eqBtns.forEach(function (btn) {
@@ -308,11 +360,15 @@ description: Home gym exercise library. Browse by muscle or equipment.
     cards.forEach(function (card) {
       var muscles = card.dataset.muscles.split(' ');
       var equipment = card.dataset.equipment.split(' ');
+      var pushPull = card.dataset.pushpull;
+      var isCoreMove = card.dataset.coreMove === 'true';
 
       var muscleMatch = !activeMuscle || muscles.indexOf(activeMuscle) !== -1;
       var eqMatch = activeEquipment === 'all' || equipment.indexOf(activeEquipment) !== -1;
+      var ppMatch = activePushPull === 'all' || pushPull === activePushPull;
+      var coreMoveMatch = !coreMovesOnly || isCoreMove;
 
-      var show = muscleMatch && eqMatch;
+      var show = muscleMatch && eqMatch && ppMatch && coreMoveMatch;
       card.hidden = !show;
       if (show) visibleCount++;
     });
@@ -324,7 +380,9 @@ description: Home gym exercise library. Browse by muscle or equipment.
   function updateStatus(count) {
     var parts = [];
     if (activeMuscle) parts.push(activeMuscle.replace('-', ' '));
+    if (activePushPull !== 'all') parts.push(activePushPull);
     if (activeEquipment !== 'all') parts.push(activeEquipment.replace('-', ' '));
+    if (coreMovesOnly) parts.push('core moves');
 
     if (parts.length === 0) {
       statusEl.textContent = '';

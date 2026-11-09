@@ -4,6 +4,8 @@
 #   name: display name
 #   muscles: list of muscle-map IDs
 #   equipment: list — all valid options (bodyweight, dumbbells, bands, pull-up-bar, bench)
+#   push_pull: push | pull | legs | core
+#   core_move: true if this is a staple exercise Sheehan almost always does
 #   core_note: how the core is involved
 #   description: cues and form notes
 #   variations: list of {name, equipment, note}
@@ -18,6 +20,8 @@ exercises:
     name: Push-Up
     muscles: [chest, triceps, core, shoulders]
     equipment: [bodyweight]
+    push_pull: push
+    core_move: true
     core_note: Brace the entire trunk. Hips must stay level — the plank position is the point.
     description: |
       Hands shoulder-width apart, fingers forward. Lower chest to an inch off the floor, elbows tracking back at roughly 45°. Press to full lockout. Don't let hips sag or pike.
@@ -43,6 +47,8 @@ exercises:
     name: Dumbbell Chest Press
     muscles: [chest, triceps, shoulders]
     equipment: [dumbbells, bench]
+    push_pull: push
+    core_move: true
     core_note: Feet flat on floor, low back neutral. Don't arch to lift heavier.
     description: |
       Lie on bench, dumbbells at chest height, elbows at ~75°. Press straight up until arms nearly lock. Lower under control for a 2-count. Shoulder blades pulled together and down throughout.
@@ -62,6 +68,8 @@ exercises:
     name: Dumbbell Fly
     muscles: [chest, shoulders]
     equipment: [dumbbells, bench]
+    push_pull: push
+    core_move: false
     core_note: Ribs down, core tight — resist the urge to arch as the weights open.
     description: |
       Lie on bench with dumbbells above chest, slight bend in elbows. Open arms in a wide arc until a stretch is felt across the chest. Squeeze pecs to bring them back together. Keep the elbow angle fixed throughout.
@@ -80,6 +88,8 @@ exercises:
     name: Pull-Up
     muscles: [back-upper, biceps, core]
     equipment: [pull-up-bar]
+    push_pull: pull
+    core_move: true
     core_note: Dead-hang start demands full trunk bracing to prevent swinging. Keep legs straight or crossed.
     description: |
       Overhand grip, hands just outside shoulder width. Pull until chin clears the bar, leading with the elbows. Lower fully between reps — no half reps. Avoid kipping unless explicitly training it.
@@ -102,6 +112,8 @@ exercises:
     name: Dumbbell Row
     muscles: [back-upper, back-lower, biceps]
     equipment: [dumbbells, bench]
+    push_pull: pull
+    core_move: true
     core_note: Brace the working-side obliques hard to prevent rotation. Non-working arm and knee on bench for support.
     description: |
       One hand and knee on bench. Pull dumbbell to hip, elbow grazing the side. Feel the lat contract at the top — don't just raise the arm. Lower fully. Keep spine parallel to the floor.
@@ -121,6 +133,8 @@ exercises:
     name: Band Pull-Apart
     muscles: [back-upper, shoulders]
     equipment: [bands]
+    push_pull: pull
+    core_move: false
     core_note: "Standing version: brace the core to avoid leaning back as the band opens."
     description: |
       Hold band at shoulder height with both hands, arms extended. Pull the band apart until it touches your chest, squeezing the shoulder blades together hard. Slow return. Keep arms level throughout.
@@ -139,6 +153,8 @@ exercises:
     name: Dumbbell Shoulder Press
     muscles: [shoulders, triceps, core]
     equipment: [dumbbells]
+    push_pull: push
+    core_move: true
     core_note: Standing demands significant anti-extension from the abs. Seated removes this — choose accordingly.
     description: |
       Start with dumbbells at ear height, elbows at 90°. Press overhead to near lockout. Lower under control. Keep ribs down — don't flare or hyperextend the low back.
@@ -158,6 +174,8 @@ exercises:
     name: Lateral Raise
     muscles: [shoulders]
     equipment: [dumbbells, bands]
+    push_pull: push
+    core_move: false
     core_note: Light core engagement to stay upright. Use bands for constant tension or dumbbells for peak contraction at the top.
     description: |
       Arms at sides, slight bend in elbows. Raise to shoulder height, leading with elbows, not wrists. Pause briefly at the top. Lower slowly — 3 seconds down. Don't shrug.
@@ -177,6 +195,8 @@ exercises:
     name: Band Face Pull
     muscles: [shoulders, back-upper]
     equipment: [bands]
+    push_pull: pull
+    core_move: false
     core_note: Anchor the core to prevent leaning back as you pull.
     description: |
       Anchor band at face height. Pull toward your face, hands separating wide, elbows flaring out. External rotate at the top — hands finish beside ears. Great for shoulder health and rear delt work.
@@ -195,6 +215,8 @@ exercises:
     name: Dumbbell Curl
     muscles: [biceps]
     equipment: [dumbbells]
+    push_pull: pull
+    core_move: true
     core_note: Brace to stop the torso from swinging — if you're rocking, drop the weight.
     description: |
       Standing, arms at sides, palms forward. Curl to shoulder height without moving the elbows forward. Supinate fully at the top. Lower in 3 seconds. Alternate or both at once.
@@ -217,6 +239,8 @@ exercises:
     name: Tricep Dip
     muscles: [triceps, chest, shoulders]
     equipment: [bodyweight, bench]
+    push_pull: push
+    core_move: false
     core_note: Keep hips close to the bench. Core tight to avoid excessive back arch.
     description: |
       Hands on bench edge, fingers forward, feet out. Lower until elbows reach ~90°, keeping the back close to the bench. Press back up to lockout. Add weight on lap to progress.
@@ -233,6 +257,8 @@ exercises:
     name: Tricep Kickback
     muscles: [triceps]
     equipment: [dumbbells, bands]
+    push_pull: push
+    core_move: true
     core_note: Hinge position demands the core locks the torso in place — any rocking or swaying shifts the work away from the tricep.
     description: |
       Hinge forward at the hips until your torso is nearly parallel to the floor. Upper arm pinned to your side, elbow at 90°. Extend the forearm back until the arm is fully straight, squeezing the tricep hard at lockout. Lower under control — don't let the elbow drift forward. Work one arm at a time or both.
@@ -255,6 +281,8 @@ exercises:
     name: Band Tricep Pushdown
     muscles: [triceps]
     equipment: [bands]
+    push_pull: push
+    core_move: false
     core_note: Brace the core — elbows stay pinned to the sides; the trunk should not move at all.
     description: |
       Anchor band overhead. Starting with elbows at 90°, push handles down to full extension. Pause at the bottom. Slow on the return. Elbows stay fixed at your sides throughout.
@@ -273,6 +301,8 @@ exercises:
     name: Plank
     muscles: [core, shoulders]
     equipment: [bodyweight]
+    push_pull: core
+    core_move: true
     core_note: The whole point. Squeeze glutes and abs together — think of pulling the pelvis toward the ribcage.
     description: |
       Forearms on floor, elbows under shoulders. Hold a straight line from head to heels. Breathe steadily. Stop when form breaks — 10 perfect seconds beats 60 sloppy ones.
@@ -295,6 +325,8 @@ exercises:
     name: Dead Bug
     muscles: [core]
     equipment: [bodyweight]
+    push_pull: core
+    core_move: true
     core_note: Core keeps the low back pressed into the floor as limbs move — that is the entire exercise.
     description: |
       Lie on back, arms straight up, knees at 90° in the air. Lower opposite arm and leg toward the floor simultaneously, keeping the low back flat. Return and switch sides. Move slowly.
@@ -311,6 +343,8 @@ exercises:
     name: Hollow Body Hold
     muscles: [core]
     equipment: [bodyweight]
+    push_pull: core
+    core_move: false
     core_note: Maximum anti-extension demand — the foundation of gymnastic core strength.
     description: |
       Lie on back, arms overhead. Press the low back into the floor and lift shoulders and legs off simultaneously until a hollow banana shape is held. Start with knees bent to make it manageable.
@@ -327,6 +361,8 @@ exercises:
     name: Hanging Knee Raise
     muscles: [core, back-upper]
     equipment: [pull-up-bar]
+    push_pull: core
+    core_move: false
     core_note: Pelvis must posteriorly tilt (tuck under) at the top — just raising the legs doesn't fully work the lower abs.
     description: |
       Dead hang from bar. Bring knees to chest by flexing at hips, then tuck the pelvis under at the top. Lower slowly — no swinging. Progress to straight-leg raises.
@@ -345,6 +381,8 @@ exercises:
     name: Squat
     muscles: [quads, glutes, core]
     equipment: [bodyweight, dumbbells, bands]
+    push_pull: legs
+    core_move: true
     core_note: Bracing the core keeps an upright torso and protects the low back under load. Think big breath in, hold it through the rep.
     description: |
       Feet shoulder-width apart, toes slightly out. Sit back and down until thighs reach parallel or below. Drive through the full foot to stand. Keep chest tall, knees tracking over toes throughout.
@@ -372,6 +410,8 @@ exercises:
     name: Lunge
     muscles: [quads, glutes, hamstrings, core]
     equipment: [bodyweight, dumbbells, bands]
+    push_pull: legs
+    core_move: true
     core_note: Strong core prevents lateral lean — especially important as fatigue sets in.
     description: |
       Step forward, lower the back knee toward the floor, keeping the front shin vertical. Drive through the front heel to return. Don't let the front knee cave inward. Keep torso upright throughout.
@@ -399,6 +439,8 @@ exercises:
     name: Deadlift
     muscles: [hamstrings, glutes, back-lower, back-upper, core]
     equipment: [dumbbells, bands]
+    push_pull: legs
+    core_move: true
     core_note: Bracing here is critical — this is a spine-loading movement. Any rounding under load is a red flag. Big breath, brace before every rep.
     description: |
       Dumbbells in front of thighs, feet hip-width. Hinge at the hips, pushing them back, lowering weights close to the legs. Keep a neutral spine throughout. Drive hips forward to return to standing. Slight knee bend.
@@ -426,6 +468,8 @@ exercises:
     name: Glute Bridge
     muscles: [glutes, hamstrings, core]
     equipment: [bodyweight, dumbbells, bands]
+    push_pull: legs
+    core_move: true
     core_note: Core maintains a neutral spine as the hips extend — prevents the low back from taking over.
     description: |
       Lie on back, feet flat, knees bent. Drive hips to the ceiling, squeezing glutes hard at the top. Hold 1 second. Lower without touching the floor between reps. Place a dumbbell on hips or band across thighs to add resistance.
@@ -450,6 +494,8 @@ exercises:
     name: Donkey Kick
     muscles: [glutes, core]
     equipment: [bodyweight, bands]
+    push_pull: legs
+    core_move: true
     core_note: Quadruped position — brace the core hard to keep the hips level and prevent rotation as the leg moves.
     description: |
       On hands and knees, back flat. Drive one heel toward the ceiling, knee bent at 90°, squeezing the glute at the top. Hips stay square — no twisting. Lower without touching the floor. Loop a band above the knee or around the foot for resistance.
@@ -471,6 +517,8 @@ exercises:
     name: Fire Hydrant
     muscles: [glutes, core]
     equipment: [bodyweight, bands]
+    push_pull: legs
+    core_move: false
     core_note: Same quadruped demand as donkey kick — hips must stay level. Resisting the urge to tilt is where the core work happens.
     description: |
       On hands and knees. Keeping the knee bent at 90°, raise one leg out to the side like a dog at a fire hydrant. Hip height is the target — no higher. Squeeze the glute at the top, lower with control. Add a band above the knees for resistance.
@@ -489,12 +537,40 @@ exercises:
         note: Stand, brace against a wall for balance, raise the leg to the side. More functional — works the hip in a standing position.
     image: fire-hydrant.png
 
+  # ── LEGS / SIDE LEG LIFT ──────────────────────────────────────────────────
+
+  - id: side-leg-lift
+    name: Side Leg Lift
+    muscles: [glutes, core]
+    equipment: [bodyweight, bands]
+    push_pull: legs
+    core_move: true
+    core_note: Side-lying position still demands the core stabilizes the pelvis — let the hip do the work, not a tilt or hitch.
+    description: |
+      Lie on your side, body in a straight line, bottom arm extended or head resting on it. Keeping the top leg straight and toes slightly forward (not pointed at ceiling), raise it to about 45°. Squeeze the outer glute at the top. Lower with control — don't let it drop. Work both sides. Add a band above the knees to increase resistance.
+    variations:
+      - name: Banded Side Leg Lift
+        equipment: [bands]
+        note: Band just above the knees. Adds resistance and keeps the movement honest.
+      - name: Side Leg Lift with Pulse
+        equipment: [bodyweight, bands]
+        note: Hold at the top and do small pulses before lowering. Burnout finisher.
+      - name: Standing Side Leg Lift
+        equipment: [bodyweight, bands]
+        note: Stand and brace against a wall, raise the leg out to the side. More functional hip abductor work.
+      - name: Side Leg Lift Circles
+        equipment: [bodyweight]
+        note: At the top, draw small circles with the foot. Adds hip mobility and glute endurance.
+    image: side-leg-lift.png
+
   # ── LEGS / CALF ───────────────────────────────────────────────────────────
 
   - id: calf-raise
     name: Calf Raise
     muscles: [calves]
     equipment: [bodyweight, dumbbells]
+    push_pull: legs
+    core_move: false
     core_note: Minimal on two legs. Single-leg version raises the balance demand significantly.
     description: |
       Stand on the edge of a step (or flat ground). Rise onto toes fully, hold a second, lower below step level for a full stretch. Do both legs or single-leg. Hold a dumbbell for load.
