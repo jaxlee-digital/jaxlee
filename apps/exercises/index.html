@@ -149,14 +149,26 @@ description: Home gym exercise library. Browse by muscle or equipment.
       </div><!-- .ex-body-maps -->
 
       <!-- Push / Pull filter -->
-      <div class="ex-pushpull-filters" role="group" aria-label="Filter by push or pull">
-        <p class="ex-filter-label">Type</p>
+      <div class="ex-pushpull-filters" role="group" aria-label="Filter by movement pattern">
+        <p class="ex-filter-label">Movement</p>
         <div class="ex-pushpull-btns">
           <button class="ex-pp-btn" data-pushpull="all" aria-pressed="true">All</button>
           <button class="ex-pp-btn" data-pushpull="push" aria-pressed="false">Push</button>
           <button class="ex-pp-btn" data-pushpull="pull" aria-pressed="false">Pull</button>
-          <button class="ex-pp-btn" data-pushpull="legs" aria-pressed="false">Legs</button>
-          <button class="ex-pp-btn" data-pushpull="core" aria-pressed="false">Core</button>
+        </div>
+      </div>
+
+      <!-- Area filter -->
+      <div class="ex-area-filters" role="group" aria-label="Filter by body area">
+        <p class="ex-filter-label">Area</p>
+        <div class="ex-area-btns">
+          <button class="ex-area-btn" data-area="all" aria-pressed="true">All</button>
+          <button class="ex-area-btn" data-area="chest" aria-pressed="false">Chest</button>
+          <button class="ex-area-btn" data-area="back" aria-pressed="false">Back</button>
+          <button class="ex-area-btn" data-area="shoulders" aria-pressed="false">Shoulders</button>
+          <button class="ex-area-btn" data-area="arms" aria-pressed="false">Arms</button>
+          <button class="ex-area-btn" data-area="legs" aria-pressed="false">Legs</button>
+          <button class="ex-area-btn" data-area="core" aria-pressed="false">Core</button>
         </div>
       </div>
 
@@ -191,6 +203,7 @@ description: Home gym exercise library. Browse by muscle or equipment.
                data-muscles="{{ ex.muscles | join: ' ' }}"
                data-equipment="{{ ex.equipment | join: ' ' }}"
                data-pushpull="{{ ex.push_pull }}"
+               data-area="{{ ex.area }}"
                data-core-move="{{ ex.core_move }}"
                id="ex-{{ ex.id }}">
 
@@ -212,6 +225,9 @@ description: Home gym exercise library. Browse by muscle or equipment.
           <div class="ex-card__meta-row">
             {% if ex.push_pull %}
             <span class="ex-tag ex-tag--pp ex-tag--pp-{{ ex.push_pull }}">{{ ex.push_pull }}</span>
+            {% endif %}
+            {% if ex.area %}
+            <span class="ex-tag ex-tag--area">{{ ex.area }}</span>
             {% endif %}
             {% if ex.core_move %}
             <span class="ex-tag ex-tag--core-move" title="Core move">⭐ core move</span>
@@ -280,12 +296,14 @@ description: Home gym exercise library. Browse by muscle or equipment.
   var activeMuscle = null;
   var activeEquipment = 'all';
   var activePushPull = 'all';
+  var activeArea = 'all';
   var coreMovesOnly = false;
 
   var cards = Array.from(document.querySelectorAll('.ex-card'));
   var muscleRegions = Array.from(document.querySelectorAll('.bm-region'));
   var eqBtns = Array.from(document.querySelectorAll('.ex-eq-btn'));
   var ppBtns = Array.from(document.querySelectorAll('.ex-pp-btn'));
+  var areaBtns = Array.from(document.querySelectorAll('.ex-area-btn'));
   var coreMoveBtn = document.querySelector('.ex-core-btn');
   var statusEl = document.querySelector('.ex-filter-status');
   var emptyMsg = document.querySelector('.ex-empty-msg');
@@ -332,6 +350,18 @@ description: Home gym exercise library. Browse by muscle or equipment.
     });
   });
 
+  // ── Area filter ──────────────────────────────────────────────
+
+  areaBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activeArea = btn.dataset.area;
+      areaBtns.forEach(function (b) {
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+      applyFilters();
+    });
+  });
+
   // ── Core moves toggle ─────────────────────────────────────────────
 
   coreMoveBtn.addEventListener('click', function () {
@@ -361,14 +391,16 @@ description: Home gym exercise library. Browse by muscle or equipment.
       var muscles = card.dataset.muscles.split(' ');
       var equipment = card.dataset.equipment.split(' ');
       var pushPull = card.dataset.pushpull;
+      var area = card.dataset.area;
       var isCoreMove = card.dataset.coreMove === 'true';
 
       var muscleMatch = !activeMuscle || muscles.indexOf(activeMuscle) !== -1;
       var eqMatch = activeEquipment === 'all' || equipment.indexOf(activeEquipment) !== -1;
       var ppMatch = activePushPull === 'all' || pushPull === activePushPull;
+      var areaMatch = activeArea === 'all' || area === activeArea;
       var coreMoveMatch = !coreMovesOnly || isCoreMove;
 
-      var show = muscleMatch && eqMatch && ppMatch && coreMoveMatch;
+      var show = muscleMatch && eqMatch && ppMatch && areaMatch && coreMoveMatch;
       card.hidden = !show;
       if (show) visibleCount++;
     });
@@ -381,6 +413,7 @@ description: Home gym exercise library. Browse by muscle or equipment.
     var parts = [];
     if (activeMuscle) parts.push(activeMuscle.replace('-', ' '));
     if (activePushPull !== 'all') parts.push(activePushPull);
+    if (activeArea !== 'all') parts.push(activeArea);
     if (activeEquipment !== 'all') parts.push(activeEquipment.replace('-', ' '));
     if (coreMovesOnly) parts.push('core moves');
 

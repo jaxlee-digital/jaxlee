@@ -4,7 +4,8 @@
 #   name: display name
 #   muscles: list of muscle-map IDs
 #   equipment: list — all valid options (bodyweight, dumbbells, bands, pull-up-bar, bench)
-#   push_pull: push | pull | legs | core
+#   push_pull: push | pull (omit for legs and core exercises)
+#   area: chest | back | shoulders | arms | legs | core
 #   core_move: true if this is a staple exercise Sheehan almost always does
 #   core_note: how the core is involved
 #   description: cues and form notes
@@ -21,6 +22,7 @@ exercises:
     muscles: [chest, triceps, core, shoulders]
     equipment: [bodyweight]
     push_pull: push
+    area: chest
     core_move: true
     core_note: Brace the entire trunk. Hips must stay level — the plank position is the point.
     description: |
@@ -48,6 +50,7 @@ exercises:
     muscles: [chest, triceps, shoulders]
     equipment: [dumbbells, bench]
     push_pull: push
+    area: chest
     core_move: true
     core_note: Feet flat on floor, low back neutral. Don't arch to lift heavier.
     description: |
@@ -69,6 +72,7 @@ exercises:
     muscles: [chest, shoulders]
     equipment: [dumbbells, bench]
     push_pull: push
+    area: chest
     core_move: false
     core_note: Ribs down, core tight — resist the urge to arch as the weights open.
     description: |
@@ -89,6 +93,7 @@ exercises:
     muscles: [back-upper, biceps, core]
     equipment: [pull-up-bar]
     push_pull: pull
+    area: back
     core_move: true
     core_note: Dead-hang start demands full trunk bracing to prevent swinging. Keep legs straight or crossed.
     description: |
@@ -113,6 +118,7 @@ exercises:
     muscles: [back-upper, back-lower, biceps]
     equipment: [dumbbells, bench]
     push_pull: pull
+    area: back
     core_move: true
     core_note: Brace the working-side obliques hard to prevent rotation. Non-working arm and knee on bench for support.
     description: |
@@ -134,6 +140,7 @@ exercises:
     muscles: [back-upper, shoulders]
     equipment: [bands]
     push_pull: pull
+    area: back
     core_move: false
     core_note: "Standing version: brace the core to avoid leaning back as the band opens."
     description: |
@@ -154,6 +161,7 @@ exercises:
     muscles: [shoulders, triceps, core]
     equipment: [dumbbells]
     push_pull: push
+    area: shoulders
     core_move: true
     core_note: Standing demands significant anti-extension from the abs. Seated removes this — choose accordingly.
     description: |
@@ -175,6 +183,7 @@ exercises:
     muscles: [shoulders]
     equipment: [dumbbells, bands]
     push_pull: push
+    area: shoulders
     core_move: false
     core_note: Light core engagement to stay upright. Use bands for constant tension or dumbbells for peak contraction at the top.
     description: |
@@ -196,6 +205,7 @@ exercises:
     muscles: [shoulders, back-upper]
     equipment: [bands]
     push_pull: pull
+    area: shoulders
     core_move: false
     core_note: Anchor the core to prevent leaning back as you pull.
     description: |
@@ -216,6 +226,7 @@ exercises:
     muscles: [biceps]
     equipment: [dumbbells]
     push_pull: pull
+    area: arms
     core_move: true
     core_note: Brace to stop the torso from swinging — if you're rocking, drop the weight.
     description: |
@@ -240,6 +251,7 @@ exercises:
     muscles: [triceps, chest, shoulders]
     equipment: [bodyweight, bench]
     push_pull: push
+    area: arms
     core_move: false
     core_note: Keep hips close to the bench. Core tight to avoid excessive back arch.
     description: |
@@ -258,6 +270,7 @@ exercises:
     muscles: [triceps]
     equipment: [dumbbells, bands]
     push_pull: push
+    area: arms
     core_move: true
     core_note: Hinge position demands the core locks the torso in place — any rocking or swaying shifts the work away from the tricep.
     description: |
@@ -282,6 +295,7 @@ exercises:
     muscles: [triceps]
     equipment: [bands]
     push_pull: push
+    area: arms
     core_move: false
     core_note: Brace the core — elbows stay pinned to the sides; the trunk should not move at all.
     description: |
@@ -301,7 +315,7 @@ exercises:
     name: Plank
     muscles: [core, shoulders]
     equipment: [bodyweight]
-    push_pull: core
+    area: core
     core_move: true
     core_note: The whole point. Squeeze glutes and abs together — think of pulling the pelvis toward the ribcage.
     description: |
@@ -325,7 +339,7 @@ exercises:
     name: Dead Bug
     muscles: [core]
     equipment: [bodyweight]
-    push_pull: core
+    area: core
     core_move: true
     core_note: Core keeps the low back pressed into the floor as limbs move — that is the entire exercise.
     description: |
@@ -343,7 +357,7 @@ exercises:
     name: Hollow Body Hold
     muscles: [core]
     equipment: [bodyweight]
-    push_pull: core
+    area: core
     core_move: false
     core_note: Maximum anti-extension demand — the foundation of gymnastic core strength.
     description: |
@@ -361,7 +375,7 @@ exercises:
     name: Hanging Knee Raise
     muscles: [core, back-upper]
     equipment: [pull-up-bar]
-    push_pull: core
+    area: core
     core_move: false
     core_note: Pelvis must posteriorly tilt (tuck under) at the top — just raising the legs doesn't fully work the lower abs.
     description: |
@@ -381,7 +395,7 @@ exercises:
     name: Squat
     muscles: [quads, glutes, core]
     equipment: [bodyweight, dumbbells, bands]
-    push_pull: legs
+    area: legs
     core_move: true
     core_note: Bracing the core keeps an upright torso and protects the low back under load. Think big breath in, hold it through the rep.
     description: |
@@ -410,7 +424,7 @@ exercises:
     name: Lunge
     muscles: [quads, glutes, hamstrings, core]
     equipment: [bodyweight, dumbbells, bands]
-    push_pull: legs
+    area: legs
     core_move: true
     core_note: Strong core prevents lateral lean — especially important as fatigue sets in.
     description: |
@@ -439,7 +453,7 @@ exercises:
     name: Deadlift
     muscles: [hamstrings, glutes, back-lower, back-upper, core]
     equipment: [dumbbells, bands]
-    push_pull: legs
+    area: legs
     core_move: true
     core_note: Bracing here is critical — this is a spine-loading movement. Any rounding under load is a red flag. Big breath, brace before every rep.
     description: |
@@ -468,7 +482,7 @@ exercises:
     name: Glute Bridge
     muscles: [glutes, hamstrings, core]
     equipment: [bodyweight, dumbbells, bands]
-    push_pull: legs
+    area: legs
     core_move: true
     core_note: Core maintains a neutral spine as the hips extend — prevents the low back from taking over.
     description: |
@@ -494,7 +508,7 @@ exercises:
     name: Donkey Kick
     muscles: [glutes, core]
     equipment: [bodyweight, bands]
-    push_pull: legs
+    area: legs
     core_move: true
     core_note: Quadruped position — brace the core hard to keep the hips level and prevent rotation as the leg moves.
     description: |
@@ -517,7 +531,7 @@ exercises:
     name: Fire Hydrant
     muscles: [glutes, core]
     equipment: [bodyweight, bands]
-    push_pull: legs
+    area: legs
     core_move: false
     core_note: Same quadruped demand as donkey kick — hips must stay level. Resisting the urge to tilt is where the core work happens.
     description: |
@@ -543,7 +557,7 @@ exercises:
     name: Side Leg Lift
     muscles: [glutes, core]
     equipment: [bodyweight, bands]
-    push_pull: legs
+    area: legs
     core_move: true
     core_note: Side-lying position still demands the core stabilizes the pelvis — let the hip do the work, not a tilt or hitch.
     description: |
@@ -569,7 +583,7 @@ exercises:
     name: Calf Raise
     muscles: [calves]
     equipment: [bodyweight, dumbbells]
-    push_pull: legs
+    area: legs
     core_move: false
     core_note: Minimal on two legs. Single-leg version raises the balance demand significantly.
     description: |
