@@ -229,6 +229,28 @@ exercises:
         note: Place a dumbbell on your lap. Adds resistance beyond bodyweight.
     image: tricep-dip.png
 
+  - id: tricep-kickback
+    name: Tricep Kickback
+    muscles: [triceps]
+    equipment: [dumbbells, bands]
+    core_note: Hinge position demands the core locks the torso in place — any rocking or swaying shifts the work away from the tricep.
+    description: |
+      Hinge forward at the hips until your torso is nearly parallel to the floor. Upper arm pinned to your side, elbow at 90°. Extend the forearm back until the arm is fully straight, squeezing the tricep hard at lockout. Lower under control — don't let the elbow drift forward. Work one arm at a time or both.
+    variations:
+      - name: Single-Arm Kickback
+        equipment: [dumbbells, bands]
+        note: Brace the non-working hand on a bench or knee. Cleaner isolation — easier to feel the tricep.
+      - name: Two-Arm Kickback
+        equipment: [dumbbells]
+        note: Both arms at once, hinge position, no support. Demands more core stability.
+      - name: Band Kickback
+        equipment: [bands]
+        note: Anchor band low in front of you. Constant tension through the full extension — harder at lockout than dumbbells.
+      - name: Incline Kickback
+        equipment: [dumbbells, bench]
+        note: Lie face-down on a low incline bench, arms hanging down. Removes the balance component entirely.
+    image: tricep-kickback.png
+
   - id: band-tricep-pushdown
     name: Band Tricep Pushdown
     muscles: [triceps]
