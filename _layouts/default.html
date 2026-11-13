@@ -16,11 +16,16 @@
   <link rel="apple-touch-icon" sizes="256x256" href="{{ '/assets/images/brand/jaxlee-digital-256.png' | relative_url }}">
   {% seo %}
   {% feed_meta %}
+  <!-- Per-section feeds for RSS readers -->
+  <link rel="alternate" type="application/atom+xml" title="jaxlee digital — Photography" href="{{ '/feed/photography.xml' | absolute_url }}">
+  <link rel="alternate" type="application/atom+xml" title="jaxlee digital — Software" href="{{ '/feed/software.xml' | absolute_url }}">
+  <link rel="alternate" type="application/atom+xml" title="jaxlee digital — Craft" href="{{ '/feed/craft.xml' | absolute_url }}">
 </head>
 <body class="page--{{ page.section | default: 'root' }}">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <a class="brand" href="{{ '/' | relative_url }}">
-      <img class="brand__mark" src="{{ '/assets/images/brand/jaxlee-digital-128.png' | relative_url }}" alt="" width="40" height="40">
+      <img class="brand__mark" src="{{ '/assets/images/brand/jaxlee-digital-128.png' | relative_url }}" alt="" aria-hidden="true" width="40" height="40">
       <span class="brand__name">{{ site.title }}</span>
     </a>
     <button type="button" class="site-nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav" data-nav-main-toggle>
@@ -154,7 +159,7 @@
     </script>
   </header>
 
-  <main class="site-main">
+  <main class="site-main" id="main-content" tabindex="-1">
     {{ content }}
   </main>
 
@@ -177,7 +182,7 @@
             {% if link.icon %}
               <i class="{{ link.icon }}" aria-hidden="true"></i>
             {% elsif link.icon_img %}
-              <img src="{{ link.icon_img | relative_url }}" alt="" class="social-links__img">
+              <img src="{{ link.icon_img | relative_url }}" alt="{{ link.name }}" class="social-links__img">
             {% else %}
               <span>{{ link.name }}</span>
             {% endif %}
@@ -185,11 +190,20 @@
         </li>
       {% endfor %}
       <li>
-        <a href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed" title="RSS">
+        <a href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed (all posts)" title="RSS">
           <i class="fa-solid fa-rss" aria-hidden="true"></i>
         </a>
       </li>
     </ul>
+    <nav class="site-footer__feeds" aria-label="Section feeds">
+      <p class="site-footer__feeds-label">Subscribe:</p>
+      <ul>
+        <li><a href="{{ '/feed.xml' | relative_url }}">All posts</a></li>
+        <li><a href="{{ '/feed/photography.xml' | relative_url }}">Photography</a></li>
+        <li><a href="{{ '/feed/software.xml' | relative_url }}">Software</a></li>
+        <li><a href="{{ '/feed/craft.xml' | relative_url }}">Craft</a></li>
+      </ul>
+    </nav>
     {% elsif site.flickr %}
     <p><a href="{{ site.flickr }}">Flickr</a> &middot; <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
     {% endif %}

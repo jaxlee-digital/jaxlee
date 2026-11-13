@@ -184,6 +184,7 @@ can't be shipped accessibly, don't ship it.
 
 ### Defaults for every build
 
+- **Skip link.** `default.html` includes a visually-hidden `<a class="skip-link" href="#main-content">Skip to main content</a>` as the first child of `<body>`. `<main>` has `id="main-content"` and `tabindex="-1"`. CSS reveals the link on focus. Never remove this.
 - **Semantic HTML first.** `<button>` for actions, `<a>` for
   navigation, proper heading hierarchy (one `<h1>` per page,
   no skipping levels), `<nav>` / `<main>` / `<aside>` / `<footer>`
@@ -215,6 +216,26 @@ can't be shipped accessibly, don't ship it.
   horizontal scrolling or broken layout.
 - **Mobile.** Same accessibility rules apply. No keyboard-only
   features that break touch.
+
+### RSS / feed accessibility
+
+The site exposes four Atom feeds via `jekyll-feed`. All must remain discoverable
+and correct on every build:
+
+| Feed | URL | Configured via |
+|------|-----|----------------|
+| All posts | `/feed.xml` | auto (jekyll-feed default) |
+| Photography | `/feed/photography.xml` | `feed.tags` in `_config.yml` |
+| Software | `/feed/software.xml` | `feed.tags` in `_config.yml` |
+| Craft | `/feed/craft.xml` | `feed.tags` in `_config.yml` |
+
+- All four feeds are linked in `<head>` via `{% feed_meta %}` (all posts)
+  plus explicit `<link rel="alternate">` tags for the per-section feeds.
+- Feed links are also listed visibly in the site footer (`site-footer__feeds`).
+- RSS icon in footer links the main feed with `aria-label="RSS feed (all posts)"`.
+- When adding a new major section/tag, add it to `feed.tags` in `_config.yml`
+  and add the corresponding `<link rel="alternate">` to `default.html` and
+  a list item to the footer feeds nav.
 
 ### Validation before "ship it"
 

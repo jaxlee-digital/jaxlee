@@ -34,6 +34,17 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
 
+# Feed configuration (jekyll-feed)
+# Main feed: /feed.xml
+# Per-tag feeds: /feed/photography.xml, /feed/software.xml, /feed/craft.xml
+feed:
+  posts_limit: 20
+  excerpt_only: false
+  tags:
+    - photography
+    - software
+    - craft
+
 paginate: 10
 paginate_path: "/field-notes/page:num/"
 
